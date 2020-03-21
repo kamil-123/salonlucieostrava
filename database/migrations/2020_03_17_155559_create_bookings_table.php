@@ -17,7 +17,7 @@ class CreateBookingsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('treatment_id');
-            $table->timestamps('start_at');
+            $table->dateTime('start_at');
             $table->boolean('availability');
             $table->timestamps();
         });
