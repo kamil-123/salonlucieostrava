@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 
-class StylistController extends Controller
+use  App\Http\Controllers\Controller;
+
+class TreatmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,7 @@ class StylistController extends Controller
      */
     public function index()
     {
-        //
+        return 'Hallo from Api\TreatmentController@index';
     }
 
     /**

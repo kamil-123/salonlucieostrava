@@ -26,7 +26,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     - PUT method to 'api/booking/{id}' using BookingController@update()
 //     - DELETE method to 'api/booking/{id}' using BookingController@delete()
 //     - GET method to 'api/booking/{id}/edit' using BookingController@edit()
-Route::resource('booking', 'BookingController');
+Route::resource('booking', 'Api\BookingController');
 
 
 //     - GET: 'api/customer': CustomerController@index()
@@ -36,7 +36,7 @@ Route::resource('booking', 'BookingController');
 //     - PUT: 'api/customer/{id}': CustomerController@update()
 //     - DELETE: 'api/customer/{id}': CustomerController@delete()
 //     - GET: 'api/customer/{id}/edit': CustomerController@edit()
-Route::resource('customer', 'CustomerController');
+Route::resource('customer', 'Api\CustomerController');
 
 
 //     - GET: 'api/stylist': StylistController@index()
@@ -46,7 +46,7 @@ Route::resource('customer', 'CustomerController');
 //     - PUT: 'api/stylist/{id}': StylistController@update()
 //     - DELETE: 'api/stylist/{id}': StylistController@delete()
 //     - GET: 'api/stylist/{id}/edit': StylistController@edit()
-Route::resource('stylist', 'StylistController');
+Route::resource('stylist', 'Api\StylistController');
 
 
 //     - GET: 'api/treatment': TreatmentController@index()
@@ -56,4 +56,4 @@ Route::resource('stylist', 'StylistController');
 //     - PUT: 'api/treatment/{id}': TreatmentController@update()
 //     - DELETE: 'api/treatment/{id}': TreatmentController@delete()
 //     - GET: 'api/treatment/{id}/edit': TreatmentController@edit()
-Route::resource('treatment', 'TreatmentController');
+Route::resource('treatment', 'Api\TreatmentController');
