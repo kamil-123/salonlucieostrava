@@ -16,4 +16,8 @@ class Stylist extends Model
         return $this->hasMany(Treatment::class);
     }
 
+    public function stylist() {
+        return $this->hasMany(Booking::class);
+    }
+
 }
