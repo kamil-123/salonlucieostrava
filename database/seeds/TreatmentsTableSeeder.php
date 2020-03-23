@@ -14,7 +14,7 @@ class TreatmentsTableSeeder extends Seeder
     {
         
 
-        \DB::table('treatments')->delete();
+        \DB::table('treatments')->truncate();
         
         \DB::table('treatments')->insert(array (
             0 => 

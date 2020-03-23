@@ -14,7 +14,7 @@ class StylistsTableSeeder extends Seeder
     {
         
 
-        \DB::table('stylists')->delete();
+        \DB::table('stylists')->truncate();
         
         \DB::table('stylists')->insert(array (
             0 => 
