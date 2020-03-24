@@ -16,8 +16,8 @@ class TreatmentController extends Controller
      */
     public function index()
     {
-        $treatments = Treatment::with(stylists);
-        return response()->json($treatment, 200);
+        $treatments = Treatment::all();
+        return response()->json($treatments, 200);
     }
 
     /**
