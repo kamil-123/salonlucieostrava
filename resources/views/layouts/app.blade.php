@@ -19,6 +19,7 @@
     <!-- Styles -->
     {{-- <link href="{{ asset('sass/app.css') }}" rel="stylesheet" type="text/css"> --}}
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}" type="text/css">
+
 </head>
 <body>
     <div id="app">
