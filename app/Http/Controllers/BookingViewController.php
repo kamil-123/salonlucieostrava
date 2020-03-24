@@ -55,10 +55,12 @@ class BookingViewController extends Controller
         $stylist_id = $stylist->stylist->id;
         
         //
-        $booking = Booking::with('stylist')
+        $booking = Booking::with('customer')
+                        ->with('treatment')
                         ->findOrFail($id);
         [$date, $time] = explode(" ",$booking->start_at);
-        return view('show')->with(['id'=> $id, 'booking' => $booking, 'time' => $time]);
+        // return $booking;
+        return view('show')->with(['id'=> $id, 'booking' => $booking, 'time' => $time, 'date' => $date]);
     }
 
     /**

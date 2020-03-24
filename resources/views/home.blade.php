@@ -62,11 +62,11 @@
                                     <td class="pt-3-half" contenteditable="true">
                                         {{
                                             $info['availability'] === null ? 'Available'
-                                            : ($info['availability'] === 1 ? 'Blocked' : 'Booked')
+                                            : ($info['availability'] === 1 ? 'Booked' : 'Blocked')
                                         }}
                                     </td>
                                     <td>
-                                        @if ($info['availability'] === 0) 
+                                        @if ($info['availability'] === 1) 
                                             <a href={{ route('booking.details', ['id' => $info['booking_id']]) }}>Details</a></td>
                                         @endif
                                     <td>
@@ -76,7 +76,7 @@
                                                 class="btn btn-primary btn-rounded btn-sm my-0">
                                                 Book
                                                 </button>
-                                            @elseif ($info['availability'] === 1) 
+                                            @elseif ($info['availability'] === 0) 
                                                 Blocked
                                             @else 
                                                 <button type="button"
@@ -90,8 +90,8 @@
                                         <span class="table-remove">
                                             @if ($info['availability'] === null) 
                                                 <button type="button"
-                                                class="btn btn-danger btn-rounded btn-sm my-0">Block This Time</button>
-                                            @elseif ($info['availability'] === 1) 
+                                                class="btn btn-danger btn-rounded btn-sm my-0">Block</button>
+                                            @elseif ($info['availability'] === 0) 
                                                 <button type="button"
                                                 class="btn btn-default btn-secondary btn-sm my-0">Unblock</button>
                                             @endif

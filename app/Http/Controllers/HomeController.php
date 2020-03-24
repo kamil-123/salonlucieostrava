@@ -48,14 +48,14 @@ class HomeController extends Controller
         $user_id  = auth()->id();
 
         // get stylist information 
-        $stylist = User::with('stylist.bookings')
+        $user = User::with('stylist.bookings')
                         ->findOrFail($user_id);
-        $stylist_id = $stylist->stylist->id;
+        $stylist_id = $user->stylist->id;
 
         // get schedule of the currently logged-in stylist
-        $today = date("Y-m-d H:i:s");
+        $today = date('Y-m-d').' 00:00:00';
         $bookings = Booking::where('stylist_id', $stylist_id)
-                            ->where('start_at' , '>=', $today) // fetch only future schedule
+                            ->where('start_at' , '>', $today) // fetch only future schedule
                             ->orderBy('start_at' , 'asc')
                             ->get();
 
@@ -64,9 +64,7 @@ class HomeController extends Controller
         foreach($bookings as $booking) {
             $stylist_id = $booking->stylist_id;
             $booking_id = $booking->id;
-            $date_time = explode(" ", $booking['start_at']);
-            $date = $date_time[0];
-            $time = $date_time[1];
+            [$date, $time] = explode(" ", $booking['start_at']);
             
             if (array_key_exists($stylist_id, $schedule)) { // if a stylist has any bookings:
                 if (array_key_exists($date, $schedule[$stylist_id])) { // if the stylist has a certain day in his/her bookings:
@@ -90,7 +88,7 @@ class HomeController extends Controller
         // just sending the schedule for the currently logged-in stylist
         $full_schedule = $full_schedule[$stylist_id];
         $dates = array_keys($full_schedule);
-        // return $full_schedule;
+        // return $bookings;
         return view('home', compact('stylist', 'full_schedule', 'dates'));
     }
 }
