@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Customer;
 
 class CustomerController extends Controller
 {
@@ -14,7 +15,10 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        return 'Hallo from Api\CustomerController@index';
+        $customers = Customer::orderBy('id', 'desc')
+                        ->with('user')
+                        ->get();     
+        return $customers;
     }
 
     /**
@@ -24,7 +28,8 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        // we do not need the create() method in api.
+        // page viewing will be handled by React route
     }
 
     /**
@@ -35,7 +40,18 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // storing the information of all the customers (registered, not-registered)
+        $validated  = $request->validate([
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'email' => 'required|email:rfc|unique:customers,email',
+            'phone' => 'required|string',
+        ]);
+        
+        $customer = Customer::create($validated);
+        
+         // return new customer information
+         return response()->json($customer, 200);
     }
 
     /**
@@ -46,7 +62,8 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        //
+        $customer = Customer::findOrFail($id);
+        return response()->json($customer, 200);
     }
 
     /**
@@ -57,7 +74,8 @@ class CustomerController extends Controller
      */
     public function edit($id)
     {
-        //
+        // we do not need the edit() method in api.
+        // page viewing will be handled by React route.
     }
 
     /**
@@ -69,7 +87,22 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated  = $request->validate([
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'email' => 'required|email:rfc|unique:customers,email',
+            'phone' => 'required|string',
+        ]);
+
+        $customer = Customer::findOrFail($id);
+        $customer->first_name = $validated['first_name'];
+        $customer->last_name = $validated['last_name'];
+        $customer->email = $validated['email'];
+        $customer->phone = $validated['phone'];
+        $customer->save();
+        
+        // return updated customer infomation
+        return response()->json($customer, 200);
     }
 
     /**
@@ -80,6 +113,7 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $customer = Customer::findOrFail($id);
+        $customer->delete();
     }
 }

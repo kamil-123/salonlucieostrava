@@ -8,8 +8,8 @@ class Booking extends Model
 {
     protected $table = 'bookings';
 
-    // CAUTION!!!!
-    protected $guarded = [];
+    // CAUTION!!!! just for the testing
+    // protected $guarded = [];
 
     public function treatment() {
         return $this->belongsTo(Treatment::class);

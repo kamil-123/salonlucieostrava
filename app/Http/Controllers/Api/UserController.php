@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Treatment;
+use App\User;
 
-use  App\Http\Controllers\Controller;
-
-class TreatmentController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,9 @@ class TreatmentController extends Controller
      */
     public function index()
     {
-        $treatments = Treatment::with(stylists);
-        return response()->json($treatment, 200);
+        $user = User::orderBy('id', 'desc')
+                        ->get();     
+        return $user;
     }
 
     /**
@@ -39,16 +38,18 @@ class TreatmentController extends Controller
      */
     public function store(Request $request)
     {
+        // storing the information of all the customers (registered, not-registered)
         $validated  = $request->validate([
-            'name' => 'required|string',
-            'price' => 'required|integer',
-            'duration' => 'required',
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'email' => 'required|email:rfc|unique:customers,email',
+            'phone' => 'required|string',
         ]);
-
-        $treatment = Treatment::create($validated);
         
-        // return new treatment information
-        return response()->json($treatment, 200);
+        $user = User::create($validated);
+        
+         // return new user information
+         return response()->json($user, 200);
     }
 
     /**
@@ -59,8 +60,8 @@ class TreatmentController extends Controller
      */
     public function show($id)
     {
-        $treatment = Treatment::findOrFail($id);
-        return response()->json($treatment, 200);
+        $user = User::findOrFail($id);
+        return response()->json($user, 200);
     }
 
     /**
@@ -85,16 +86,21 @@ class TreatmentController extends Controller
     public function update(Request $request, $id)
     {
         $validated  = $request->validate([
-            'name' => 'required|string',
-            'price' => 'required|integer',
-            'duration' => 'required',
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'email' => 'required|email:rfc|unique:customers,email',
+            'phone' => 'required|string',
         ]);
 
-        $treatment = Treatment::findOrFail($id);
-        $treatment->name = $validated['name'];
-        $treatment->price = $validated['price'];
-        $treatment->duration = $validated['duration'];
-        $treatment->save();
+        $user = User::findOrFail($id);
+        $user->first_name = $validated['first_name'];
+        $user->last_name = $validated['last_name'];
+        $user->email = $validated['email'];
+        $user->phone = $validated['phone'];
+        $user->save();
+        
+        // return updated user infomation
+        return response()->json($user, 200);
     }
 
     /**
@@ -105,7 +111,7 @@ class TreatmentController extends Controller
      */
     public function destroy($id)
     {
-        $treatment = Treatment::findOrFail($id);
-        $treatment->delete();
+        $user = User::findOrFail($id);
+        $user->delete();
     }
 }
