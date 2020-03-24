@@ -39,6 +39,7 @@
                                 <tr>
                                 <th class="text-center">Time</th>
                                 <th class="text-center">Status</th>
+                                <th class="text-center">Information</th>
                                 <th class="text-center">Book</th>
                                 <th class="text-center">Block</th>
                                 </tr>
@@ -49,18 +50,22 @@
                                     <td class="pt-3-half" contenteditable="true">{{ $timeslot }}</td>
                                     <td class="pt-3-half" contenteditable="true">
                                         {{
-                                            $availability === null ? 'Available'
+                                            $availability[0] === null ? 'Available'
                                             : ($timeslot === 1 ? 'Blocked' : 'Booked')
                                         }}
                                     </td>
                                     <td>
+                                        @if ($availability[0] === null) 
+                                            <a href={{ action('BookingViewController@show', $availability[1])}}>Details</a></td>
+                                        @endif
+                                    <td>
                                         <span class="table-remove">
-                                            @if ($availability === null) 
+                                            @if ($availability[0] === null) 
                                                 <button type="button"
                                                 class="btn btn-primary btn-rounded btn-sm my-0">
                                                 Book
                                                 </button>
-                                            @elseif ($availability === 1) 
+                                            @elseif ($availability[0] === 1) 
                                                 {{-- <button type="button"
                                                 class="btn btn-secondary btn-rounded btn-sm my-0" disabled> --}}
                                                 Blocked
@@ -75,9 +80,12 @@
                                     </td>
                                     <td>
                                         <span class="table-remove">
-                                            @if ($availability === null) 
+                                            @if ($availability[0] === null) 
                                                 <button type="button"
                                                 class="btn btn-danger btn-rounded btn-sm my-0">Block This Time</button>
+                                            @elseif ($availability[0] === 1) 
+                                                <button type="button"
+                                                class="btn btn-default btn-secondary btn-sm my-0">Unblock</button>
                                             @endif
                                         </span>
                                     </td>

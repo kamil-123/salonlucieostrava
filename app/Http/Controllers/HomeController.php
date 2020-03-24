@@ -25,7 +25,6 @@ class HomeController extends Controller
         '15:30:00' => null,
         '16:00:00' => null,
         '16:30:00' => null,
-        
       ];
 
     /**
@@ -63,18 +62,19 @@ class HomeController extends Controller
         $schedule = [];
         foreach($bookings as $booking) {
             $stylist_id = $booking->stylist_id;
+            $booking_id = $booking->id;
             $date_time = explode(" ", $booking['start_at']);
             $date = $date_time[0];
             $time = $date_time[1];
             
             if (array_key_exists($stylist_id, $schedule)) {
                 if (array_key_exists($date, $schedule[$stylist_id])) {
-                    $schedule[$stylist_id][$date][$time] = $booking->availability;
+                    $schedule[$stylist_id][$date][$time] = [$booking->availability, $stylist_id];
                 } else {
-                    $schedule[$stylist_id][$date] = [$time => $booking->availability]; 
+                    $schedule[$stylist_id][$date] = [$time => [$booking->availability, $booking_id]]; 
                 }
             } else {
-                $schedule[$stylist_id] = [$date => [$time => $booking->availability]];
+                $schedule[$stylist_id] = [$date => [$time => [$booking->availability, $booking_id]]];
             }
         }
 
