@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/customers/{path?}', function () {
+Route::get('/react/{path?}', function () {
     return view('welcome');
 });
 
@@ -21,8 +21,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/',function(){
-    return redirect('/customers');
+    return redirect('/react');
 });
 
 Route::get('/home/calendar', 'CalendarViewController@index')->name('calendar');
 Route::get('/home/timeslot/{id}', 'BookingViewController@show')->name('booking.details');
+

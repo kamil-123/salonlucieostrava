@@ -50,7 +50,7 @@
                                 <tr>
                                 <th class="text-center">Time</th>
                                 <th class="text-center">Status</th>
-                                <th class="text-center">Booking Information</th>
+                                <th class="text-center">Information</th>
                                 <th class="text-center">Book</th>
                                 <th class="text-center">Block</th>
                                 </tr>

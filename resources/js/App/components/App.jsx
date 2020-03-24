@@ -17,8 +17,8 @@ export default class App extends React.Component {
             <>
             <Router>
                 <Switch>
-                    <Route path='/customers/stylistselect' component={Stylistselect}/>    
-                    <Route path='/customers' component={Main}/>
+                    <Route path='/react/stylistselect' component={Stylistselect}/>    
+                    <Route path='/react' component={Main}/>
                     
                 </Switch>
             </Router>
