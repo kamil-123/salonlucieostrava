@@ -41,10 +41,10 @@ class BookingController extends Controller
     public function index()
     {
         $today = date("Y-m-d H:i:s");
-        $tenDaysLater = date('Y-m-d H:i:s', strtotime($today. ' + 10 days'));
+        $tenDaysLater = date('Y-m-d H:i:s', strtotime($today. ' + 14 days'));
         $bookings = Booking::orderBy('start_at', 'asc')
                         ->where('start_at' , '>=', $today) // fetch only future schedule
-                        ->where('start_at' , '<=', $tenDaysLater) // fetch schedule only within 10 days in future
+                        ->where('start_at' , '<=', $tenDaysLater) // fetch schedule only within 14 days in future
                         ->get();     
 
         // formatting the fetched data
