@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Booking;
-use App\User;
 
-
-class BookingViewController extends Controller
+class CalendarViewController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +14,7 @@ class BookingViewController extends Controller
      */
     public function index()
     {
-        //
+        return view('calendar');
     }
 
     /**
@@ -48,17 +46,7 @@ class BookingViewController extends Controller
      */
     public function show($id)
     {
-        // get stylist_id
-        $user_id  = auth()->id();
-        $stylist = User::with('stylist')
-                        ->findOrFail($user_id);
-        $stylist_id = $stylist->stylist->id;
-        
         //
-        $booking = Booking::with('stylist')
-                        ->findOrFail($id);
-        [$date, $time] = explode(" ",$booking->start_at);
-        return view('show')->with(['id'=> $id, 'booking' => $booking, 'time' => $time]);
     }
 
     /**

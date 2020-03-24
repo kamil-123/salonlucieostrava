@@ -23,3 +23,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/',function(){
     return redirect('/customers');
 });
+
+Route::get('/home/calendar', 'CalendarViewController@index')->name('calendar');
+Route::get('/home/timeslot/{id}', 'BookingViewController@show')->name('booking.details');

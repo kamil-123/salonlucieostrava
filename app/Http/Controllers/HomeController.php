@@ -56,6 +56,7 @@ class HomeController extends Controller
         $today = date("Y-m-d H:i:s");
         $bookings = Booking::where('stylist_id', $stylist_id)
                             ->where('start_at' , '>=', $today) // fetch only future schedule
+                            ->orderBy('start_at' , 'asc')
                             ->get();
 
         // formatting the fetched data
@@ -67,14 +68,14 @@ class HomeController extends Controller
             $date = $date_time[0];
             $time = $date_time[1];
             
-            if (array_key_exists($stylist_id, $schedule)) {
-                if (array_key_exists($date, $schedule[$stylist_id])) {
-                    $schedule[$stylist_id][$date][$time] = [$booking->availability, $stylist_id];
-                } else {
-                    $schedule[$stylist_id][$date] = [$time => [$booking->availability, $booking_id]]; 
+            if (array_key_exists($stylist_id, $schedule)) { // if a stylist has any bookings:
+                if (array_key_exists($date, $schedule[$stylist_id])) { // if the stylist has a certain day in his/her bookings:
+                    $schedule[$stylist_id][$date][$time] = ['booking_id' => $booking_id, 'availability' => $booking->availability];
+                } else { 
+                    $schedule[$stylist_id][$date] = [$time => ['booking_id' => $booking_id, 'availability' => $booking->availability]]; 
                 }
             } else {
-                $schedule[$stylist_id] = [$date => [$time => [$booking->availability, $booking_id]]];
+                $schedule[$stylist_id] = [$date => [$time => ['booking_id' => $booking_id, 'availability' => $booking->availability]]];
             }
         }
 
@@ -90,7 +91,6 @@ class HomeController extends Controller
         $full_schedule = $full_schedule[$stylist_id];
         $dates = array_keys($full_schedule);
         // return $full_schedule;
-        // $test = gettype($stylist);
         return view('home', compact('stylist', 'full_schedule', 'dates'));
     }
 }

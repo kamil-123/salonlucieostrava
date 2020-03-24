@@ -22,15 +22,26 @@
                 </div>
             </div>
         </div>
-
+{{----- CALENDAR -----}}
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Calendar</div>
                 <div class="card-body">
-                {{----- CALENDAR -----}}
+                    <p class="card-text">Checkout the monthly schedule here.</p>
+                    <form  class="btn" action="{{ route('calendar') }}" method="GET" >
+                        <input type="submit" value="Go to Your Calendar">
+                    </form>
+                </div>
+            </div>
+        </div>
 
-                    @foreach ($dates as $date)
-                        <h3>{{$date}}</h3>
+
+{{----- TODAY'S SCHEDULE -----}}
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Today's Schedule</div>
+                <div class="card-body">
+                    <h3>{{ date("d-m-Y") }}</h3>
                         <div id="table" class="table-editable">
                             <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
                                 class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
@@ -39,37 +50,34 @@
                                 <tr>
                                 <th class="text-center">Time</th>
                                 <th class="text-center">Status</th>
-                                <th class="text-center">Information</th>
+                                <th class="text-center">Booking Information</th>
                                 <th class="text-center">Book</th>
                                 <th class="text-center">Block</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($full_schedule[$date] as $timeslot => $availability)
+                                @foreach($full_schedule[$dates[0]] as $timeslot => $info)
                                     <tr>
                                     <td class="pt-3-half" contenteditable="true">{{ $timeslot }}</td>
                                     <td class="pt-3-half" contenteditable="true">
                                         {{
-                                            $availability[0] === null ? 'Available'
-                                            : ($timeslot === 1 ? 'Blocked' : 'Booked')
+                                            $info['availability'] === null ? 'Available'
+                                            : ($info['availability'] === 1 ? 'Blocked' : 'Booked')
                                         }}
                                     </td>
                                     <td>
-                                        @if ($availability[0] === null) 
-                                            <a href={{ action('BookingViewController@show', $availability[1])}}>Details</a></td>
+                                        @if ($info['availability'] === 0) 
+                                            <a href={{ route('booking.details', ['id' => $info['booking_id']]) }}>Details</a></td>
                                         @endif
                                     <td>
                                         <span class="table-remove">
-                                            @if ($availability[0] === null) 
+                                            @if ($info['availability'] === null) 
                                                 <button type="button"
                                                 class="btn btn-primary btn-rounded btn-sm my-0">
                                                 Book
                                                 </button>
-                                            @elseif ($availability[0] === 1) 
-                                                {{-- <button type="button"
-                                                class="btn btn-secondary btn-rounded btn-sm my-0" disabled> --}}
+                                            @elseif ($info['availability'] === 1) 
                                                 Blocked
-                                                {{-- </button> --}}
                                             @else 
                                                 <button type="button"
                                                 class="btn btn-warning btn-rounded btn-sm my-0">
@@ -80,10 +88,10 @@
                                     </td>
                                     <td>
                                         <span class="table-remove">
-                                            @if ($availability[0] === null) 
+                                            @if ($info['availability'] === null) 
                                                 <button type="button"
                                                 class="btn btn-danger btn-rounded btn-sm my-0">Block This Time</button>
-                                            @elseif ($availability[0] === 1) 
+                                            @elseif ($info['availability'] === 1) 
                                                 <button type="button"
                                                 class="btn btn-default btn-secondary btn-sm my-0">Unblock</button>
                                             @endif
@@ -95,9 +103,6 @@
                             </tbody>
                             </table>
                         </div>
-                    @endforeach
-
-                {{----- END OF CALENDAR -----}}
                 </div>
             </div>
         </div>
