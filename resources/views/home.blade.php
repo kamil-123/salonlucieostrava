@@ -14,15 +14,14 @@
                         </div>
                     @endif
 
-                    You are logged in!
-                    <form  action="{{ route('logout') }}" method="POST" >
+                    <p class="card-text">You are logged in!</p>
+                    <form  class="btn btn-default" action="{{ route('logout') }}" method="POST" >
                         @csrf
                         <input type="submit" value="Logout">
                     </form>
                 </div>
             </div>
         </div>
-
 
         <div class="col-md-8">
             <div class="card">
@@ -33,7 +32,15 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    Schedule of this week
+                    <p class="card-text">Schedule of this week</p>
+                    <p>test: {{$dates}} </p>
+                    <ul>
+                        @foreach ($stylist as $date => $schedule)
+                            <li>{{}}</li>
+                        @endforeach
+                    </ul>
+
+                    </p>
                 </div>
             </div>      
         </div>

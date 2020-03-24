@@ -43,6 +43,6 @@ class User extends Authenticatable
     }
 
     public function stylist() {
-        return $this->belongsTo(Stylist::class);
+        return $this->hasOne(Stylist::class);
     }
 }

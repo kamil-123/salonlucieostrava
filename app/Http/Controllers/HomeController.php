@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user_id  = auth()->id();
+        $stylist = User::with('stylist')
+                        ->get();
+                // ->where('id', $user_id)
+                // ->first();
+        return $stylist;
+        // $test = gettype($stylist);
+        // return view('home', compact('stylist', 'dates'));
     }
 }
