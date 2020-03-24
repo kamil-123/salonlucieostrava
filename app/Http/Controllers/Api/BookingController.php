@@ -11,8 +11,6 @@ class BookingController extends Controller
 {
 
     private $timeSlotTemplate = [
-        '08:00:00' => null,
-        '08:30:00' => null,
         '09:00:00' => null,
         '09:30:00' => null,
         '10:00:00' => null,
@@ -29,8 +27,7 @@ class BookingController extends Controller
         '15:30:00' => null,
         '16:00:00' => null,
         '16:30:00' => null,
-        '17:00:00' => null,
-        '17:30:00' => null,
+        
       ];
 
     /**
