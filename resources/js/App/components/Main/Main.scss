@@ -24,17 +24,36 @@
       font-size: 3em;
       color: white;
     }
-    .buttonbook{
-      background-color: brown;
+    a{
+      text-decoration: none;
+      color:white;
       width: 200px;
-      height: 50px;
+      
+      
+      display: block;
+      &:hover{
+        text-decoration: none;
+        color:white;
+        }
+      .buttonbook{
+        background-color: brown;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+        font-weight: bold;
+      }  
     }
+    
     .buttonabout{
       background-color: whitesmoke ;
       border-color: brown;
       width: 200px;
       margin-top: 2em;
       height: 50px;
+      text-decoration: none; 
+      
     }
   }
 }
