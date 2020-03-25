@@ -60,7 +60,7 @@ class BookingViewController extends Controller
                         ->findOrFail($id);
         [$date, $time] = explode(" ",$booking->start_at);
         // return $booking;
-        return view('show')->with(['id'=> $id, 'booking' => $booking, 'time' => $time, 'date' => $date]);
+        return view('stylist.show')->with(['id'=> $id, 'booking' => $booking, 'time' => $time, 'date' => $date]);
     }
 
     /**
