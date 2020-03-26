@@ -54,13 +54,13 @@ class BookingViewController extends Controller
                         ->findOrFail($user_id);
         $stylist_id = $stylist->stylist->id;
         
-        //
+        // get a certain booking 
         $booking = Booking::with('customer')
                         ->with('treatment')
                         ->findOrFail($id);
         [$date, $time] = explode(" ",$booking->start_at);
         // return $booking;
-        return view('stylist.show')->with(['id'=> $id, 'booking' => $booking, 'time' => $time, 'date' => $date]);
+        return view('stylist.show_booking')->with(['id'=> $id, 'booking' => $booking, 'time' => $time, 'date' => $date]);
     }
 
     /**
@@ -71,7 +71,7 @@ class BookingViewController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('stylist.edit_booking');
     }
 
     /**
@@ -92,6 +92,12 @@ class BookingViewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function deleteConfirmation($id)
+    {
+        return view('stylist.delete_confirmation_booking');
+    }
+
+
     public function destroy($id)
     {
         //

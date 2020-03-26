@@ -12,7 +12,6 @@
                 <p class='card-text'> </p>
 
                   <ul class='list-group list-group-flush'>
-                    <ul class='list-group'>
                       <li class='list-group-item'>
                         <img class='mr-3' src='{{ asset('/images/icons/clock.png') }}' alt='time' style='width:1.3rem' >
                         {{ $time }}
@@ -41,7 +40,21 @@
                           {{ $booking->customer->email }}
                         @endif
                       </li>
-                    </ul>
+                      <div class='row my-2 justify-content-between'>
+                        <a class='btn btn-secondary my-3 mx-auto col-2'
+                          name='go_to_edit'
+                          href={{ action('BookingViewController@edit', ['id' => $booking->id]) }}
+                        >
+                          Edit
+                        </a>
+                        <a class='btn btn-danger my-3 mx-auto col-2'
+                          name='go_to_edit'
+                          href={{ action('BookingViewController@deleteConfirmation', ['id' => $booking->id]) }}
+                        >
+                          Delete
+                        </a>
+                      </div>
+                    
                   </ul>
                 </div>
             </div>

@@ -25,7 +25,12 @@ Route::get('/',function(){
 });
 
 Route::get('/home/calendar', 'CalendarViewController@index')->name('calendar');
+
 Route::get('/home/timeslot/{id}', 'BookingViewController@show')->name('booking.details');
+Route::get('/home/timeslot/edit/{id}', 'BookingViewController@edit');
+Route::put('/home/timeslot/edit/{id}', 'BookingViewController@edit');
+
+Route::get('/home/timeslot/isDelete/{id}', 'BookingViewController@deleteConfirmation');
 
 
 //Routes Treatment

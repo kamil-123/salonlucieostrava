@@ -79,10 +79,6 @@
                                             @elseif ($info['availability'] === 0) 
                                                 Blocked
                                             @else 
-                                                <button type="button"
-                                                class="btn btn-warning btn-rounded btn-sm my-0">
-                                                Cancel the Order
-                                                </button>
                                             @endif
                                         </span>
                                     </td>
