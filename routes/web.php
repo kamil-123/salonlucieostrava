@@ -36,4 +36,5 @@ Route::get('/home/timeslot/delete_confirm/{id}', 'BookingViewController@deleteCo
 
 //Routes Treatment
 Route::get('/treatment', 'TreatmentController@index')->name('treatmentindex');
+Route::post('/treatment', 'TreatmentController@store');
 //Routes Stylist

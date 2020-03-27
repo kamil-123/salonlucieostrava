@@ -33627,7 +33627,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App_components_App_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.getElementById('root')); //Original setting
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App_components_App_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.getElementById('root')); // Original setting
 // /**
 //  * First we will load all of this project's JavaScript dependencies which
 //  * includes Vue and other libraries. It is a great starting point when

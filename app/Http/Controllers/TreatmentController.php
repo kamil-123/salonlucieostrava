@@ -21,4 +21,23 @@ class TreatmentController extends Controller
 
         return view('treatment.index',compact(['treatments','stylist_id']));
     }
+
+    public function store(Request $request){
+        $this->validate($request, [             //comment validation
+            'name' => 'required|max:255',
+            'price'=> 'required|integer',
+            'duration' => 'required|date_format:H:i:s',
+        ]);
+        $treatment = new Treatment;
+        $treatment->stylist_id = $request->input('stylist_id'); 
+        $treatment->name=$request->input('name');
+        $treatment->price=$request->input('price');
+        $treatment->duration=$request->input('duration');
+        $treatment->save();
+
+        session()->flash('success_message', 'New treatment saved.');
+
+        return redirect(action('TreatmentController@index'));
+        
+    }
 }
