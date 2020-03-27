@@ -9,7 +9,7 @@ import App from './App/components/App.jsx';
 ReactDOM.render(<App />, document.getElementById('root'));
 
 
-//Original setting
+// Original setting
 // /**
 //  * First we will load all of this project's JavaScript dependencies which
 //  * includes Vue and other libraries. It is a great starting point when
