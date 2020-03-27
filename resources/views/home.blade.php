@@ -28,9 +28,9 @@
                 <div class="card-header">Calendar</div>
                 <div class="card-body">
                     <p class="card-text">Checkout the monthly schedule here.</p>
-                    <form  class="btn" action="{{ route('calendar') }}" method="GET" >
-                        <input type="submit" value="Go to Your Calendar">
-                    </form>
+                    <a class="btn btn-secondary" href={{ route('calendar', ['id' => 0] )}}>
+                        Go to Your Calendar
+                    </a>
                 </div>
             </div>
         </div>

@@ -71,7 +71,20 @@ class BookingViewController extends Controller
      */
     public function edit($id)
     {
-        return view('stylist.edit_booking');
+        // get stylist_id
+        $user_id  = auth()->id();
+        $stylist = User::with('stylist')
+                        ->findOrFail($user_id);
+        $stylist_id = $stylist->stylist->id;
+        
+        // get a certain booking 
+        $booking = Booking::with('customer')
+                        ->with('treatment')
+                        ->findOrFail($id);
+        [$date, $time] = explode(' ', $booking->start_at);
+        [$y, $m, $d] = explode('-', $date);
+        // return $booking;
+        return view('stylist.edit_booking', compact('id', 'booking', 'time', 'date', 'y', 'm', 'd'));
     }
 
     /**

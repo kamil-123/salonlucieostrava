@@ -20,6 +20,7 @@
     {{-- <link href="{{ asset('sass/app.css') }}" rel="stylesheet" type="text/css"> --}}
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}" type="text/css">
 
+    @yield('head')
 </head>
 <body>
     <div id="app">

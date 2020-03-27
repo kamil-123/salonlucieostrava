@@ -11,8 +11,8 @@
                 <div class="card-body">
                   {{-- LINKS --}}
                   <div class='row links'>
-                    <span class='link-left col'><a href=#>back</a></span>
-                    <span class='link-right col'><a href=#>next</a></span>
+                    <span class='link-left col'><a href={{  action('CalendarViewController@show', ['id' => $request()->route('id') - 1]) }}>back</a></span>
+                    <span class='link-right col'><a href={{  action('CalendarViewController@show', ['id' => $request()->route('id') + 1]) }}>next</a></span>
                   </div>
 
                   {{-- CALENDAR --}}
