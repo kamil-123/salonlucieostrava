@@ -32,6 +32,7 @@ Route::get('/home/timeslot/edit/{id}', 'BookingViewController@edit');
 Route::put('/home/timeslot/edit/{id}', 'BookingViewController@update');
 
 Route::get('/home/timeslot/delete_confirm/{id}', 'BookingViewController@deleteConfirmation');
+Route::delete('/home/timeslot/delete_confirm/{id}', 'BookingViewController@destroy');
 
 
 //Routes Treatment

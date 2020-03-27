@@ -173,6 +173,9 @@ class BookingViewController extends Controller
 
     public function destroy($id)
     {
-        //
+        $booking = Booking::findOrFail($id);
+        $booking->delete();
+
+        return redirect()->route('home');
     }
 }
