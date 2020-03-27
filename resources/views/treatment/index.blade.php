@@ -39,17 +39,23 @@
                 <tbody>
                   @foreach ($treatments as $treatment)
                     <tr>
-                      <td class="pt-3-half" contenteditable="true">{{ $treatment->name }}</td>
-                      <td class="pt-3-half" contenteditable="true">{{ $treatment->price . ' CZK' }}</td>
-                      <td class="pt-3-half" contenteditable="true">{{ $treatment->duration }}</td>
+                      <td class="pt-3-half">{{ $treatment->name }}</td>
+                      <td class="pt-3-half">{{ $treatment->price . ' CZK' }}</td>
+                      <td class="pt-3-half">{{ $treatment->duration }}</td>
                       <td>
                         <span class="table-remove">
-                          <button type="button" class="btn btn-primary btn-rounded btn-sm my-0">Edit</button>
+                        <a href="#"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0" id="btnedit{{$treatment->id}}">Edit</button></a>
                         </span>
                       </td>
                       <td>
                         <span class="table-remove">
-                          <button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Delete</button>
+                          <form action={{action('TreatmentController@remove')}} method="POST">
+                            @method('delete')
+                            @csrf
+                            <input type="hidden" name="stylist_id" value={{ $stylist_id }}>
+                            <input type="hidden" name="treatment_id" value={{ $treatment->id }}>
+                            <input type="submit" class="btn btn-danger btn-rounded btn-sm my-0" value="Delete">
+                          </form>
                         </span>
                       </td>
                    </tr>
@@ -76,7 +82,7 @@
                         <input type="hidden" name="price" id="hprice" value="{{old('price')}}">
                         <input type="hidden" name="duration" id="hduration" value="{{old('duration')}}">
                         <input type="hidden" name="stylist_id" value={{$stylist_id}}>
-                        <input type="submit" class="btn btn-success btn-rounded btn-sm my-0" value="add" id="addbutton">
+                        <input type="submit" class="btn btn-success btn-rounded btn-sm my-0" value="Add" id="addbutton">
                       </form> 
                     </td>                     
                   </tr>                

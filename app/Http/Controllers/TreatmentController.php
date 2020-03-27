@@ -40,4 +40,11 @@ class TreatmentController extends Controller
         return redirect(action('TreatmentController@index'));
         
     }
+
+    public function remove(Request $request){
+        $treatment = Treatment::findOrFail($request->input('treatment_id'));
+        $treatment->delete();
+        session()->flash('success_message', 'Treatment successfully deleted');
+        return redirect(action('TreatmentController@index'));
+    }
 }

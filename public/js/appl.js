@@ -49550,27 +49550,29 @@ var app = new Vue({
   el: '#app'
 });
 document.addEventListener('DOMContentLoaded', function () {
-  var iname = document.querySelector('#iname');
-  var iprice = document.querySelector('#iprice');
-  var iduration = document.querySelector('#iduration');
-  var hname = document.querySelector('#hname');
-  var hprice = document.querySelector('#hprice');
-  var hduration = document.querySelector('#hduration');
-  iname.addEventListener('input', function () {
-    hname.value = iname.value;
-    hprice.value = iprice.value;
-    hduration.value = iduration.value;
-  });
-  iprice.addEventListener('input', function () {
-    hname.value = iname.value;
-    hprice.value = iprice.value;
-    hduration.value = iduration.value;
-  });
-  iduration.addEventListener('input', function () {
-    hname.value = iname.value;
-    hprice.value = iprice.value;
-    hduration.value = iduration.value;
-  });
+  if (document.querySelector('#iname') !== null) {
+    var iname = document.querySelector('#iname');
+    var iprice = document.querySelector('#iprice');
+    var iduration = document.querySelector('#iduration');
+    var hname = document.querySelector('#hname');
+    var hprice = document.querySelector('#hprice');
+    var hduration = document.querySelector('#hduration');
+    iname.addEventListener('input', function () {
+      hname.value = iname.value;
+      hprice.value = iprice.value;
+      hduration.value = iduration.value;
+    });
+    iprice.addEventListener('input', function () {
+      hname.value = iname.value;
+      hprice.value = iprice.value;
+      hduration.value = iduration.value;
+    });
+    iduration.addEventListener('input', function () {
+      hname.value = iname.value;
+      hprice.value = iprice.value;
+      hduration.value = iduration.value;
+    });
+  }
 });
 
 /***/ }),

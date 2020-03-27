@@ -33,17 +33,20 @@ const app = new Vue({
 });
 
 document.addEventListener('DOMContentLoaded', ()=>{
+    if ( document.querySelector('#iname')!== null){
     const iname = document.querySelector('#iname');
     const iprice = document.querySelector('#iprice');
     const iduration = document.querySelector('#iduration');
     const hname = document.querySelector('#hname');
     const hprice = document.querySelector('#hprice');
     const hduration = document.querySelector('#hduration');
+    
     iname.addEventListener('input',()=>{
       hname.value = iname.value;
       hprice.value = iprice.value;
       hduration.value = iduration.value;
     });
+    
     iprice.addEventListener('input',()=>{
       hname.value = iname.value;
       hprice.value = iprice.value;
@@ -56,8 +59,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
       hduration.value = iduration.value;
         
     });
-
-  });
+  }
+});
 
 
 
