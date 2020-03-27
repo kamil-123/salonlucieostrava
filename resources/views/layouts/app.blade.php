@@ -10,7 +10,8 @@
     <title>{{ config('app.name', 'Salon Lucie Ostrava') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -21,6 +22,7 @@
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}" type="text/css">
 
     @yield('head')
+      
 </head>
 <body>
     <div id="app">
@@ -84,5 +86,6 @@
             @yield('content')
         </main>
     </div>
+
 </body>
 </html>

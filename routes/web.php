@@ -27,12 +27,11 @@ Route::get('/',function(){
 Route::get('/home/calendar', 'CalendarViewController@index');
 Route::get('/home/calendar/{id}', 'CalendarViewController@show')->name('calendar');
 
-
 Route::get('/home/timeslot/{id}', 'BookingViewController@show')->name('booking.details');
 Route::get('/home/timeslot/edit/{id}', 'BookingViewController@edit');
-Route::put('/home/timeslot/edit/{id}', 'BookingViewController@eupdate');
+Route::put('/home/timeslot/edit/{id}', 'BookingViewController@update');
 
-Route::get('/home/timeslot/isDelete/{id}', 'BookingViewController@deleteConfirmation');
+Route::get('/home/timeslot/delete_confirm/{id}', 'BookingViewController@deleteConfirmation');
 
 
 //Routes Treatment
