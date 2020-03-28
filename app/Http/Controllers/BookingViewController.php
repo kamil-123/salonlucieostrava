@@ -213,9 +213,9 @@ class BookingViewController extends Controller
     public function block(Request $request) {
         // get stylist_id
         $user_id  = auth()->id();
-        $stylist = User::with('stylist')
+        $user = User::with('stylist')
                         ->findOrFail($user_id);
-        $stylist_id = $stylist->stylist->id;
+        $stylist_id = $user->stylist->id;
 
         // create a new booking with availability 0 
         $booking = new Booking;
@@ -223,12 +223,15 @@ class BookingViewController extends Controller
         $booking->stylist_id = $stylist_id;
         $booking->customer_id = null;
         $booking->treatment_id = null;
-        $booking->start_at = $request->input('timeslot');
+
+        [$y, $mon, $d] = explode('-', $request->input('date'));
+        [$h, $min, $s]= explode(':', $request->input('timeslot'));
+        $datetime = date('Y-m-d H:i:s', mktime($h, $min, $s, $mon, $d, $y));
+        $booking->start_at =  $datetime;
         $booking->save();
 
-        return $booking;
-
-        return redirect()->route('home');
+        // return $booking;
+        return redirect()->route('home')->with('success', 'the selected timeslot was blocked.');
     }
 
     public function destroy($id)
@@ -236,6 +239,6 @@ class BookingViewController extends Controller
         $booking = Booking::findOrFail($id);
         $booking->delete();
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success', 'the selected timeslot is free now.');
     }
 }

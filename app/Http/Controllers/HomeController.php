@@ -53,12 +53,12 @@ class HomeController extends Controller
         $stylist_id = $user->stylist->id;
 
         // get schedule of the currently logged-in stylist
-        $today = date('Y-m-d').' 00:00:00';
-        $tomorrow = date('Y-m-d H-i-s', mktime(0,0,0, date('m'), date('d') + 1, date('Y')));
+        // $today = date('Y-m-d').' 00:00:00';
+        // $tomorrow = date('Y-m-d H-i-s', mktime(0,0,0, date('m'), date('d') + 1, date('Y')));
 
 // FOR DEBUGGING
-        // $today = date('Y-m-d H-i-s', mktime(0,0,0, date('m'), date('d') -1, date('Y')));
-        // $tomorrow = date('Y-m-d H-i-s', mktime(0,0,0, date('m'), date('d'), date('Y')));
+        $today = date('Y-m-d H-i-s', mktime(0,0,0, date('m'), date('d') -1, date('Y')));
+        $tomorrow = date('Y-m-d H-i-s', mktime(0,0,0, date('m'), date('d'), date('Y')));
 
         $bookings = Booking::where('stylist_id', $stylist_id)
                             ->where('start_at' , '>', $today) // fetch only future schedule
@@ -70,6 +70,7 @@ class HomeController extends Controller
         $full_schedule = [];
         $message = '';
         $dates = [];
+
         if( isset($bookings[0]) ) {// if at least one booking exists on the day
             $schedule = [];
             foreach($bookings as $booking) {
@@ -97,12 +98,13 @@ class HomeController extends Controller
             };
             // just sending the schedule for the currently logged-in stylist
             $full_schedule = $full_schedule[$stylist_id];
-            $dates = array_keys($full_schedule);
+            $date = array_keys($full_schedule)[0];
            
         } else {
             $message = 'There is no booking';
         }
 
-        return view('home', compact('full_schedule', 'dates', 'message'));
+        // return $full_schedule;
+        return view('home', compact('full_schedule', 'date', 'message'));
     }
 }

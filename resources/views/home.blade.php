@@ -8,9 +8,34 @@
             <div class="card">
                 <div class="card-header">Dashboard</div>
                 <div class="card-body">
+
+                    {{-- (Default) --}}
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
+                        </div>
+                    @endif
+                    
+                    {{-- GENERAL Error Message --}}
+                    @if(count($errors) > 0)
+                        @foreach($errors->all() as $error)
+                            <div class="alert alert-danger">
+                                {{$error}}
+                            </div>
+                        @endforeach
+                    @endif
+
+                    {{-- Success Message --}}
+                    @if(session('success'))
+                        <div class="alert alert-success">
+                            {{session('success')}}
+                        </div>
+                    @endif
+
+                    {{-- Customized Error Message --}}
+                    @if(session('error'))
+                        <div class="alert alert-danger">
+                            {{session('error')}}
                         </div>
                     @endif
 
@@ -48,13 +73,13 @@
                                 <i class="fas fa-plus fa-2x" aria-hidden="true"></i>
                             </a>
                         </span>
-                        @if (isset($message)) 
+
+                        @if ($message !== '')) 
                             <div class="row d-flex my-4">   
                                 <div class='mx-auto'>{{ $message }}</div>
                             </div>
-                                    
-
                         @else
+
                         <table class="table table-bordered table-responsive-md table-striped text-center">
                             <thead>
                                 <tr>
@@ -66,8 +91,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                    @foreach($full_schedule[$dates[0]] as $timeslot => $info)
-                                        <tr>
+                                @foreach($full_schedule[$date] as $timeslot => $info)
+                                    <tr>
                                         <td class="pt-3-half" contenteditable="true">{{ $timeslot }}</td>
                                         <td class="pt-3-half" contenteditable="true">
                                             {{
@@ -97,14 +122,14 @@
                                         <td>
                                             <span class="table-remove">
                                                 @if ($info['availability'] === null) 
-                                                    <form 
-                                                        method='POST'
-                                                        action={{ action('BookingViewController@block') }}
-                                                        class="btn btn-danger btn-rounded btn-sm my-0"
+                                                    <form
+                                                        action={{ action('BookingViewController@block', ['timeslot' => $timeslot, 'date' => array_keys($full_schedule)[0]] ) }}
+                                                        class="mx-auto"
+                                                        method="POST"
                                                     >
                                                         @csrf
-                                                        <input type='hidden' name='timeslot' value={{ $timeslot }}>
-                                                        Block
+                                                        <input type="hidden" name="timeslot" value="{{ $timeslot }}">
+                                                        <input type='submit' value='Block' class='btn btn-danger'>
                                                     </form>
                                                 @elseif ($info['availability'] === 0) 
                                                     <form 
@@ -120,10 +145,10 @@
                                                 @endif
                                             </span>
                                         </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            @endforeach
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>        
                         @endif
                                 
                             
