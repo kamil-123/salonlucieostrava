@@ -27,6 +27,8 @@ Route::get('/',function(){
 Route::get('/home/calendar', 'CalendarViewController@index');
 Route::get('/home/calendar/{id}', 'CalendarViewController@show')->name('calendar');
 
+// Routes Booking
+Route::post('/home/timeslot/block', 'BookingViewController@block');
 Route::get('/home/timeslot/create', 'BookingViewController@create');
 Route::post('/home/timeslot/create', 'BookingViewController@store');
 Route::get('/home/timeslot/{id}', 'BookingViewController@show')->name('booking.details');

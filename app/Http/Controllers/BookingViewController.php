@@ -210,6 +210,27 @@ class BookingViewController extends Controller
     }
 
 
+    public function block(Request $request) {
+        // get stylist_id
+        $user_id  = auth()->id();
+        $stylist = User::with('stylist')
+                        ->findOrFail($user_id);
+        $stylist_id = $stylist->stylist->id;
+
+        // create a new booking with availability 0 
+        $booking = new Booking;
+        $booking->availability = 0; // 0 = blocked
+        $booking->stylist_id = $stylist_id;
+        $booking->customer_id = null;
+        $booking->treatment_id = null;
+        $booking->start_at = $request->input('timeslot');
+        $booking->save();
+
+        return $booking;
+
+        return redirect()->route('home');
+    }
+
     public function destroy($id)
     {
         $booking = Booking::findOrFail($id);

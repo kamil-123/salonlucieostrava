@@ -54,41 +54,55 @@ class HomeController extends Controller
 
         // get schedule of the currently logged-in stylist
         $today = date('Y-m-d').' 00:00:00';
+        $tomorrow = date('Y-m-d H-i-s', mktime(0,0,0, date('m'), date('d') + 1, date('Y')));
+
+// FOR DEBUGGING
+        // $today = date('Y-m-d H-i-s', mktime(0,0,0, date('m'), date('d') -1, date('Y')));
+        // $tomorrow = date('Y-m-d H-i-s', mktime(0,0,0, date('m'), date('d'), date('Y')));
+
         $bookings = Booking::where('stylist_id', $stylist_id)
                             ->where('start_at' , '>', $today) // fetch only future schedule
+                            ->where('start_at' , '<', $tomorrow) // fetch only today's schedule
                             ->orderBy('start_at' , 'asc')
                             ->get();
-
+        
         // formatting the fetched data
-        $schedule = [];
-        foreach($bookings as $booking) {
-            $stylist_id = $booking->stylist_id;
-            $booking_id = $booking->id;
-            [$date, $time] = explode(" ", $booking['start_at']);
-            
-            if (array_key_exists($stylist_id, $schedule)) { // if a stylist has any bookings:
-                if (array_key_exists($date, $schedule[$stylist_id])) { // if the stylist has a certain day in his/her bookings:
-                    $schedule[$stylist_id][$date][$time] = ['booking_id' => $booking_id, 'availability' => $booking->availability];
-                } else { 
-                    $schedule[$stylist_id][$date] = [$time => ['booking_id' => $booking_id, 'availability' => $booking->availability]]; 
+        $full_schedule = [];
+        $message = '';
+        $dates = [];
+        if( isset($bookings[0]) ) {// if at least one booking exists on the day
+            $schedule = [];
+            foreach($bookings as $booking) {
+                $stylist_id = $booking->stylist_id;
+                $booking_id = $booking->id;
+                [$date, $time] = explode(" ", $booking['start_at']);
+                
+                if (array_key_exists($stylist_id, $schedule)) { // if a stylist has any bookings:
+                    if (array_key_exists($date, $schedule[$stylist_id])) { // if the stylist has a certain day in his/her bookings:
+                        $schedule[$stylist_id][$date][$time] = ['booking_id' => $booking_id, 'availability' => $booking->availability];
+                    } else { 
+                        $schedule[$stylist_id][$date] = [$time => ['booking_id' => $booking_id, 'availability' => $booking->availability]]; 
+                    }
+                } else {
+                    $schedule[$stylist_id] = [$date => [$time => ['booking_id' => $booking_id, 'availability' => $booking->availability]]];
                 }
-            } else {
-                $schedule[$stylist_id] = [$date => [$time => ['booking_id' => $booking_id, 'availability' => $booking->availability]]];
             }
+
+            // combine fetched data and the template
+            foreach ($schedule as $stylist => $dates) {
+                foreach ($dates as $date => $timeSlots) {
+                    $full_day_schedule = array_merge($this->timeSlotTemplate, $timeSlots);
+                    $full_schedule[$stylist][$date] = $full_day_schedule;
+                }; 
+            };
+            // just sending the schedule for the currently logged-in stylist
+            $full_schedule = $full_schedule[$stylist_id];
+            $dates = array_keys($full_schedule);
+           
+        } else {
+            $message = 'There is no booking';
         }
 
-        // combine fetched data and the template
-        $full_schedule = [];
-        foreach ($schedule as $stylist => $dates) {
-            foreach ($dates as $date => $timeSlots) {
-                $full_day_schedule = array_merge($this->timeSlotTemplate, $timeSlots);
-                $full_schedule[$stylist][$date] = $full_day_schedule;
-            }; 
-        };
-        // just sending the schedule for the currently logged-in stylist
-        $full_schedule = $full_schedule[$stylist_id];
-        $dates = array_keys($full_schedule);
-        // return $bookings;
-        return view('home', compact('stylist', 'full_schedule', 'dates'));
+        return view('home', compact('full_schedule', 'dates', 'message'));
     }
 }
