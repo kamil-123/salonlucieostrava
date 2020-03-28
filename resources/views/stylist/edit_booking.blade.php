@@ -59,7 +59,7 @@
 
             {{-- Treatment  --}}
             <div class="row">
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-8">
                 <label for="treatment">Treatment</label>
                 <select class="form-control" id="treatment" name='treatment'>
                   @foreach ($treatments as $treatment)
@@ -88,7 +88,7 @@
 
             {{-- Phone --}}
             <div class="row">
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-8">
                 <label for="phone_number">Phone</label>
                 <input id='phone_number' type="tel" class="form-control" value={{ $booking->customer->phone }}>
               </div>
@@ -96,7 +96,7 @@
 
             {{-- Email --}}
             <div class="row">
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-8">
                 <label for="email_address">Email</label>
                 <input id='email_address' type="email" class="form-control" value={{ $booking->customer->email }}>
               </div>

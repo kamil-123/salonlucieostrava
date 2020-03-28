@@ -72,10 +72,12 @@
                                     <td>
                                         <span class="table-remove">
                                             @if ($info['availability'] === null) 
-                                                <button type="button"
-                                                class="btn btn-primary btn-rounded btn-sm my-0">
-                                                Book
-                                                </button>
+                                                <a
+                                                    class="btn btn-primary btn-rounded btn-sm my-0"
+                                                    href={{ action('BookingViewController@create') }}
+                                                >
+                                                    Book
+                                                </a>
                                             @elseif ($info['availability'] === 0) 
                                                 Blocked
                                             @else 

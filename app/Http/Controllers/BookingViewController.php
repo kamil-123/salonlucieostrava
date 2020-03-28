@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 use App\Booking;
 use App\User;
 use App\Treatment;
-
-
+use App\Customer;
 
 class BookingViewController extends Controller
 {
@@ -48,7 +47,11 @@ class BookingViewController extends Controller
      */
     public function create()
     {
-        //
+        $treatments = Treatment::all();
+        return view('stylist.add_booking')->with([
+            'timeSlotTemplate' => array_keys($this->timeSlotTemplate),
+            'treatments' => $treatments,
+        ]);
     }
 
     /**
@@ -59,7 +62,43 @@ class BookingViewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request;
+        // get stylist_id
+        $user_id  = auth()->id();
+        $stylist = User::with('stylist')
+                        ->findOrFail($user_id);
+        $stylist_id = $stylist->stylist->id;
+
+        // create a new row in bookings table 
+        $booking = new Booking;
+        $booking->stylist_id = $stylist_id;
+        $booking->treatment_id = $request->input('treatment');
+        $booking->availability = 1; // 1 = booked
+
+        [$y, $mon, $d] = explode('-', $request->input('date'));
+        [$h, $min, $s]= explode(':', $request->input('time'));
+        $datetime = date('Y-m-d H:i:s', mktime($h, $min, $s, $mon, $d, $y));
+        $booking->start_at =  $datetime;
+
+        //  check whether the customer already has a record in DB
+        $customer = Customer::where('email', $request->input('email'))->first();
+        if($customer !== null) { // if a record exist, get the id and assign it to customer_id
+            $customer->bookings()->save($booking);
+
+        } else { // if not, create a new record in customers table
+            $customer = new Customer;
+            $customer->first_name = $request->input('first_name');
+            $customer->last_name = $request->input('last_name');
+            $customer->email = $request->input('email');
+            $customer->phone = $request->input('phone');
+            $customer->save();
+            $booking->customer_id = $customer->id;
+            $booking->push();
+
+            return $booking->customer;  
+        }
+
+        return redirect()->action('BookingViewController@show', ['id'=> $booking->id]);
     }
 
     /**
