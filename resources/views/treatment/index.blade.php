@@ -44,7 +44,7 @@
                       <td class="pt-3-half">{{ $treatment->duration }}</td>
                       <td>
                         <span class="table-remove">
-                        <a href="#"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0" id="btnedit{{$treatment->id}}">Edit</button></a>
+                        <a href="{{action('TreatmentController@edit',[$treatment->id])}}"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0" id="btnedit{{$treatment->id}}">Edit</button></a>
                         </span>
                       </td>
                       <td>
@@ -62,16 +62,16 @@
                   @endforeach
                   <tr>                  
                     <td><input type="text" name="name" placeholder="Name" id="iname" class="form-control" value="{{old('name')}}"></td>
-                    <td><input type="text" name="price" placeholder="Price" id="iprice" class="form-control" value="{{old('price')}}"></td>
+                    <td><input type="number" name="price" placeholder="Price CZK" id="iprice" class="form-control" value="{{old('price')}}"></td>
                     <td>
                       {{-- <input type="text" name="duration" placeholder="Duration" id="iduration" class="form-control"> --}}
                       <select name="duration" id="iduration" class="form-control">
-                        <option value="00:30:00" selected>00:30:00</option>
-                        <option value="01:00:00">01:00:00</option>
-                        <option value="01:30:00">01:30:00</option>
-                        <option value="02:00:00">02:00:00</option>
-                        <option value="02:30:00">02:30:00</option>
-                        <option value="03:00:00">03:00:00</option>
+                            <option value="00:30:00" {{old('duration') === '00:30:00' ? 'selected' : ''}}>00:30:00</option>
+                            <option value="01:00:00" {{old('duration') === '01:00:00' ? 'selected' : ''}}>01:00:00</option>
+                            <option value="01:30:00" {{old('duration') === '01:30:00' ? 'selected' : ''}}>01:30:00</option>
+                            <option value="02:00:00" {{old('duration') === '02:00:00' ? 'selected' : ''}}>02:00:00</option>
+                            <option value="02:30:00" {{old('duration') === '02:30:00' ? 'selected' : ''}}>02:30:00</option>
+                            <option value="03:00:00" {{old('duration') === '03:00:00' ? 'selected' : ''}}>03:00:00</option>
                       </select>
                     </td>
                     <td></td>

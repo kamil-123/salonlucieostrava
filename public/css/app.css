@@ -9944,4 +9944,20 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.treatment__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 0.7em;
+}
+
+.treatment__label {
+  width: 5em;
+}
+
+.treatment__input {
+  display: inline;
+  width: 40%;
+  margin-left: 1em;
+}
 /*# sourceMappingURL=app.css.map*/
