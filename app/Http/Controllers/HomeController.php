@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Booking;
+use App\Stylist;
 
 class HomeController extends Controller
 {
@@ -44,13 +45,17 @@ class HomeController extends Controller
      */
     public function index()
     { 
+        
         // get user id of the current logged-in user
         $user_id  = auth()->id();
 
         // get stylist information 
-        $user = User::with('stylist.bookings')
-                        ->findOrFail($user_id);
-        $stylist_id = $user->stylist->id;
+        // $user = User::with('stylist.bookings')
+        //                 ->findOrFail($user_id);
+        $user = User::findOrFail($user_id);
+        // var_dump($user);
+        if($user->stylist !=null ){
+        $stylist_id = Stylist::findOrFail($user_id)->id;
 
         // get schedule of the currently logged-in stylist
         // $today = date('Y-m-d').' 00:00:00';
@@ -150,5 +155,21 @@ class HomeController extends Controller
         }
         // return $full_schedule[$date];
         return view('home', compact('full_schedule', 'date', 'message'));
+        // combine fetched data and the template
+        $full_schedule = [];
+        foreach ($schedule as $stylist => $dates) {
+            foreach ($dates as $date => $timeSlots) {
+                $full_day_schedule = array_merge($this->timeSlotTemplate, $timeSlots);
+                $full_schedule[$stylist][$date] = $full_day_schedule;
+            }; 
+        };
+        // just sending the schedule for the currently logged-in stylist
+        $full_schedule = $full_schedule[$stylist_id];
+        $dates = array_keys($full_schedule);
+        // return $bookings;
+        return view('home', compact('stylist', 'full_schedule', 'dates'));
+    } else {
+        return view('homeuser',compact('user'));
+    }
     }
 }
