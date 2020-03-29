@@ -95,12 +95,4 @@
     </div>
   </div>
 
-  {{-- <script>
-    document.addEventListener('DOMContentLoaded', ()=>{
-      const addbutton = document.querySelector('#addbutton');
-      addbutton.addEventListener('click',()=>{
-        console.log('addbutton click');
-      });
-    });
-  </script> --}}
 @endsection

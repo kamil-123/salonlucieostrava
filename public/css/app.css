@@ -9960,4 +9960,9 @@ h3 {
   width: 40%;
   margin-left: 1em;
 }
+
+.stylist__image {
+  width: 100px;
+  height: auto;
+}
 /*# sourceMappingURL=app.css.map*/

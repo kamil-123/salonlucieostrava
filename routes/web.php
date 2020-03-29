@@ -47,3 +47,5 @@ Route::delete('/treatment', 'TreatmentController@remove' );
 
 //Routes Stylist
 Route::get('/stylist','StylistController@index')->middleware('can:admin');
+Route::get('/stylist/edit/{id}', 'StylistController@edit')->middleware('can:admin');
+Route::delete('stylist', 'StylistController@remove')->middleware('can:admin');
