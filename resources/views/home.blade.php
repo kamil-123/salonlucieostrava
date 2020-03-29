@@ -96,32 +96,52 @@
                                         <td class="pt-3-half" contenteditable="true">{{ $timeslot }}</td>
                                         <td class="pt-3-half" contenteditable="true">
                                             {{
-                                                $info['availability'] === null ? 'Available'
-                                                : ($info['availability'] === 1 ? 'Booked' : 'Blocked')
+                                                isset($info['availability']) ? ($info['availability'] === 1 ? 'Booked' : 'Blocked')
+                                                : 'Available' 
                                             }}
                                         </td>
                                         <td>
-                                            @if ($info['availability'] === 1) 
-                                                <a href={{ route('booking.details', ['id' => $info['booking_id']]) }}>Details</a></td>
+                                            @if ( isset($info['availability']) )
+                                                @if ($info['availability'] === 1) 
+                                                    <a href={{ route('booking.details', ['id' => $info['booking_id']]) }}>Details</a></td>
+                                                @endif
                                             @endif
                                         <td>
                                             <span class="table-remove">
-                                                @if ($info['availability'] === null) 
-                                                    <a
-                                                        class="btn btn-primary btn-rounded btn-sm my-0"
-                                                        href={{ action('BookingViewController@create', ['timeslot' => $timeslot]) }}
-                                                    >
-                                                        Book
-                                                    </a>
-                                                @elseif ($info['availability'] === 0) 
-                                                    Blocked
-                                                @else 
+                                                @if ( isset($info['availability']) )
+
+                                                    @if  ($info['availability'] === 0) 
+                                                        <a
+                                                            class="btn btn-primary btn-rounded btn-sm my-0"
+                                                            href={{ action('BookingViewController@create', ['timeslot' => $timeslot]) }}
+                                                        >
+                                                            Book
+                                                        </a>
+                                                    @else
+                                                        Blocked
+                                                    @endif
+
                                                 @endif
                                             </span>
                                         </td>
                                         <td>
                                             <span class="table-remove">
-                                                @if ($info['availability'] === null) 
+                                                @if ( isset($info['availability']) )
+
+                                                    @if ( $info['availability'] === 0 )  {{-- Blocked --}}
+                                                        <form 
+                                                        method='POST' 
+                                                        action={{ action('BookingViewController@destroy', ['id' => $info['booking_id']]) }}
+                                                        class='mx-auto'
+                                                        >
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <input type='hidden' name='id' value={{ $info['booking_id'] }}>
+                                                            <input type='submit' value='Unblock' class='btn btn-warning'>
+                                                        </form>
+                                                    @endif
+
+                                                @else {{--  Available --}}
                                                     <form
                                                         action={{ action('BookingViewController@block', ['timeslot' => $timeslot, 'date' => array_keys($full_schedule)[0]] ) }}
                                                         class="mx-auto"
@@ -130,17 +150,6 @@
                                                         @csrf
                                                         <input type="hidden" name="timeslot" value="{{ $timeslot }}">
                                                         <input type='submit' value='Block' class='btn btn-danger'>
-                                                    </form>
-                                                @elseif ($info['availability'] === 0) 
-                                                    <form 
-                                                        method='POST' 
-                                                        action={{ action('BookingViewController@destroy', ['id' => $info['booking_id']]) }}
-                                                        class='mx-auto'
-                                                    >
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <input type='hidden' name='id' value={{ $info['booking_id'] }}>
-                                                        <input type='submit' value='Unblock' class='btn btn-warning'>
                                                     </form>
                                                 @endif
                                             </span>
