@@ -64,7 +64,14 @@
                   @endforeach
                                  
                 </tbody>
-              </table>    
+              </table>
+              {{-- <div class='row my-4 justify-content-between'> --}}
+                <a href="{{action('StylistController@create')}}" class="row my-4 justify-content-between">       
+                  <button class="btn btn-success my-3 mx-auto col-4">
+                    Add new stylist
+                  </button>
+                </a>
+              {{-- </div>     --}}
             </div>
           </div>  
         </div>

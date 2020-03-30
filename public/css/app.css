@@ -9965,4 +9965,21 @@ h3 {
   width: 100px;
   height: auto;
 }
+
+.stylist__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 0.7em;
+}
+
+.stylist__label {
+  width: 10em;
+}
+
+.stylist__input {
+  display: inline;
+  width: 40%;
+  margin-left: 1em;
+}
 /*# sourceMappingURL=app.css.map*/

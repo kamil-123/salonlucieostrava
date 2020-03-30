@@ -17,7 +17,15 @@ class StylistController extends Controller
         return 'return from stylist edit';
     }
 
-    public function delete(Request $request){
-        return 'return fro stylist delete';
+    public function remove(Request $request){
+        return 'return from stylist remove';
+    }
+
+    public function create(){
+        return view('stylist/create');
+    }
+
+    public function store(Request $request){
+        return 'return from stylist store';
     }
 }
