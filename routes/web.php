@@ -26,7 +26,6 @@ Route::get('/',function(){
 
 // Routes Calendar 
 Route::get('/home/test', 'BookingViewController@index');
-// Route::get('/home/calendar', 'CalendarViewController@index');
 Route::get('/home/calendar/{month?}', 'CalendarViewController@show')->name('calendar');
 
 // Routes Booking
