@@ -23,8 +23,8 @@ class BookAppointment extends React.Component {
 
 	renderStep = () => {
 		switch (this.state.currentStep) {
-			case 0: return <SelectStylist stylist_id={this.state.stylist_id} setStylist={this.setStylist} />;
-			case 1: return <ChooseService stylist_id={this.state.stylist_id} setService={this.setService} />;
+			case 0: return <SelectStylist stylist_id={this.state.form.stylist_id} setStylist={this.setStylist} />;
+			case 1: return <ChooseService stylist_id={this.state.form.stylist_id} setService={this.setService} />;
 			case 2: return <Calendar setDate={this.setDate} />;
 			case 3: return <Finish />;
 		}
@@ -79,6 +79,7 @@ class BookAppointment extends React.Component {
 	}
 
 	render() {
+		console.log(this.state.form)
 		return (
 			<div>
 				

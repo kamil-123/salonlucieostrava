@@ -1,6 +1,10 @@
 import React from 'react';
+import axios from 'axios';
+
+import ServiceItem from './ServiceItem'
 
 class ChooseService extends React.Component {
+	
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -9,17 +13,30 @@ class ChooseService extends React.Component {
 	}
 
 	async componentDidMount() {
-		// const response = await axios.get('/api/');
-		// const listOfServices = response.data;
+		const response = await axios.get(`/api/treatment?stylist_id=${this.props.stylist_id}`);
+		const listOfServices = response.data;
 
-		this.setState({ listOfServices: [listOfServices] });
+		this.setState({ listOfServices:listOfServices });
 	}
 
 
 	render() {
+		// console.log(this.state.listOfServices)
+		const { setService, service_id } = this.props;
 		return (
 			<div>
-				CHOSEE SERVICE STRANICA
+				{this.state.listOfServices.map(service => (
+					<ServiceItem
+						key={service.id}
+						id={service.id}
+						stylist_id={service.stylist_id}
+						name={service.name}
+						price={service.price}
+						duration={service.duration}
+						setService={setService}
+						isActive={service.id === service_id}
+					/>
+				))}
 			</div>
 		);
 	}

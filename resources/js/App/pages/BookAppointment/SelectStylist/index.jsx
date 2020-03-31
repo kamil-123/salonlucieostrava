@@ -27,6 +27,7 @@ class SelectStylist extends React.Component {
 				{this.state.listOfStylists.map(stylist => (
 					<StylistItem
 						key={stylist.id}
+						id={stylist.id} 
 						user_id={stylist.user_id}
 						profile_photo_url={stylist.profile_photo_url}
 						job_title={stylist.job_title}
