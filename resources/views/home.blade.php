@@ -109,19 +109,19 @@
                                         <td>
                                             <span class="table-remove">
                                                 @if ( isset($info['availability']) )
-
                                                     @if  ($info['availability'] === 0) 
-                                                        <a
-                                                            class="btn btn-primary btn-rounded btn-sm my-0"
-                                                            href={{ action('BookingViewController@create', ['timeslot' => $timeslot]) }}
-                                                        >
-                                                            Book
-                                                        </a>
-                                                    @else
                                                         Blocked
                                                     @endif
-
+                                                @else 
+                                                    <form
+                                                        method='GET'
+                                                        action={{ action('BookingViewController@create', [ 'timeslot' => $timeslot ]) }}
+                                                        class="mx-auto";
+                                                    >
+                                                        <input type='submit' value='Book' class='btn btn-primary'>
+                                                    </form>
                                                 @endif
+
                                             </span>
                                         </td>
                                         <td>
@@ -136,7 +136,6 @@
                                                         >
                                                             @csrf
                                                             @method('DELETE')
-                                                            <input type='hidden' name='id' value={{ $info['booking_id'] }}>
                                                             <input type='submit' value='Unblock' class='btn btn-warning'>
                                                         </form>
                                                     @endif

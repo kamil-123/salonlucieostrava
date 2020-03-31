@@ -50,8 +50,8 @@
               <div class="form-group col-md-4">
                 <label for="time">Starting Time</label>
                 <select class="form-control" id="time" name='time'>
-                  @foreach ($timeSlotTemplate as $timeslot)
-                    <option value={{ $timeslot }}>{{ $timeslot }}</option>
+                  @foreach ($free_slots as $free_slot)
+                    <option value={{ $free_slot }}>{{ $free_slot }}</option>
                   @endforeach
                 </select>
               </div>

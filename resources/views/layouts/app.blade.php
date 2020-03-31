@@ -12,6 +12,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/appl.js') }}" defer></script>
 
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -20,8 +21,6 @@
     {{-- <link href="{{ asset('sass/app.css') }}" rel="stylesheet" type="text/css"> --}}
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}" type="text/css">
 
-    @yield('head')
-      
 </head>
 <body>
     <div id="app">

@@ -52,13 +52,13 @@ class HomeController extends Controller
                         ->findOrFail($user_id);
         $stylist_id = $user->stylist->id;
 
-        // get schedule of the currently logged-in stylist
-        // $today = date('Y-m-d').' 00:00:00';
-        // $tomorrow = date('Y-m-d H-i-s', mktime(0,0,0, date('m'), date('d') + 1, date('Y')));
+        // // get schedule of the currently logged-in stylist
+        $today = date('Y-m-d').' 00:00:00';
+        $tomorrow = date('Y-m-d H-i-s', mktime(0,0,0, date('m'), date('d') + 1, date('Y')));
 
-///////////// FOR DEBUGGING ////////////
-        $today = date('Y-m-d H-i-s', mktime(0,0,0, date('m'), date('d') -2, date('Y')));
-        $tomorrow = date('Y-m-d H-i-s', mktime(0,0,0, date('m'), date('d') -1, date('Y')));
+///////////// FOR WEEKEND DEBUGGING ////////////
+        // $today = date('Y-m-d H-i-s', mktime(0,0,0, date('m'), date('d') -2, date('Y')));
+        // $tomorrow = date('Y-m-d H-i-s', mktime(0,0,0, date('m'), date('d') -1, date('Y')));
 ////////////////////////////////////////
 
         $bookings = Booking::where('stylist_id', $stylist_id)
@@ -110,20 +110,15 @@ class HomeController extends Controller
             };
 
 
-            /////// Reflecting treatment duration ///////
-            // return $formatted_all_schedule[$stylist][$date];
-            // go through the formatted_all_schedule and check each duration
-            // if the duration is longer than 30 min, check how many slots it takes
-            // based on the number of slots, copy the booking info and copy it into the next slots
-
+            // Reflecting treatment duration 
             $isContinuing = false;
             $prevBooking = [];
             $full_schedule[$stylist][$date] = [];
             foreach ( $formatted_all_schedule[$stylist][$date] as $timeslot => $info ) {
-                // var_dump( false && false) ;
 
                 if ( isset($info) ) {
                     if ( $info['availability'] === 1 ) { // the timeslot is booked
+
                         //  calculate the number of timeslots one booking takes
                         [$hour, $minute, $s] = explode(":", $info['duration']);
                         $slot = $minute === '30' ? 1 : 0; // if $minute='30', +1 slot. else 0 slot.
@@ -148,7 +143,7 @@ class HomeController extends Controller
         } else {
             $message = 'There is no booking';
         }
-        // return $full_schedule[$date];
+        // return $bookings === [] ? true : false;
         return view('home', compact('full_schedule', 'date', 'message'));
     }
 }
