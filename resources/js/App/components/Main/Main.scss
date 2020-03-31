@@ -16,12 +16,13 @@
     width: 40%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     .maintitle{
-      font-size: 6em;
+      font-size: 4em;
       color: white;
     }
     .mainsubtitle{
-      font-size: 3em;
+      font-size: 1.5em;
       color: white;
     }
     a{
