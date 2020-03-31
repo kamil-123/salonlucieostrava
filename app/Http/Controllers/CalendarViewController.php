@@ -100,23 +100,31 @@ class CalendarViewController extends Controller
     public function show($month = 0)
     {
         $current_month_dates = $this->getMonth($month);
+        [, $last_y, $last_m,] = explode(' ', end($current_month_dates));
+        [, $first_y, $first_m,] = explode(' ', $current_month_dates[0]);
 
+                // return end($current_month_dates);
+                // return preg_match('#^2\s.*$#', end($current_month_dates));
         // Generating the final week of the previous month & the first week of the next month
         $i = 1;
-        while ($i < 7) {
-            if ( preg_match('/^0\s/', end($current_month_dates)) ) { // if the last day of the array is Sunday
+        $last_index = count($current_month_dates) - 1;
+        var_dump('the last day of the month: ' . $current_month_dates[$last_index]);
+        while ( $i < 7 ) {
+            if ( preg_match('#^0\s.*$#', end($current_month_dates)) ) { // if the last day of the array is Sunday 
                 break;
             } else {   // if the last day in the array is not Sunday
-                array_push($current_month_dates, date('w Y m d', mktime(0,0,0, date("m")+1, 0 + $i, date("Y"))));
+                array_push($current_month_dates, date('w Y m d', mktime(0,0,0, $last_m + 1, $i, $last_y)));
                 $i += 1;
             }
         }
+
         $i = 1;
         while ($i < 7) {
-            if ( preg_match('/^1\s/',$current_month_dates[0]) ) { // if the first day in the array is Monday
+            if ( preg_match('#^1\s.*$#', $current_month_dates[0]) ) { // if the first day in the array is Monday
                 break;
             } else {   // if the first day in the array is not Monday
-                array_unshift($current_month_dates, date('w Y m d', mktime(0,0,0, date("m"), 1 - $i, date("Y"))));
+                array_unshift($current_month_dates, date('w Y m d', mktime(0,0,0, $first_m, 1 - $i, $first_y)));
+                
                 $i += 1;
             }
         }
