@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Booking;
+use App\Stylist;
   
   
 class BookingController extends Controller
@@ -35,10 +36,57 @@ class BookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $today = date("Y-m-d H:i:s");
         $tenDaysLater = date('Y-m-d H:i:s', strtotime($today. ' + 14 days'));
+        
+        if ($request->input('stylist_id')!==null){
+            $stylist_id = $request->input('stylist_id');
+            $stylist = Stylist::findOrFail($stylist_id);
+            $bookings = Booking::orderBy('start_at', 'asc')->with('treatment')
+            ->where('start_at' , '>=', $today) // fetch only future schedule
+            ->where('start_at' , '<=', $tenDaysLater) // fetch schedule only within 14 days in future
+            ->where('stylist_id', $stylist_id) //only the requested stylist_id
+            ->get();   
+            
+            $scheduleTemplate = [];
+            for($i = 1; $i <= 14 ; $i++){
+                $day = date("Y-m-d", strtotime($today . ' + ' . $i . ' days'));
+                $scheduleTemplate[$day] = $this->timeSlotTemplate;
+            }
+            
+            foreach($bookings as $booking){
+                $date_time = explode(" ",$booking['start_at']);
+                $date = $date_time[0];
+                $time = $date_time[1];
+                
+                if($booking->treatment !== null){
+                    $duration = $booking->treatment->duration;
+                    $slots = ((strtotime($booking['start_at'].' + '.substr($duration,0,2).'hours '.substr($duration,3,2).' minutes' ))-strtotime($booking['start_at']))/(60*30);
+                    for($i = 1; $i<=$slots; $i++){
+                        if (array_key_exists($date, $scheduleTemplate)){
+                            if (array_key_exists($time,$scheduleTemplate[$date])){
+                                $scheduleTemplate[$date][$time] = $booking->availability;
+                                $time = date("H:i:s",strtotime($time . '+ 30 minutes'));
+                            }
+                        }    
+                    }
+
+
+                } else{
+                    if (array_key_exists($date, $scheduleTemplate)){
+                        if (array_key_exists($time,$scheduleTemplate[$date])){
+                            $scheduleTemplate[$date][$time] = $booking->availability;
+                        }
+                    }
+                }
+            }
+
+
+            return $scheduleTemplate;
+
+        } else {
         $bookings = Booking::orderBy('start_at', 'asc')
                         ->where('start_at' , '>=', $today) // fetch only future schedule
                         ->where('start_at' , '<=', $tenDaysLater) // fetch schedule only within 14 days in future
@@ -80,6 +128,7 @@ class BookingController extends Controller
         };
 
         return $full_schedule;
+        }
     }
 
     /**
