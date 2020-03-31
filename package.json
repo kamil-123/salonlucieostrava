@@ -2,7 +2,7 @@
     "private": true,
     "scripts": {
         "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --content-base=www.salonlucie.localhost:8080 --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "npm run development -- --watch",
         "watch-poll": "npm run watch -- --watch-poll",
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
@@ -14,7 +14,7 @@
         "@babel/plugin-proposal-class-properties": "^7.8.3",
         "@babel/preset-env": "^7.9.0",
         "@babel/preset-react": "^7.9.1",
-        "axios": "^0.19",
+        "axios": "^0.19.2",
         "babel-cli": "^6.26.0",
         "babel-loader": "^8.1.0",
         "bootstrap": "^4.0.0",
@@ -33,6 +33,7 @@
         "browser-sync": "^2.26.7",
         "browser-sync-webpack-plugin": "2.0.1",
         "install": "^0.13.0",
+        "moment": "^2.24.0",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "react-router-dom": "^5.1.2"
