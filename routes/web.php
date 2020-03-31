@@ -24,9 +24,10 @@ Route::get('/',function(){
     return redirect('/react');
 });
 
+// Routes Calendar 
 Route::get('/home/test', 'BookingViewController@index');
-Route::get('/home/calendar', 'CalendarViewController@index');
-Route::get('/home/calendar/{id}', 'CalendarViewController@show')->name('calendar');
+// Route::get('/home/calendar', 'CalendarViewController@index');
+Route::get('/home/calendar/{month?}', 'CalendarViewController@show')->name('calendar');
 
 // Routes Booking
 Route::post('/home/timeslot/block', 'BookingViewController@block');

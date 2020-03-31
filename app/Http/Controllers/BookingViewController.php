@@ -47,7 +47,7 @@ class BookingViewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($timeslot)
+    public function create($timeslot = '09:00:00')
     {   
         // get stylist_id
         $user_id  = auth()->id();

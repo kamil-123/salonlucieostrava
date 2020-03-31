@@ -30,9 +30,9 @@ class CalendarViewController extends Controller
         return $current_month_dates;
     }
 
-    public function index()
+    public function index($month = 0) // current month = 0
     {
-        $current_month_dates = $this->getMonth();
+        $current_month_dates = $this->getMonth($month);
 
         // Generating the final week of the previous month & the first week of the next month
         $i = 1;
@@ -67,7 +67,7 @@ class CalendarViewController extends Controller
         }
 
         // return $date_list;
-        return view('stylist.calendar', compact('date_list'));
+        return view('stylist.calendar', compact('date_list', 'month'));
     }
 
     /**
@@ -97,9 +97,9 @@ class CalendarViewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($month = 0)
     {
-        $current_month_dates = $this->getMonth($id);
+        $current_month_dates = $this->getMonth($month);
 
         // Generating the final week of the previous month & the first week of the next month
         $i = 1;
@@ -134,7 +134,7 @@ class CalendarViewController extends Controller
         }
 
         // return $date_list;
-        return view('stylist.calendar', compact('date_list'));
+        return view('stylist.calendar', compact('date_list', 'month'));
     }
 
     /**
