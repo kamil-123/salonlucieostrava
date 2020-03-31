@@ -10,6 +10,13 @@ class Booking extends Model
 
     // CAUTION!!!! just for the testing
     // protected $guarded = [];
+    protected $fillable = [
+        'stylist_id',
+        'customer_id',
+        'treatment_id',
+        'start_at',
+        'availability',
+    ];
 
     public function treatment() {
         return $this->belongsTo(Treatment::class);

@@ -14,10 +14,17 @@ class TreatmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $treatments = Treatment::all();
-        return response()->json($treatments, 200);
+        if ($request->input('stylist_id')!==null){
+            $stylist_id = $request->input('stylist_id');
+            $treatments = Treatment::where('stylist_id',$stylist_id)->get();
+            return $treatments; 
+        } else {
+            $treatments = Treatment::all();
+            return $treatments;
+            // return response()->json($treatments, 200);
+        }
     }
 
     /**

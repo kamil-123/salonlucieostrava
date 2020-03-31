@@ -8,9 +8,34 @@
             <div class="card">
                 <div class="card-header">Dashboard</div>
                 <div class="card-body">
+
+                    {{-- (Default) --}}
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
+                        </div>
+                    @endif
+                    
+                    {{-- GENERAL Error Message --}}
+                    @if(count($errors) > 0)
+                        @foreach($errors->all() as $error)
+                            <div class="alert alert-danger">
+                                {{$error}}
+                            </div>
+                        @endforeach
+                    @endif
+
+                    {{-- Success Message --}}
+                    @if(session('success'))
+                        <div class="alert alert-success">
+                            {{session('success')}}
+                        </div>
+                    @endif
+
+                    {{-- Customized Error Message --}}
+                    @if(session('error'))
+                        <div class="alert alert-danger">
+                            {{session('error')}}
                         </div>
                     @endif
 
@@ -28,9 +53,9 @@
                 <div class="card-header">Calendar</div>
                 <div class="card-body">
                     <p class="card-text">Checkout the monthly schedule here.</p>
-                    <form  class="btn" action="{{ route('calendar') }}" method="GET" >
-                        <input type="submit" value="Go to Your Calendar">
-                    </form>
+                    <a class="btn btn-secondary" href={{ route('calendar', ['id' => 0] )}}>
+                        Go to Your Calendar
+                    </a>
                 </div>
             </div>
         </div>
@@ -42,10 +67,20 @@
                 <div class="card-header">Today's Schedule</div>
                 <div class="card-body">
                     <h3>{{ date("d-m-Y") }}</h3>
-                        <div id="table" class="table-editable">
-                            <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
-                                class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
-                            <table class="table table-bordered table-responsive-md table-striped text-center">
+                    <div id="table" class="table-editable">
+                        <span class="table-add float-right mb-3 mr-2">
+                            <a href="#!" class="text-success">
+                                <i class="fas fa-plus fa-2x" aria-hidden="true"></i>
+                            </a>
+                        </span>
+
+                        @if ($message !== '')) 
+                            <div class="row d-flex my-4">   
+                                <div class='mx-auto'>{{ $message }}</div>
+                            </div>
+                        @else
+
+                        <table class="table table-bordered table-responsive-md table-striped text-center">
                             <thead>
                                 <tr>
                                 <th class="text-center">Time</th>
@@ -56,53 +91,77 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($full_schedule[$dates[0]] as $timeslot => $info)
+                                @foreach($full_schedule[$date] as $timeslot => $info)
                                     <tr>
-                                    <td class="pt-3-half" contenteditable="true">{{ $timeslot }}</td>
-                                    <td class="pt-3-half" contenteditable="true">
-                                        {{
-                                            $info['availability'] === null ? 'Available'
-                                            : ($info['availability'] === 1 ? 'Booked' : 'Blocked')
-                                        }}
-                                    </td>
-                                    <td>
-                                        @if ($info['availability'] === 1) 
-                                            <a href={{ route('booking.details', ['id' => $info['booking_id']]) }}>Details</a></td>
-                                        @endif
-                                    <td>
-                                        <span class="table-remove">
-                                            @if ($info['availability'] === null) 
-                                                <button type="button"
-                                                class="btn btn-primary btn-rounded btn-sm my-0">
-                                                Book
-                                                </button>
-                                            @elseif ($info['availability'] === 0) 
-                                                Blocked
-                                            @else 
-                                                <button type="button"
-                                                class="btn btn-warning btn-rounded btn-sm my-0">
-                                                Cancel the Order
-                                                </button>
+                                        <td class="pt-3-half" contenteditable="true">{{ $timeslot }}</td>
+                                        <td class="pt-3-half" contenteditable="true">
+                                            {{
+                                                isset($info['availability']) ? ($info['availability'] === 1 ? 'Booked' : 'Blocked')
+                                                : 'Available' 
+                                            }}
+                                        </td>
+                                        <td>
+                                            @if ( isset($info['availability']) )
+                                                @if ($info['availability'] === 1) 
+                                                    <a href={{ route('booking.details', ['id' => $info['booking_id']]) }}>Details</a></td>
+                                                @endif
                                             @endif
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span class="table-remove">
-                                            @if ($info['availability'] === null) 
-                                                <button type="button"
-                                                class="btn btn-danger btn-rounded btn-sm my-0">Block</button>
-                                            @elseif ($info['availability'] === 0) 
-                                                <button type="button"
-                                                class="btn btn-default btn-secondary btn-sm my-0">Unblock</button>
-                                            @endif
-                                        </span>
-                                    </td>
+                                        <td>
+                                            <span class="table-remove">
+                                                @if ( isset($info['availability']) )
+
+                                                    @if  ($info['availability'] === 0) 
+                                                        <a
+                                                            class="btn btn-primary btn-rounded btn-sm my-0"
+                                                            href={{ action('BookingViewController@create', ['timeslot' => $timeslot]) }}
+                                                        >
+                                                            Book
+                                                        </a>
+                                                    @else
+                                                        Blocked
+                                                    @endif
+
+                                                @endif
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="table-remove">
+                                                @if ( isset($info['availability']) )
+
+                                                    @if ( $info['availability'] === 0 )  {{-- Blocked --}}
+                                                        <form 
+                                                        method='POST' 
+                                                        action={{ action('BookingViewController@destroy', ['id' => $info['booking_id']]) }}
+                                                        class='mx-auto'
+                                                        >
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <input type='hidden' name='id' value={{ $info['booking_id'] }}>
+                                                            <input type='submit' value='Unblock' class='btn btn-warning'>
+                                                        </form>
+                                                    @endif
+
+                                                @else {{--  Available --}}
+                                                    <form
+                                                        action={{ action('BookingViewController@block', ['timeslot' => $timeslot, 'date' => array_keys($full_schedule)[0]] ) }}
+                                                        class="mx-auto"
+                                                        method="POST"
+                                                    >
+                                                        @csrf
+                                                        <input type="hidden" name="timeslot" value="{{ $timeslot }}">
+                                                        <input type='submit' value='Block' class='btn btn-danger'>
+                                                    </form>
+                                                @endif
+                                            </span>
+                                        </td>
                                     </tr>
                                 @endforeach
-                                <!-- This is our clonable table line -->
                             </tbody>
-                            </table>
-                        </div>
+                        </table>        
+                        @endif
+                                
+                            
+                    </div>
                 </div>
             </div>
         </div>

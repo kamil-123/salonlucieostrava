@@ -93,7 +93,7 @@ mix.react('resources/js/app.js', 'public/js')
 
     .sass('resources/sass/app.scss', 'public/css')
 
- 
+    .js('resources/js/appl.js', 'public/js')
 
     .browserSync({
 

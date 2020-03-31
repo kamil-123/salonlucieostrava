@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Salon Lucie Ostrava') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/appl.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,6 +20,8 @@
     {{-- <link href="{{ asset('sass/app.css') }}" rel="stylesheet" type="text/css"> --}}
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}" type="text/css">
 
+    @yield('head')
+      
 </head>
 <body>
     <div id="app">
@@ -51,6 +53,16 @@
                                 </li>
                             @endif
                         @else
+                            @can('admin')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ action('StylistController@index') }}">{{ __('Stylists') }}</a>
+                                </li>    
+                            @endcan
+                            @if (Auth::user()->stylist !== null)
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('treatmentindex') }}">{{ __('Treatments') }}</a>
+                                </li>
+                            @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} <span class="caret"></span>
@@ -78,5 +90,6 @@
             @yield('content')
         </main>
     </div>
+
 </body>
 </html>

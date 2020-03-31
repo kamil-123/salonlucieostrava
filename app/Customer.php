@@ -8,8 +8,15 @@ class Customer extends Model
 {
     protected $table = 'customers';
 
-    public function booking() {
-        return $this->belongsTo(Booking::class);
+    protected $fillable  = [
+        'first_name',
+        'last_name',
+        'email',
+        'phone',
+    ];
+
+    public function bookings() {
+        return $this->hasMany(Booking::class);
     }
 
     public function user() {
