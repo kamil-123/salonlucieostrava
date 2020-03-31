@@ -188,7 +188,12 @@ module.exports = _inheritsLoose;
 module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
 
 
+<<<<<<< HEAD
 /***/ }),
+=======
+// module
+exports.push([module.i, ".mainpage {\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-end;\n  align-items: flex-start;\n  background-image: url(" + escape(__webpack_require__(/*! ./SZ6_2051a_approved_new.jpg */ "./resources/js/App/components/Main/SZ6_2051a_approved_new.jpg")) + ");\n  height: 100vh;\n  width: auto;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n}\n.mainpage__box {\n  margin-left: 5em;\n  margin-bottom: 3em;\n  width: 40%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.mainpage__box .maintitle {\n  font-size: 4em;\n  color: white;\n}\n.mainpage__box .mainsubtitle {\n  font-size: 1.5em;\n  color: white;\n}\n.mainpage__box a {\n  text-decoration: none;\n  color: white;\n  width: 200px;\n  display: block;\n}\n.mainpage__box a:hover {\n  text-decoration: none;\n  color: white;\n}\n.mainpage__box a .buttonbook {\n  background-color: brown;\n  height: 50px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-size: 2em;\n  font-weight: bold;\n}\n.mainpage__box .buttonabout {\n  background-color: whitesmoke;\n  border-color: brown;\n  width: 200px;\n  margin-top: 2em;\n  height: 50px;\n  text-decoration: none;\n}", ""]);
+>>>>>>> kamil
 
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
@@ -55455,12 +55460,34 @@ var BookAppointment = /*#__PURE__*/function (_React$Component) {
   _createClass(BookAppointment, [{
     key: "render",
     value: function render() {
+<<<<<<< HEAD
       console.log(this.state.form);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.renderStep(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.previousStep
       }, "Previous"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.nextStep
       }, "Next")));
+=======
+      var pathprefix = this.props.location.pathname;
+      console.log(this.props);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "mainpage"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "mainpage__box"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        className: "mainsubtitle"
+      }, "----LUCIE BAR\xC1NKOV\xC1----"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "maintitle"
+      }, "Salon Lucie"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "mainsubtitle"
+      }, "Best Hair Style in Ostrava"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: pathprefix + '/stylistselect'
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "buttonbook"
+      }, "Book now")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "buttonabout"
+      }, "About us")));
+>>>>>>> kamil
     }
   }]);
 

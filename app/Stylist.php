@@ -8,6 +8,14 @@ class Stylist extends Model
 {
     protected $table = 'stylists';
 
+    protected $fillable = [
+        'user_id',
+        'profile_photo_url',
+        'job_title',
+        'introduction',
+        'service'
+    ];
+
     public function user() {
         return $this->belongsTo(User::class);
     }

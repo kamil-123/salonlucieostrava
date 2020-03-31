@@ -22,13 +22,23 @@
                   <ul class='list-group list-group-flush'>
                     <form action={{ action('StylistController@store') }} method="POST">
                       @csrf
-                      {{-- Name --}}
+                      {{-- First Name --}}
                       <li class='list-group-item stylist__item'>
                         <img class='mr-3' src='{{ asset('/images/icons/user.png') }}' alt='User icon' style='width:1.3rem' >
                         <label for="first_name" class="stylist__label">First name: </label> 
                         <input type="text" name="first_name" id="" class="form-control stylist__input" value="{{old('first_name')}}">
+                      </li>
+                      {{-- Last Name --}}
+                      <li class='list-group-item stylist__item'>  
+                        <img class='mr-3' src='{{ asset('/images/icons/user.png') }}' alt='User icon' style='width:1.3rem' >
                         <label for="last_name" class="stylist__label">Last name: </label> 
                         <input type="text" name="last_name" id="" class="form-control stylist__input" value="{{old('last_name')}}"> 
+                      </li>
+                       {{-- Password --}}
+                       <li class='list-group-item stylist__item'>  
+                        <img class='mr-3' src='{{ asset('/images/icons/user.png') }}' alt='User icon' style='width:1.3rem' >
+                        <label for="password" class="stylist__label">Password: </label> 
+                        <input type="password" name="password" id="" class="form-control stylist__input" value="{{old('last_name')}}"> 
                       </li>
                       {{-- Phone --}}
                       <li class='list-group-item stylist__item'>
@@ -40,7 +50,7 @@
                        <li class='list-group-item stylist__item'>
                         <img class='mr-3' src='{{ asset('/images/icons/mail.png') }}' alt='Email icon' style='width:1.3rem' >
                         <label for="phone" class="stylist__label">Email: </label> 
-                        <input type="text" name="phone" id="" class="form-control stylist__input" value="{{old('email')}}">
+                        <input type="text" name="email" id="" class="form-control stylist__input" value="{{old('email')}}">
                       </li>
                       {{-- Photo --}}
                       <li class='list-group-item stylist__item'>
@@ -53,14 +63,23 @@
                         <img class='mr-3' src='{{ asset('/images/icons/scissor.png') }}' alt='Scissorr icon' style='width:1.3rem' >
                         <label for="job" class="stylist__label">Job position: </label> 
                         <input type="text" name="job" id="" class="form-control stylist__input" value="{{old('job')}}">
+                      </li>
+                      {{-- Service --}}
+                      <li class='list-group-item stylist__item'>
+                        <img class='mr-3' src='{{ asset('/images/icons/scissor.png') }}' alt='Scissorr icon' style='width:1.3rem' >
                         <label for="service" class="stylist__label">Service: </label> 
                         <input type="text" name="service" id="" class="form-control stylist__input" value="{{old('service')}}">
                       </li>
-
+                      {{-- Description --}}
+                      <li class='list-group-item stylist__item'>
+                        <img class='mr-3' src='{{ asset('/images/icons/scissor.png') }}' alt='Scissorr icon' style='width:1.3rem' >
+                        <label for="service" class="stylist__label">Introduction: </label> 
+                        <textarea name="introduction" id="" class="form-control stylist__input">{{old('introduction')}}</textarea>
+                      </li>
                       
                       <div class='row my-4 justify-content-between'>
                         
-                        <input type="submit" value="Add new Stylist" class="btn btn-secondary my-3 mx-auto col-4">
+                        <input type="submit" value="Add new Stylist" class="btn btn-success my-3 mx-auto col-4">
                       </div>
                   </form>
                 </ul>

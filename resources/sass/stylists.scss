@@ -6,12 +6,13 @@
 .stylist__item{
   display: flex;
   flex-direction: row;
+  justify-content: left;
   align-items: center;
   padding-bottom: 0.7em;
 }
 
 .stylist__label{
-  width: 10em;
+  width: 7em;
 }
 
 .stylist__input{

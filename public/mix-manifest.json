@@ -1,8 +1,17 @@
 {
+<<<<<<< HEAD
     "/js/app.js": "/js/app.js?id=c049c1c34c3039a7b075",
     "/js/app.js.map": "/js/app.js.map?id=181b423d54d191faf608",
     "/js/appl.js": "/js/appl.js?id=068cfe22a37405ec9c98",
     "/css/app.css": "/css/app.css?id=62ce07acf6a82e2c1dd0",
     "/js/appl.js.map": "/js/appl.js.map?id=595840753cec1dfa9754",
     "/css/app.css.map": "/css/app.css.map?id=ebf1dd686985129087ac"
+=======
+    "/js/app.js": "/js/app.js?id=55fe6bce88c26634ef9f",
+    "/js/app.js.map": "/js/app.js.map?id=e03a9e5218707751c408",
+    "/js/appl.js": "/js/appl.js?id=bd7ee9b7712d130b87f8",
+    "/css/app.css": "/css/app.css?id=e5bae0cc1040769feabb",
+    "/js/appl.js.map": "/js/appl.js.map?id=fcebedc1b4a64708703e",
+    "/css/app.css.map": "/css/app.css.map?id=ed994ef59efa49c058a2"
+>>>>>>> kamil
 }

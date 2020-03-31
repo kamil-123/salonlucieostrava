@@ -12,13 +12,13 @@ class TreatmentController extends Controller
         
         // get currently logged user
         $user_id=auth()->id();
-
+        
         //check if it is a Stylist
-        $stylist_id=Stylist::findOrFail($user_id)->id;
-
+        $stylist_id=Stylist::where('user_id',$user_id)->first()->id;
+        
         //select treatment of the Stylist
         $treatments = Treatment::where('stylist_id', $stylist_id)->get();
-
+        
         return view('treatment.index',compact(['treatments','stylist_id']));
     }
 
