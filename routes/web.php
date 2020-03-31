@@ -42,4 +42,13 @@ Route::delete('/home/timeslot/delete_confirm/{id}', 'BookingViewController@destr
 //Routes Treatment
 Route::get('/treatment', 'TreatmentController@index')->name('treatmentindex');
 Route::post('/treatment', 'TreatmentController@store');
+Route::get('/treatment/edit/{id}','TreatmentController@edit')->middleware('auth');
+Route::put('/treatment/update','TreatmentController@update');
+Route::delete('/treatment', 'TreatmentController@remove' );
+
 //Routes Stylist
+Route::get('/stylist','StylistController@index')->middleware('can:admin');
+Route::get('/stylist/create', 'StylistController@create')->middleware('can:admin');
+route::post('/stylist', 'StylistController@store')->middleware('can:admin');
+Route::get('/stylist/edit/{id}', 'StylistController@edit')->middleware('can:admin');
+Route::delete('stylist', 'StylistController@remove')->middleware('can:admin');

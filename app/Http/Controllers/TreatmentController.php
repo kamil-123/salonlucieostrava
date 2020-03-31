@@ -40,4 +40,34 @@ class TreatmentController extends Controller
         return redirect(action('TreatmentController@index'));
         
     }
+
+    public function remove(Request $request){
+        $treatment = Treatment::findOrFail($request->input('treatment_id'));
+        $treatment->delete();
+        session()->flash('success_message', 'Treatment successfully deleted');
+        return redirect(action('TreatmentController@index'));
+    }
+
+    public function edit($id){
+        $treatment = Treatment::findOrFail($id);
+        return view('treatment/edit',compact('treatment'));
+    }
+
+    public function update(Request $request){
+        $this->validate($request, [             //comment validation
+            'name' => 'required|max:255',
+            'price'=> 'required|integer',
+            'duration' => 'required|date_format:H:i:s',
+        ]);
+        $treatment = Treatment::findOrFail($request->input('treatment_id'));
+        $treatment->name = $request->input('name');
+        $treatment->price = $request->input('price');
+        $treatment->duration = $request->input('duration');
+        $treatment->save();
+        
+        session()->flash('success_message', 'Treatment successfully updated');
+
+        return redirect(action('TreatmentController@index'));
+
+    }
 }

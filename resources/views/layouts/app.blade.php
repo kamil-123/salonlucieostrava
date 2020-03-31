@@ -52,6 +52,11 @@
                                 </li>
                             @endif
                         @else
+                            @can('admin')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ action('StylistController@index') }}">{{ __('Stylists') }}</a>
+                                </li>    
+                            @endcan
                             @if (Auth::user()->stylist !== null)
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('treatmentindex') }}">{{ __('Treatments') }}</a>
