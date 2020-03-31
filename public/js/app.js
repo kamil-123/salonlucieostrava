@@ -191,7 +191,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".mainpage {\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-end;\n  align-items: flex-start;\n  background-image: url(" + escape(__webpack_require__(/*! ./SZ6_2051a_approved_new.jpg */ "./resources/js/App/components/Main/SZ6_2051a_approved_new.jpg")) + ");\n  height: 100vh;\n  width: auto;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n}\n.mainpage__box {\n  margin-left: 5em;\n  margin-bottom: 3em;\n  width: 40%;\n  display: flex;\n  flex-direction: column;\n}\n.mainpage__box .maintitle {\n  font-size: 6em;\n  color: white;\n}\n.mainpage__box .mainsubtitle {\n  font-size: 3em;\n  color: white;\n}\n.mainpage__box a {\n  text-decoration: none;\n  color: white;\n  width: 200px;\n  display: block;\n}\n.mainpage__box a:hover {\n  text-decoration: none;\n  color: white;\n}\n.mainpage__box a .buttonbook {\n  background-color: brown;\n  height: 50px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-size: 2em;\n  font-weight: bold;\n}\n.mainpage__box .buttonabout {\n  background-color: whitesmoke;\n  border-color: brown;\n  width: 200px;\n  margin-top: 2em;\n  height: 50px;\n  text-decoration: none;\n}", ""]);
+exports.push([module.i, ".mainpage {\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-end;\n  align-items: flex-start;\n  background-image: url(" + escape(__webpack_require__(/*! ./SZ6_2051a_approved_new.jpg */ "./resources/js/App/components/Main/SZ6_2051a_approved_new.jpg")) + ");\n  height: 100vh;\n  width: auto;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n}\n.mainpage__box {\n  margin-left: 5em;\n  margin-bottom: 3em;\n  width: 40%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.mainpage__box .maintitle {\n  font-size: 4em;\n  color: white;\n}\n.mainpage__box .mainsubtitle {\n  font-size: 1.5em;\n  color: white;\n}\n.mainpage__box a {\n  text-decoration: none;\n  color: white;\n  width: 200px;\n  display: block;\n}\n.mainpage__box a:hover {\n  text-decoration: none;\n  color: white;\n}\n.mainpage__box a .buttonbook {\n  background-color: brown;\n  height: 50px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-size: 2em;\n  font-weight: bold;\n}\n.mainpage__box .buttonabout {\n  background-color: whitesmoke;\n  border-color: brown;\n  width: 200px;\n  margin-top: 2em;\n  height: 50px;\n  text-decoration: none;\n}", ""]);
 
 // exports
 
@@ -33638,9 +33638,11 @@ var Main = /*#__PURE__*/function (_React$Component) {
         className: "mainpage"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "mainpage__box"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        className: "mainsubtitle"
+      }, "----LUCIE BAR\xC1NKOV\xC1----"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "maintitle"
-      }, "Salon", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Lucie"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+      }, "Salon Lucie"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         className: "mainsubtitle"
       }, "Best Hair Style in Ostrava"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: pathprefix + '/stylistselect'

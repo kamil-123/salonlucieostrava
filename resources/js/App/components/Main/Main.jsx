@@ -12,8 +12,9 @@ export default class Main extends React.Component{
     <div className='mainpage'>
       
       <div className='mainpage__box'>
-        <h1 className='maintitle'>Salon<br></br>Lucie</h1>
-        <h3 className='mainsubtitle'>Best Hair Style in Ostrava</h3>
+        <h4 className="mainsubtitle">----LUCIE BARÁNKOVÁ----</h4>
+        <h1 className='maintitle'>Salon Lucie</h1>
+        <h5 className='mainsubtitle'>Best Hair Style in Ostrava</h5>
         <Link to={pathprefix+'/stylistselect'}>
           <div className='buttonbook'>Book now</div>
         </Link>

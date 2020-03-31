@@ -55,7 +55,7 @@ class HomeController extends Controller
         $user = User::findOrFail($user_id);
         // var_dump($user);
         if($user->stylist !=null ){
-        $stylist_id = Stylist::findOrFail($user_id)->id;
+        $stylist_id = Stylist::where('user_id',$user_id)->first();
 
         // get schedule of the currently logged-in stylist
         // $today = date('Y-m-d').' 00:00:00';

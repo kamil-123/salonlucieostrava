@@ -41,7 +41,7 @@ Route::delete('/home/timeslot/delete_confirm/{id}', 'BookingViewController@destr
 //Routes Treatment
 Route::get('/treatment', 'TreatmentController@index')->name('treatmentindex');
 Route::post('/treatment', 'TreatmentController@store');
-Route::get('/treatment/edit/{id}','TreatmentController@edit')->middleware('auth');
+Route::get('/treatment/edit/{id}','TreatmentController@edit');
 Route::put('/treatment/update','TreatmentController@update');
 Route::delete('/treatment', 'TreatmentController@remove' );
 
