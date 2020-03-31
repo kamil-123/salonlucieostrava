@@ -84,7 +84,7 @@
             </div>
         </div>
       </nav>
-
+      <main class="py-4">
         <div class='container'>
           <div class='row justify-content-center'>
             <div class='col-md-8'>
@@ -104,8 +104,13 @@
                     {{-- Dates --}}
                     <div class="row">
                       <div class="form-group col-md-4">
-                        <label for="date">Date</label>
-                        <input id="datepicker" width="276" />
+                        <label for="datepicker">Date</label>
+                        <input 
+                          id="datepicker" 
+                          name="date" 
+                          width="276"
+                          value={{$date}}
+                        />
                       </div>
                     </div>
 
@@ -187,11 +192,12 @@
             </div>
           </div>
         </div>
-    <script>
-      $('#datepicker').datepicker({
-          uiLibrary: 'bootstrap4'
-      });
-    </script>
+      </main>
+      <script>
+        $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+      </script>
 
     </div>
   </body>

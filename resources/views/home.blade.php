@@ -60,6 +60,19 @@
             </div>
         </div>
 
+{{-- BOOKING --}}
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Booking</div>
+                <div class="card-body">
+                    <p class="card-text">Place a new order here.</p>
+                    <a class="btn btn-secondary" href={{ route('calendar', ['id' => 0] )}}>
+                        Now Booking
+                    </a>
+                </div>
+            </div>
+        </div>
+
 
 {{----- TODAY'S SCHEDULE -----}}
         <div class="col-md-8">

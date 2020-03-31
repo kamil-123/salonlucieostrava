@@ -58,9 +58,13 @@ class BookingViewController extends Controller
         // get the list of treatments
         $treatments = $user->stylist->treatments;
 
+        // get the current date for the date picker
+        $date = date('m/d/Y', mktime(0,0,0, date('m'), date('d'), date('Y')));
+
         return view('stylist.add_booking')->with([
             'timeslot' => $timeslot,
             'treatments' => $treatments,
+            'date' => $date,
             'timeSlotTemplate' => array_keys($this->timeSlotTemplate),
         ]);
     }
@@ -213,7 +217,6 @@ class BookingViewController extends Controller
                 }; 
             };
 
-
             // Reflecting treatment duration 
             $isContinuing = false;
             $prevBooking = [];
@@ -251,6 +254,10 @@ class BookingViewController extends Controller
                 array_push($free_slots, $timeslot);
             }
         }
+
+        // formatting the date for date picker
+        [$y_format, $m_format, $d_format] = explode('-', $date);
+        $date = $m_format . '/' . $d_format . '/' . $y_format;
 
         // return $free_slots;
         return view('stylist.edit_booking')->with([
