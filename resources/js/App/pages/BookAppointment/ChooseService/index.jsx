@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 
-import ServiceItem from './ServiceItem'
+import ServiceItem from './ServiceItem';
+
+import './ChooseService.scss';
 
 class ChooseService extends React.Component {
 	
@@ -24,7 +26,7 @@ class ChooseService extends React.Component {
 		// console.log(this.state.listOfServices)
 		const { setService, service_id } = this.props;
 		return (
-			<div>
+			<div className="choose-service-container">
 				{this.state.listOfServices.map(service => (
 					<ServiceItem
 						key={service.id}

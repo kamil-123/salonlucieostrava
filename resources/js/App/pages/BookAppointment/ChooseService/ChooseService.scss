@@ -1,0 +1,10 @@
+.choose-service-container {
+  
+  display: flex;
+  flex-flow: row wrap;
+  height: 100%;
+  transition: background-color .1s linear;
+  justify-content: center;
+}
+
+

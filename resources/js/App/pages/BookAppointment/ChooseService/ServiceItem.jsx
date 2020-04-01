@@ -1,9 +1,10 @@
 import React from 'react';
-
+import moment from 'moment';
+import './ServiceItem.scss'
 class ServiceItem extends React.Component {
 
 	setService = () => {
-		const {id} = this.props;
+		const { id } = this.props;
 		this.props.setService(id);
 	}
 
@@ -17,9 +18,9 @@ class ServiceItem extends React.Component {
 			isActive
 		} = this.props;
 		return (
-			<div className={isActive ? 'isActive' : '' } onClick={this.setService}>
-			
-				<div>{name} {price} {duration}</div>				
+			<div className={`service-item ${isActive ? 'active' : ''}`} onClick={this.setService}>
+
+			<div className="service-data">{name} {price} {moment(duration, 'HH:mm:ss').format('H [hrs]')}</div>
 			</div>
 		)
 	}

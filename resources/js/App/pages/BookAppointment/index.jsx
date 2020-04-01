@@ -5,6 +5,9 @@ import ChooseService from './ChooseService';
 import Finish from './Finish';
 import SelectStylist from './SelectStylist';
 
+
+import './BookAppointment.scss';
+
 class BookAppointment extends React.Component {
 
 	constructor(props) {
@@ -16,7 +19,11 @@ class BookAppointment extends React.Component {
 				customer_id: null,
 				treatment_id: null,
 				start_at: null,
-				availability: null
+				availability: null,
+				email: null,
+				phoneNumber: null,
+				firstName: null,
+				lastName: null
 			}
 		}
 	}
@@ -79,15 +86,20 @@ class BookAppointment extends React.Component {
 	}
 
 	render() {
-		console.log(this.state.form)
 		return (
 			<div>
 				
+				<div className="book-appointment-title">Book Appointments</div>
 				{this.renderStep()}
-				
-				<div>
-					<button onClick={this.previousStep}>Previous</button>
-					<button onClick={this.nextStep}>Next</button>
+				<div className="bottom-container">
+					{this.state.currentStep === 0 && <h3> 1 of 4 </h3>}
+					{this.state.currentStep === 1 && <h3> 2 of 4 </h3>}
+					{this.state.currentStep === 2 && <h3> 3 of 4 </h3>}
+					{this.state.currentStep === 3 && <h3> 4 of 4 </h3>}
+					<div className="buttons-container">
+						{this.state.currentStep !== 0 && <button className="prev-button" onClick={this.previousStep}>Previous</button>}
+						{this.state.currentStep !== 3 && <button className="next-button" onClick={this.nextStep}>Next</button>}
+					</div>
 				</div>
 			</div>
 		);
