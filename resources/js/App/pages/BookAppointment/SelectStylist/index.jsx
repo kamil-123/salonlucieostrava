@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import StylistItem from './StylistItem';
 
+import './SelectStylist.scss';
+
 class SelectStylist extends React.Component {
 
 	constructor(props) {
@@ -23,7 +25,8 @@ class SelectStylist extends React.Component {
 		const { setStylist, stylist_id } = this.props;
 		
 		return (
-			<div>
+			<div className="select-stylist-container">
+				<div className="select-stylist-title">Select your hairstylist</div>
 				{this.state.listOfStylists.map(stylist => (
 					<StylistItem
 						key={stylist.id}

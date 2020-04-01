@@ -1,0 +1,50 @@
+.header {
+  width: 100vw;
+  height: 64px;
+}
+
+.logo {
+  color: black;
+  font-family: 'Audrey';
+  font-size: 1.5rem;
+}
+
+.header-content {
+  padding: 0 16px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.hamburger {
+  width: 40px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+.hamb1, .hamb2, .hamb3 {
+  height: 3px;
+  background-color: #E6A779;
+  flex-direction: row-reverse;
+  margin: 2px;
+  align-self: flex-end;
+}
+
+.hamb1 {
+  
+  
+  width: 100%;
+
+}
+
+.hamb2{
+  width: 70%;
+}
+
+.hamb3{
+  width: 40%;
+}

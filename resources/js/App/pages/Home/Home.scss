@@ -11,6 +11,7 @@
 
 .mainPage {
   background-image: url('../../images/backgroundPhoto1.jpg');
+  margin-top: -64px;
   height: 85.56vh;
   width: 100vw;  
   background-size: cover;
@@ -75,20 +76,29 @@
   font-family: 'Audrey';
   position: relative;
   top: 20vh;
-  
+  margin-top: 28px;
   text-align: center;
+  
 }
+
+.aboutSection h1 {
+ 
+  border-bottom: 1px solid #E6A779;
+  
+}
+
+
   
 .buttonBook2 {
   background-color:#E6A779;
   font-family: 'Audrey';
-  text-align: center;
   padding-top: 7px;
   font-size: 24px;
-  width: 310px;
+  width: 80vw;
   height: 6vh;
   color: white;
-  margin: 4% 0 4% 1%;
+  margin: 20px;
+
 
   
  
