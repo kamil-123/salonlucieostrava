@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
 
-        <div class="col-md-8">
+        <div class="col-md-8 mb-2">
             <div class="card">
                 <div class="card-header">Dashboard</div>
                 <div class="card-body">
@@ -48,21 +48,42 @@
             </div>
         </div>
 {{----- CALENDAR -----}}
-        <div class="col-md-8">
+        <div class="col-md-8 my-2">
             <div class="card">
                 <div class="card-header">Calendar</div>
                 <div class="card-body">
                     <p class="card-text">Checkout the monthly schedule here.</p>
-                    <a class="btn btn-secondary" href={{ route('calendar', ['id' => 0] )}}>
-                        Go to Your Calendar
-                    </a>
+                    <form
+                        method='GET'
+                        action={{ route('calendar') }}
+                        class="mx-auto";
+                    >
+                        <input type='submit' value='Go to Your Calendar' class='btn btn-secondary'>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+{{-- BOOKING --}}
+        <div class="col-md-8 my-2">
+            <div class="card">
+                <div class="card-header">Booking</div>
+                <div class="card-body">
+                    <p class="card-text">Place a new order here.</p>
+                    <form
+                        method='GET'
+                        action={{ action('BookingViewController@create') }}
+                        class="mx-auto";
+                    >
+                        <input type='submit' value='Book' class='btn btn-primary'>
+                    </form>
                 </div>
             </div>
         </div>
 
 
 {{----- TODAY'S SCHEDULE -----}}
-        <div class="col-md-8">
+        <div class="col-md-8 my-2">
             <div class="card">
                 <div class="card-header">Today's Schedule</div>
                 <div class="card-body">
@@ -109,19 +130,19 @@
                                         <td>
                                             <span class="table-remove">
                                                 @if ( isset($info['availability']) )
-
                                                     @if  ($info['availability'] === 0) 
-                                                        <a
-                                                            class="btn btn-primary btn-rounded btn-sm my-0"
-                                                            href={{ action('BookingViewController@create', ['timeslot' => $timeslot]) }}
-                                                        >
-                                                            Book
-                                                        </a>
-                                                    @else
                                                         Blocked
                                                     @endif
-
+                                                @else 
+                                                    <form
+                                                        method='GET'
+                                                        action={{ action('BookingViewController@create', [ 'timeslot' => $timeslot ]) }}
+                                                        class="mx-auto";
+                                                    >
+                                                        <input type='submit' value='Book' class='btn btn-primary'>
+                                                    </form>
                                                 @endif
+
                                             </span>
                                         </td>
                                         <td>
@@ -136,7 +157,6 @@
                                                         >
                                                             @csrf
                                                             @method('DELETE')
-                                                            <input type='hidden' name='id' value={{ $info['booking_id'] }}>
                                                             <input type='submit' value='Unblock' class='btn btn-warning'>
                                                         </form>
                                                     @endif
@@ -166,38 +186,6 @@
             </div>
         </div>
 
-         
-        {{--  TESTING --}}
-        {{-- <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Your Schedule</div>
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    <p class="card-text">Schedule of this week</p>
-                    <ul>
-                        @foreach ($dates as $date)
-                        <li>{{ $date }}</li>
-                            <ul>
-                            @foreach ($full_schedule[$date] as $timeslot)
-                                <li>
-                                {{
-                                    $timeslot === 0 ? 'Booked'
-                                    : ($timeslot === 1 ? 'Blocked' : 'Yay available!')
-                                }}
-                                </li>
-                            @endforeach
-                            </ul>
-                        @endforeach
-                    </ul>
-
-                    </p>
-                </div>
-            </div>      
-        </div> --}}
     </div>
 </div>
 @endsection

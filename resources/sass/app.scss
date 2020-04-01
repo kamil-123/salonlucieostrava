@@ -7,6 +7,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Datetime Picker
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+@import url('https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css');
+
 // styles for treatment blades
 @import './treatments.scss';
 

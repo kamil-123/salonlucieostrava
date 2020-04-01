@@ -1,136 +1,209 @@
-@extends('layouts.app')
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('head')
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> --}}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+    <title>{{ config('app.name', 'Salon Lucie Ostrava') }}</title>
 
-@endsection 
+     <!-- Scripts -->
+     <script src="{{ asset('js/appl.js') }}"></script>
 
 
-@section('content')
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-<div class='container'>
-  <div class='row justify-content-center'>
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ mix('/css/app.css') }}" type="text/css">
 
-    <div class='col-md-8'>
-      <div class='card'>
-        <div class='card-header'>Edit Booking</div>
-        <div class='card-body justify-content-left'>
-          <form action={{ action('BookingViewController@update', [ 'id' => $id ]) }} method='POST'>
-            @csrf
-            @method('PUT')
+    {{-- DateTime picker --}}
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    {{-- <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" /> --}}
 
-            @if (\Session::has('success'))
-              <div class="alert alert-success">
-                <p>{{ \Session::get('success') }}</p>
-              </div><br />
-            @endif
+  </head> 
+  <body>
+    <div id="app">
+      <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url('/') }}">
+                {{ config('app.name', 'Salon Lucie Ostrava') }}
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            {{-- Hidden --}}
-            <input type='hidden'  name='customer_id' value= {{ $booking->customer_id }}>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left Side Of Navbar -->
+                <ul class="navbar-nav mr-auto">
 
-            {{-- Dates --}}
-            <div class="row">
-              <div class="form-group col-md-4">
-                <label for="datepicker">Date</label>
-                <input class="date form-control"  
-                  type="text" 
-                  id="datepicker" 
-                  name="date"
-                  value={{$date}}
-                >
-              </div>
-            </div>
+                </ul>
 
-            {{-- Time  --}}
-            <div class="row">
-              <div class="form-group col-md-4">
-                <label for="time">Starting Time</label>
-                <select class="form-control" id="time" name='time'>
-                  @foreach ($timeSlotTemplate as $timeslot)
-                    <option value={{ $timeslot }}>{{ $timeslot }}</option>
-                  @endforeach
-                </select>
-              </div>
-            </div>
-
-            {{-- Treatment  --}}
-            <div class="row">
-              <div class="form-group col-md-8">
-                <label for="treatment">Treatment</label>
-                <select class="form-control" id="treatment" name='treatment'>
-                  @foreach ($treatments as $treatment)
-                    @if ($treatment->id === $booking->treatment_id)
-                      <option value={{ $treatment->id}} selected>{{ $treatment->name }}</option>
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ml-auto">
+                    <!-- Authentication Links -->
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
                     @else
-                      <option value={{ $treatment->id}}>{{ $treatment->name }}</option>
-                    @endif
-                  @endforeach
+                        @if (Auth::user()->stylist !== null)
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('treatmentindex') }}">{{ __('Treatments') }}</a>
+                            </li>
+                        @endif
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} <span class="caret"></span>
+                            </a>
 
-                </select>
-              </div>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
+                </ul>
             </div>
-
-            {{-- Names --}}
-            <div class="row mb-4">
-              <div class="col">
-                <label for="first_name">First Name</label>
-                <input id='first_name' type="text" class="form-control" value={{ $booking->customer->first_name }}>
-              </div>
-              <div class="col">
-                <label for="last_name">Last Name</label>
-                <input id='last_name' type="text" class="form-control" value={{ $booking->customer->last_name }}>
-              </div>
-            </div>
-
-            {{-- Phone --}}
-            <div class="row">
-              <div class="form-group col-md-8">
-                <label for="phone_number">Phone</label>
-                <input id='phone_number' type="tel" class="form-control" value={{ $booking->customer->phone }}>
-              </div>
-            </div>
-
-            {{-- Email --}}
-            <div class="row">
-              <div class="form-group col-md-8">
-                <label for="email_address">Email</label>
-                <input id='email_address' type="email" class="form-control" value={{ $booking->customer->email }}>
-              </div>
-            </div>
-            
-
-            {{-- Submit --}}
-            <div class="row">
-              <div class="col-md-4 d-flex"></div>
-              <div class="form-group col-md-4 d-flex"  style="margin-top:60px">
-                <input 
-                  type="submit"
-                  class="btn btn-success mx-auto"
-                  action=action()
-                  value="Submit the Change"
-                >
-              </div>
-            </div>
-
-          </form>
         </div>
-      </div>
+      </nav>
+
+      <main class="py-4">
+        <div class='container'>
+          <div class='row justify-content-center'>
+
+            <div class='col-md-8'>
+              <div class='card'>
+                <div class='card-header'>Edit Booking</div>
+                <div class='card-body justify-content-left'>
+                  <form action={{ action('BookingViewController@update', [ 'id' => $id ]) }} method='POST'>
+                    @csrf
+                    @method('PUT')
+
+                    @if (\Session::has('success'))
+                      <div class="alert alert-success">
+                        <p>{{ \Session::get('success') }}</p>
+                      </div><br />
+                    @endif
+
+                    {{-- Hidden --}}
+                    <input type='hidden'  name='customer_id' value= {{ $booking->customer_id }}>
+
+                    {{-- Dates --}}
+                    <div class="row">
+                      <div class="form-group col-md-4">
+                        <label for="datepicker">Date</label>
+                        <input class="date form-control"  
+                          type="text" 
+                          id="datepicker" 
+                          name="date"
+                          value={{$date}}
+                        >
+                      </div>
+                    </div>
+
+                    {{-- Time  --}}
+                    <div class="row">
+                      <div class="form-group col-md-4">
+                        <label for="time">Starting Time</label>
+                        <select class="form-control" id="time" name='time'>
+                          @foreach ($free_slots as $free_slot)
+                            <option value={{ $free_slot }}>{{ $free_slot }}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
+
+                    {{-- Treatment  --}}
+                    <div class="row">
+                      <div class="form-group col-md-8">
+                        <label for="treatment">Treatment</label>
+                        <select class="form-control" id="treatment" name='treatment'>
+                          @foreach ($treatments as $treatment)
+                            @if ($treatment->id === $booking->treatment_id)
+                              <option value={{ $treatment->id}} selected>{{ $treatment->name }}</option>
+                            @else
+                              <option value={{ $treatment->id}}>{{ $treatment->name }}</option>
+                            @endif
+                          @endforeach
+
+                        </select>
+                      </div>
+                    </div>
+
+                    {{-- Names --}}
+                    <div class="row mb-4">
+                      <div class="col">
+                        <label for="first_name">First Name</label>
+                        <input id='first_name' type="text" class="form-control" value={{ $booking->customer->first_name }}>
+                      </div>
+                      <div class="col">
+                        <label for="last_name">Last Name</label>
+                        <input id='last_name' type="text" class="form-control" value={{ $booking->customer->last_name }}>
+                      </div>
+                    </div>
+
+                    {{-- Phone --}}
+                    <div class="row">
+                      <div class="form-group col-md-8">
+                        <label for="phone_number">Phone</label>
+                        <input id='phone_number' type="tel" class="form-control" value={{ $booking->customer->phone }}>
+                      </div>
+                    </div>
+
+                    {{-- Email --}}
+                    <div class="row">
+                      <div class="form-group col-md-8">
+                        <label for="email_address">Email</label>
+                        <input id='email_address' type="email" class="form-control" value={{ $booking->customer->email }}>
+                      </div>
+                    </div>
+                    
+
+                    {{-- Submit --}}
+                    <div class="row">
+                      <div class="col-md-4 d-flex"></div>
+                      <div class="form-group col-md-4 d-flex"  style="margin-top:60px">
+                        <input 
+                          type="submit"
+                          class="btn btn-success mx-auto"
+                          action=action()
+                          value="Submit the Change"
+                        >
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <script>
+        $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+      </script>
+
     </div>
-  </div>
-</div>
-
-@endsection
-
-@section('script')
-  <script type="text/javascript">
-    $('#datepicker').datepicker({
-        autoclose: true,
-        format: 'yyyy-mm-dd'
-    });
-    
-  </script>
-@endsection
+  </body>
+  </html>
+  

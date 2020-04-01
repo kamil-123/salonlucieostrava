@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Booking;
 
 class CalendarViewController extends Controller
 {
@@ -30,44 +31,9 @@ class CalendarViewController extends Controller
         return $current_month_dates;
     }
 
-    public function index()
+    public function index() 
     {
-        $current_month_dates = $this->getMonth();
-
-        // Generating the final week of the previous month & the first week of the next month
-        $i = 1;
-        while ($i < 7) {
-            if ( preg_match('/^0\s/', end($current_month_dates)) ) { // if the last day of the array is Sunday
-                break;
-            } else {   // if the last day in the array is not Sunday
-                array_push($current_month_dates, date('w Y m d', mktime(0,0,0, date("m")+1, 0 + $i, date("Y"))));
-                $i += 1;
-            }
-        }
-        $i = 1;
-        while ($i < 7) {
-            if ( preg_match('/^1\s/',$current_month_dates[0]) ) { // if the first day in the array is Monday
-                break;
-            } else {   // if the first day in the array is not Monday
-                array_unshift($current_month_dates, date('w Y m d', mktime(0,0,0, date("m"), 1 - $i, date("Y"))));
-                $i += 1;
-            }
-        }
-
-        // formatting
-        $date_list =[];
-        foreach($current_month_dates as $day) {
-            [$w, $y, $m, $d] = explode(' ', $day);
-            $date_list[] = ['weekday' => $w, 
-                            'year' => $y,
-                            'month' => $m,
-                            'day' => $d,
-                            'full' => $day,
-                            ];
-        }
-
-        // return $date_list;
-        return view('stylist.calendar', compact('date_list'));
+        //
     }
 
     /**
@@ -97,26 +63,31 @@ class CalendarViewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($month = 0)
     {
-        $current_month_dates = $this->getMonth($id);
+        $current_month_dates = $this->getMonth($month);
+        [, $last_y, $last_m,] = explode(' ', end($current_month_dates));
+        [, $first_y, $first_m,] = explode(' ', $current_month_dates[0]);
 
         // Generating the final week of the previous month & the first week of the next month
         $i = 1;
-        while ($i < 7) {
-            if ( preg_match('/^0\s/', end($current_month_dates)) ) { // if the last day of the array is Sunday
+        $last_index = count($current_month_dates) - 1;
+        while ( $i < 7 ) {
+            if ( preg_match('#^0\s.*$#', end($current_month_dates)) ) { // if the last day of the array is Sunday 
                 break;
             } else {   // if the last day in the array is not Sunday
-                array_push($current_month_dates, date('w Y m d', mktime(0,0,0, date("m")+1, 0 + $i, date("Y"))));
+                array_push($current_month_dates, date('w Y m d', mktime(0,0,0, $last_m + 1, $i, $last_y)));
                 $i += 1;
             }
         }
+
         $i = 1;
         while ($i < 7) {
-            if ( preg_match('/^1\s/',$current_month_dates[0]) ) { // if the first day in the array is Monday
+            if ( preg_match('#^1\s.*$#', $current_month_dates[0]) ) { // if the first day in the array is Monday
                 break;
             } else {   // if the first day in the array is not Monday
-                array_unshift($current_month_dates, date('w Y m d', mktime(0,0,0, date("m"), 1 - $i, date("Y"))));
+                array_unshift($current_month_dates, date('w Y m d', mktime(0,0,0, $first_m, 1 - $i, $first_y)));
+                
                 $i += 1;
             }
         }
@@ -133,8 +104,7 @@ class CalendarViewController extends Controller
                             ];
         }
 
-        // return $date_list;
-        return view('stylist.calendar', compact('date_list'));
+        return view('stylist.calendar', compact('date_list', 'month'));
     }
 
     /**

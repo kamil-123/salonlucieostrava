@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css);@import url(https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css);@charset "UTF-8";
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -9969,12 +9969,13 @@ h3 {
 .stylist__item {
   display: flex;
   flex-direction: row;
+  justify-content: left;
   align-items: center;
   padding-bottom: 0.7em;
 }
 
 .stylist__label {
-  width: 10em;
+  width: 7em;
 }
 
 .stylist__input {
