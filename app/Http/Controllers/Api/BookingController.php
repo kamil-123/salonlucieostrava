@@ -30,6 +30,25 @@ class BookingController extends Controller
         '16:30:00' => null,
         
       ];
+      private $timeSlotTemplateWeekEnd = [
+        '09:00:00' => 0,
+        '09:30:00' => 0,
+        '10:00:00' => 0,
+        '10:30:00' => 0,
+        '11:00:00' => 0,
+        '11:30:00' => 0,
+        '12:00:00' => 0,
+        '12:30:00' => 0,
+        '13:00:00' => 0,
+        '13:30:00' => 0,
+        '14:00:00' => 0,
+        '14:30:00' => 0,
+        '15:00:00' => 0,
+        '15:30:00' => 0,
+        '16:00:00' => 0,
+        '16:30:00' => 0,
+        
+      ];
 
     /**
      * Display a listing of the resource.
@@ -53,7 +72,12 @@ class BookingController extends Controller
             $scheduleTemplate = [];
             for($i = 1; $i <= 14 ; $i++){
                 $day = date("Y-m-d", strtotime($today . ' + ' . $i . ' days'));
-                $scheduleTemplate[$day] = $this->timeSlotTemplate;
+                $dayNr = date('N',strtotime($day));
+                if($dayNr == 6 || $dayNr == 7){
+                    $scheduleTemplate[$day] = $this->timeSlotTemplateWeekEnd;
+                } else {
+                    $scheduleTemplate[$day] = $this->timeSlotTemplate;
+                }
             }
             
             foreach($bookings as $booking){
