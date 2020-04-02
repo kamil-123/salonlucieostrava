@@ -6,32 +6,36 @@
   color: #E6A779;
 }
 
-.buttons-container {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  margin: 8px;
-}
-
-.prev-button,
-.next-button {
+.button {
   flex: 1;
-  border: 2px solid #E6A779;
+  border: 1.5px solid #E6A779;
   padding: 4px 8px;
   margin: 8px;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 16px;
+  font-family: 'RobotoBlack';
 }
 
-.prev-button {
+.button.button-primary {
+  background-color: #E6A779;
+  color: white;
+}
+
+.button.button-secondary {
   background-color: white;
   color: #E6A779;
 }
 
-.next-button {
-  background-color: #E6A779;
-  color: white;
+.button:disabled {
+  opacity: 0.5;
+}
+
+.buttons-container {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin: 8px;
 }
 
 .bottom-container {
@@ -45,3 +49,4 @@
   font-family: 'roboto';
   margin-bottom: -8px;
 }
+

@@ -7,7 +7,11 @@
 
 require('./bootstrap');
 
+<<<<<<< HEAD
 window.Vue = require('vue');
+=======
+//window.Vue = require('vue');
+>>>>>>> 37227a5e71768ba3ddb23c4e861148ea8217c32e
 
 /**
  * The following block of code may be used to automatically register your

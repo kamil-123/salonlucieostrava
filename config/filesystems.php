@@ -64,6 +64,11 @@ return [
             'url' => env('AWS_URL'),
         ],
 
+        'stylists' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/images/stylists',
+        ],
+
     ],
 
     /*
