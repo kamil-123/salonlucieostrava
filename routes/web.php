@@ -31,7 +31,17 @@ Route::get('/home/calendar/{month?}', 'CalendarViewController@show')->name('cale
 // Routes Booking
 Route::post('/home/timeslot/block', 'BookingViewController@block');
 Route::post('/home/timeslot/create', 'BookingViewController@store');
-Route::get('/home/timeslot/create/{timeslot?}', 'BookingViewController@create');
+
+Route::get('/home/timeslot/create-date/{timeslot?}', 'BookingViewController@create');
+Route::post('/home/timeslot/create-date/{timeslot?}', 'BookingViewController@postCreate');
+
+Route::get('/home/timeslot/create-time', 'BookingViewController@createTime');
+Route::post('/home/timeslot/create-time', 'BookingViewController@postCreateTime');
+
+Route::get('/home/timeslot/confirm', 'BookingViewController@createBooking');
+Route::post('/home/timeslot/confirm', 'BookingViewController@postCreateBooking');
+
+
 Route::get('/home/timeslot/{id}', 'BookingViewController@show')->name('booking.details');
 Route::get('/home/timeslot/edit/{id}', 'BookingViewController@edit');
 Route::put('/home/timeslot/edit/{id}', 'BookingViewController@update');

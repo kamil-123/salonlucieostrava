@@ -57,10 +57,15 @@
                             </li>
                         @endif
                     @else
-                        @if (Auth::user()->stylist !== null)
+                        @can('admin')
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ action('StylistController@index') }}">{{ __('Stylists') }}</a>
+                            </li>    
+                        @endcan
+                        @if (Auth::user()->stylist !== null)
                                 <a class="nav-link" href="{{ route('treatmentindex') }}">{{ __('Treatments') }}</a>
-                            </li>
+                                <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+                            
                         @endif
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -91,7 +96,10 @@
               <div class='card'>
                 <div class='card-header'>New Booking</div>
                 <div class='card-body justify-content-left'>
-                  <form action={{ action('BookingViewController@store') }} method='POST'>
+                  <form 
+                    action={{ action('BookingViewController@postCreate') }} 
+                    method='POST'
+                  >
                     @csrf
 
                     @if (\Session::has('success'))
@@ -114,22 +122,7 @@
                       </div>
                     </div>
 
-                    {{-- Time  --}}
-                    <div class="row">
-                      <div class="form-group col-md-4">
-                        <label for="time">Starting Time</label>
-                        <select class="form-control" id="time" name='time'>
-                          @foreach ($timeSlotTemplate as $slotTemplate)
-                            @if ($timeslot === $slotTemplate)
-                              <option selected value={{ $slotTemplate }}>{{ $slotTemplate }}</option>
-                            @else
-                              <option value={{ $slotTemplate }}>{{ $slotTemplate }}</option>
-                            @endif
-                          @endforeach
-                        </select> 
-                      </div>
-                    </div>
-                    
+
 
                     {{-- Treatment  --}}
                     <div class="row">
@@ -144,35 +137,6 @@
                       </div>
                     </div>
 
-                    {{-- Names --}}
-                    <div class="row mb-4">
-                      <div class="col">
-                        <label for="first_name">First Name</label>
-                        <input id='first_name' name ='first_name' type="text" class="form-control" placeholder='First name'>
-                      </div>
-                      <div class="col">
-                        <label for="last_name">Last Name</label>
-                        <input id='last_name' name='last_name' type="text" class="form-control" placeholder='Last name'>
-                      </div>
-                    </div>
-
-                    {{-- Phone --}}
-                    <div class="row">
-                      <div class="form-group col-md-8">
-                        <label for="phone_number">Phone</label>
-                        <input id='phone_number' name='phone' type="tel" class="form-control" placeholder='Phone number'>
-                      </div>
-                    </div>
-
-                    {{-- Email --}}
-                    <div class="row">
-                      <div class="form-group col-md-8">
-                        <label for="email_address">Email</label>
-                        <input id='email_address' name='email' type="email" class="form-control" placeholder='Email address'>
-                      </div>
-                    </div>
-                    
-
                     {{-- Submit --}}
                     <div class="row">
                       <div class="col-md-4 d-flex"></div>
@@ -180,8 +144,7 @@
                         <input 
                           type="submit"
                           class="btn btn-success mx-auto"
-                          action=action()
-                          value="Book"
+                          value="Next"
                         >
                       </div>
                     </div>

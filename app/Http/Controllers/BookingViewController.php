@@ -47,7 +47,7 @@ class BookingViewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($timeslot = '09:00:00')
+    public function create(Request $request, $timeslot = '09:00:00')
     {   
         // get stylist_id
         $user_id  = auth()->id();
@@ -61,13 +61,237 @@ class BookingViewController extends Controller
         // get the current date for the date picker
         $date = date('m/d/Y', mktime(0,0,0, date('m'), date('d'), date('Y')));
 
+        // session to pass variables across pages
+        $inputs = $request->session()->get('inputs');
+
         return view('stylist.add_booking')->with([
             'timeslot' => $timeslot,
             'treatments' => $treatments,
             'date' => $date,
-            'timeSlotTemplate' => array_keys($this->timeSlotTemplate),
+            'inputs' => $inputs,
         ]);
     }
+
+    public function postCreate(Request $request)
+    {
+        $validated = $request->validate([
+            'date' => 'required',
+            'treatment' => 'required',
+        ]);
+
+        // get stylist_id
+        $user_id  = auth()->id();
+        $user = User::with('stylist.treatments')
+                        ->findOrFail($user_id);
+        $stylist_id = $user->stylist->id;
+
+        // store the inputs to the session
+        if(empty($request->session()->get('inputs'))) {
+            $booking = new Booking;
+            $booking->stylist_id = $stylist_id;
+            $booking->availability = 1;
+            $treatment = Treatment::findOrFail($validated['treatment']);
+            $booking->treatment_id = $treatment->id;
+            $inputs = [ 'booking' => $booking, 
+                        'treatment' => $treatment,
+                        'date' => $validated['date'],
+                        ];
+            $request->session()->put('inputs', $inputs);
+        } else {
+            $inputs = $request->session()->get('inputs');
+            $booking = isset($inputs['booking']) ? $inputs['booking'] : new Booking;
+            $booking->stylist_id = $stylist_id;
+            $booking->availability = 1;
+            $treatment = Treatment::findOrFail($validated['treatment']);
+            $booking->treatment_id = $treatment->id;
+            $inputs = [ 'booking' => $booking,
+                        'treatment' => $treatment,
+                        'date' => $validated['date'],
+                        'stylist_id' => $stylist_id,
+                        ];
+            $request->session()->put('inputs', $inputs);
+        }
+        
+        return redirect()->action('BookingViewController@createTime');
+    }
+
+
+    public function createTime(Request $request)
+    {  
+        $inputs = $request->session()->get('inputs');
+        [$month, $day, $year] = explode('/', $inputs['date']);
+        $date_start = date('Y-m-d H-i-s', mktime(0,0,0, $month, $day, $year));
+        $date_end = date('Y-m-d H-i-s', mktime(0,0,0, $month, $day+1, $year));
+
+        ///////////// FOR WEEKEND DEBUGGING ////////////
+        // $today = date('Y-m-d H-i-s', mktime(0,0,0, date('m'), date('d') -2, date('Y')));
+        // $tomorrow = date('Y-m-d H-i-s', mktime(0,0,0, date('m'), date('d') -1, date('Y')));
+        ////////////////////////////////////////////////
+
+        $bookings = Booking::where('stylist_id', $inputs['stylist_id'])
+                            ->where('start_at' , '>', $date_start)
+                            ->where('start_at' , '<', $date_end)
+                            ->orderBy('start_at' , 'asc')
+                            ->get();
+        
+        // formatting the fetched data
+        $formatted_all_schedule = [];
+        $dates = [];
+        if( isset($bookings[0]) ) { // if at least one booking exists on the day
+            $schedule = [];
+            $test = [];
+            foreach($bookings as $booking) {
+                $stylist_id = $booking->stylist_id;
+                $booking_id = $booking->id;
+                [$date, $time] = explode(" ", $booking['start_at']);
+                
+                if (array_key_exists($stylist_id, $schedule)) { // if a stylist has any bookings:
+                    if (array_key_exists($date, $schedule[$stylist_id])) { // if the stylist has a certain day in his/her bookings:
+                        $schedule[$stylist_id][$date][$time] = ['booking_id' => $booking_id, 
+                                                                'availability' => $booking->availability,
+                                                                'duration' => isset($booking->treatment) ? $booking->treatment->duration : null,
+                                                                ];
+                    } else { 
+                        $schedule[$stylist_id][$date] = [$time => ['booking_id' => $booking_id, 
+                                                                    'availability' => $booking->availability,
+                                                                    'duration' => isset($booking->treatment) ? $booking->treatment->duration : null,
+                                                                    ]]; 
+                    }
+                } else {
+                    $schedule[$stylist_id] = [$date => [$time => ['booking_id' => $booking_id, 
+                                                                'availability' => $booking->availability,
+                                                                'duration' => isset($booking->treatment) ? $booking->treatment->duration : null,
+                                                                ]]];
+                }
+            }
+            
+            // combine fetched data and the template
+            foreach ($schedule as $stylist => $dates) {
+                foreach ($dates as $date => $timeSlots) {
+                    $full_day_schedule = array_merge($this->timeSlotTemplate, $timeSlots);
+                    $formatted_all_schedule[$stylist][$date] = $full_day_schedule;
+                }; 
+            };
+
+
+            // Reflecting treatment duration 
+            $isContinuing = false;
+            $prevBooking = [];
+            $full_schedule[$stylist][$date] = [];
+            foreach ( $formatted_all_schedule[$stylist][$date] as $timeslot => $info ) {
+
+                if ( isset($info) ) {
+                    if ( $info['availability'] === 1 ) { // the timeslot is booked
+
+                        //  calculate the number of timeslots one booking takes
+                        [$hour, $minute, $s] = explode(":", $info['duration']);
+                        $slot = $minute === '30' ? 1 : 0; // if $minute='30', +1 slot. else 0 slot.
+                        $slot += (int)$hour * 2; // if $hour='1', +2 slots 
+                        $isContinuing = $slot > 1 ? true : false;
+                        $prevBooking = $info;
+                    } 
+                } else { // the timeslot is free
+                    if( $isContinuing ) { // the timeslot should be booked as continuation of the previous booking 
+                        $info = $prevBooking; // copy previous booking details
+                        $slot -= 1; // one slot (30 min) consumed
+                        $isContinuing = $slot > 1 ? true : false; // check whether the slot should still be continuing
+                    }
+                }
+                $full_schedule[$stylist][$date][$timeslot] = $info;
+            }
+
+            // just sending the schedule for the currently logged-in stylist
+            $full_schedule = $full_schedule[$stylist_id];
+            $date = array_keys($full_schedule)[0];
+
+        } else {
+            // return the array of empty slots with the selected date
+            [$month, $day, $year] = explode('/', $inputs['date']);
+            $date = date('Y-m-d', mktime(0,0,0, $month, $day, $year));
+            $full_schedule[$date] = $this->timeSlotTemplate;
+        }
+
+        // calculate the number of slots the selected treatment takes
+        [$d_hour, $d_min,] = explode(':', $inputs['treatment']['duration']); 
+        $d_slot = $d_min === '30' ? 1 : 0;
+        $d_slot += (int)$d_hour * 2;
+
+        // get the slots that the treatment can fit in
+        $free_slots = [];
+        $consective_slots = [];
+        foreach ($full_schedule[$date] as $timeslot => $booking_info) {
+            if($booking_info['availability'] === null) {
+                array_push($consective_slots, $timeslot);       // count the number of consective free slots
+                if (count($consective_slots) ===  $d_slot) {    // the free stots are long enough for the treatment
+                    $start_time = $consective_slots[0];
+                    $free_slots[$date][$start_time] = $booking_info;   
+                    array_shift($consective_slots);
+                }
+            } else {   // the free slots are not consective
+                $consective_slots = [];
+            }
+        }
+        $request->session()->put('inputs', $inputs);
+        return view('stylist.add_booking2', compact('date', 'free_slots'));
+    }
+    
+
+    public function postCreateTime(Request $request)
+    {
+        $validated = $request->validate([
+            'time' => 'required',
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'phone' => 'required|max:255',
+            'email' => 'email|required',
+        ]);
+        
+        $inputs = $request->session()->get('inputs');
+
+        // dd($inputs);
+        // formatting the dateTime data
+        [$month, $day, $year] = explode('/', $inputs['date']);
+        [$hour, $minute, $second] = explode(':', $validated['time']);
+        $start_at = date('Y-m-d H:i:s', mktime($hour, $minute, $second, $month, $day, $year));
+        $inputs['booking']->start_at = $start_at;
+
+        $customer = Customer::where('email', $validated['email'])->first();
+        
+        if( isset($customer) ) {
+            $customer->first_name = $validated['first_name'];
+            $customer->last_name = $validated['last_name'];
+            $customer->phone = $validated['phone'];
+        } else {
+            $customer = new Customer;
+            $customer->first_name = $validated['first_name'];
+            $customer->last_name = $validated['last_name'];
+            $customer->phone = $validated['phone'];
+            $customer->email = $validated['email'];
+        }
+        $inputs['customer'] = $customer;
+        $request->session()->put('inputs', $inputs);
+        return redirect()->action('BookingViewController@createBooking');
+    }
+
+
+    public function createBooking(Request $request) {
+        $inputs = $request->session()->get('inputs');
+        return view('stylist.add_booking3', compact('inputs'));
+    } 
+
+
+    public function postCreateBooking(Request $request) {
+        $inputs = $request->session()->get('inputs');
+        $inputs['customer']->save();
+        $inputs['booking']->customer_id = $inputs['customer']->id;
+        $inputs['booking']->save();
+        $inputs['customer']->bookings()->save($inputs['booking']);
+        $inputs['treatment']->bookings()->save($inputs['booking']);
+        $booking_id = $inputs['booking']->id;
+
+        return redirect()->route('booking.details', ['id' => $booking_id]);
+    }
+
 
 
     /**

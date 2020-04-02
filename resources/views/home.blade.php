@@ -87,7 +87,7 @@
             <div class="card">
                 <div class="card-header">Today's Schedule</div>
                 <div class="card-body">
-                    <h3>{{ date("d-m-Y") }}</h3>
+                    <h3>{{ date("j F Y, D") }}</h3>
                     <div id="table" class="table-editable">
                         <span class="table-add float-right mb-3 mr-2">
                             <a href="#!" class="text-success">
@@ -95,7 +95,7 @@
                             </a>
                         </span>
 
-                        @if ($message !== '')) 
+                        @if ($message !== '')
                             <div class="row d-flex my-4">   
                                 <div class='mx-auto'>{{ $message }}</div>
                             </div>

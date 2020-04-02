@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Booking;
+use App\User;
+use App\Stylist;
+
 
 class CalendarViewController extends Controller
 {
@@ -16,7 +19,7 @@ class CalendarViewController extends Controller
 
     private function getMonth($diff = 0) 
     {
-        // Generating a calendar of the current month
+        // Generating an empty calendar of the given month (default = current month)
         $first_day_of_the_month = date('w Y m d', mktime(0,0,0, date("m") + $diff, 1, date("Y")));
         $first_day_of_the_next_month = date('w Y m d', mktime(0,0,0, date("m") + $diff + 1, 1, date("Y")));
         $date = $first_day_of_the_month;
@@ -80,7 +83,6 @@ class CalendarViewController extends Controller
                 $i += 1;
             }
         }
-
         $i = 1;
         while ($i < 7) {
             if ( preg_match('#^1\s.*$#', $current_month_dates[0]) ) { // if the first day in the array is Monday
@@ -101,10 +103,36 @@ class CalendarViewController extends Controller
                             'month' => $m,
                             'day' => $d,
                             'full' => $day,
+                            'formatted' => $y . '-' . $m . '-' . $d,
                             ];
         }
 
-        return view('stylist.calendar', compact('date_list', 'month'));
+        // get stylist id
+        $user_id  = auth()->id();
+        $user = User::findOrFail($user_id);
+        if($user->stylist != null ) {
+            $stylist_id = Stylist::where('user_id',$user_id)->first()->id;
+        }
+
+        // get bookings of the given month 
+        $first_monday = $date_list[0]['year'].'-'. $date_list[0]['month'].'-'.$date_list[0]['day']." 00:00:00";
+        $last_sunday = end($date_list)['year'].'-'.end($date_list)['month'].'-'.end($date_list)['day'] ." 00:00:00";
+        $bookings = Booking::where('start_at', '>', $first_monday)
+                            ->where('start_at' , '<', $last_sunday)
+                            ->where('stylist_id', $stylist_id)
+                            ->orderBy('start_at', 'asc')
+                            ->with('customer')
+                            ->get();
+        foreach($bookings as $booking) {
+            [$date, $time] = explode(' ', $booking->start_at);
+            [$h, $m, $s] = explode(':', $time);
+            $booking['date'] = $date;
+            $booking['time'] = $h.':'.$m;
+        }
+
+        // return $bookings;
+
+        return view('stylist.calendar', compact('date_list', 'month', 'bookings'));
     }
 
     /**

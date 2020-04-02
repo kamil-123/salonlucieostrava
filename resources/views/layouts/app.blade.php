@@ -58,9 +58,9 @@
                                 </li>    
                             @endcan
                             @if (Auth::user()->stylist !== null)
-                                <li class="nav-item">
                                     <a class="nav-link" href="{{ route('treatmentindex') }}">{{ __('Treatments') }}</a>
-                                </li>
+                                    <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+                                
                             @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
