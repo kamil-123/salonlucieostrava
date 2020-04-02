@@ -20,7 +20,7 @@
                   @endif
                   {{-- <p class='card-text'> </p> --}}
                   <ul class='list-group list-group-flush'>
-                    <form action={{ action('StylistController@store') }} method="POST">
+                    <form action={{ action('StylistController@store') }} method="POST" enctype="multipart/form-data">
                       @csrf
                       {{-- First Name --}}
                       <li class='list-group-item stylist__item'>
@@ -38,7 +38,7 @@
                        <li class='list-group-item stylist__item'>  
                         <img class='mr-3' src='{{ asset('/images/icons/user.png') }}' alt='User icon' style='width:1.3rem' >
                         <label for="password" class="stylist__label">Password: </label> 
-                        <input type="password" name="password" id="" class="form-control stylist__input" value="{{old('last_name')}}"> 
+                        <input type="password" name="password" id="" class="form-control stylist__input" value="{{old('password')}}"> 
                       </li>
                       {{-- Phone --}}
                       <li class='list-group-item stylist__item'>
@@ -56,7 +56,7 @@
                       <li class='list-group-item stylist__item'>
                         <img class='mr-3' src='{{ asset('/images/icons/photo.png') }}' alt='Photo icon' style='width:1.3rem' >
                         <label for="photo" class="stylist__label">Photo: </label> 
-                        <input type="text" name="photo" id="" class="form-control stylist__input" value="{{old('photo')}}">
+                        <input type="file" name="photo" id="" class="form-control stylist__input" value="{{old('photo')}}">
                       </li>
                       {{-- Stylist job--}}
                       <li class='list-group-item stylist__item'>

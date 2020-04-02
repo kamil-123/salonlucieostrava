@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder
     {
         
 
-        \DB::table('users')->truncate();
+        \DB::table('users')->delete();
         
         \DB::table('users')->insert(array (
             0 => 
@@ -28,6 +28,7 @@ class UsersTableSeeder extends Seeder
                 'password' => '$2y$10$/5CobUIPLAu2kFJBYxmw5.LX64GqCxVFgZ9zM1SKkeSr5/7Z6J7iG',
                 'phone' => '606243030',
                 'remember_token' => NULL,
+                'role' => 1,
                 'updated_at' => '2020-03-22 20:52:59',
             ),
             1 => 
@@ -41,6 +42,7 @@ class UsersTableSeeder extends Seeder
                 'password' => '$2y$10$9pseu.X/GyVf7QbhI8ZNb.AglC49kiZ91NqWgNnPl1QHA9OpXTs.y',
                 'phone' => '739210694',
                 'remember_token' => NULL,
+                'role' => 2,
                 'updated_at' => '2020-03-22 21:42:13',
             ),
             2 => 
@@ -54,6 +56,7 @@ class UsersTableSeeder extends Seeder
                 'password' => '$2y$10$FMb3Jm/eW.jrg7VMeTdmHuZ7uRbkUQFr4Ept5R/RosA7P/UtSs7l6',
                 'phone' => '604705649',
                 'remember_token' => NULL,
+                'role' => 2,
                 'updated_at' => '2020-03-22 21:44:07',
             ),
             3 => 
@@ -67,6 +70,7 @@ class UsersTableSeeder extends Seeder
                 'password' => '$2y$10$rEIlynqrUSj2Ol9LhEdVq.DIp9gnG3M9CEaQzNsgP4ZJ8PrHjBSJe',
                 'phone' => '777718918',
                 'remember_token' => NULL,
+                'role' => 2,
                 'updated_at' => '2020-03-22 21:46:30',
             ),
         ));
