@@ -15,11 +15,12 @@ class StylistMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user() && $request->user()->stylist == null)
+        if(auth()->user()->role == 1 || auth()->user()->role == 2)
         {
             // return new Response(view('unauthorized')->with('role', 'STYLIST'));
-            return 'You are not stylist ';
+            // return 'You are not stylist ';
+            return $next($request);
         }
-        return $next($request);
+        return redirect('home')->with('error','You have not admin access');
     }
 }
