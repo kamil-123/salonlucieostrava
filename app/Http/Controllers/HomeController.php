@@ -148,6 +148,7 @@ class HomeController extends Controller
             } else {
                 $full_schedule = $this->timeSlotTemplate;
                 $message = 'There is no booking';
+                $date = [];
             }
             
         }

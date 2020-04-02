@@ -95,7 +95,7 @@
                             </a>
                         </span>
 
-                        @if ($message !== '')) 
+                        @if ($message !== '')
                             <div class="row d-flex my-4">   
                                 <div class='mx-auto'>{{ $message }}</div>
                             </div>
