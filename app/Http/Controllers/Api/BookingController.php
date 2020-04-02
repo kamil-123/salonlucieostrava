@@ -180,7 +180,7 @@ class BookingController extends Controller
             'customer_id' => 'required',
             'treatment_id' => 'required',
             'start_at' => 'required',
-            'availability' => 'required',
+            'availability' => 'required', 
         ]);
 
         $booking = Booking::create($validated);

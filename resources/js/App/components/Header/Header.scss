@@ -1,6 +1,7 @@
 .header {
   width: 100vw;
   height: 64px;
+  z-index: 10;
 }
 
 .logo {
@@ -47,4 +48,72 @@
 
 .hamb3{
   width: 40%;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.sidebar.active {
+  pointer-events: all;
+}
+
+.sidebar-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  
+  transition: background-color 240ms linear;
+  will-change: background-color;
+
+}
+
+.sidebar.active .sidebar-overlay {
+  background-color: rgba(0, 0, 0, .69);
+}
+
+.sidebar-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 256px;
+  background-color: white;
+  opacity: 85%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transform: translateX(256px);
+  transition: transform .2s linear;
+  will-change: transform;
+  z-index: 2;
+  text-align: center;
+  
+  font-size: 22px;
+}
+
+.sidebar.active .sidebar-content {
+  transform: translateX(0px);
+}
+
+.sidebar-content-flex {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 5px;
+}
+
+.sidebar-content-flex a {
+  padding: 15px 5px;
+  border-bottom: 3px solid whitesmoke;
+  font-family: 'audrey';
+  
+  
 }

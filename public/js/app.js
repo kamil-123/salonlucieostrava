@@ -2016,7 +2016,26 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "@font-face {\n  font-family: \"Audrey\";\n  src: local(\"Audrey\"), url(" + escape(__webpack_require__(/*! ./fonts/Audrey/Audrey-normal.otf */ "./resources/js/App/fonts/Audrey/Audrey-normal.otf")) + ") format(\"truetype\");\n}\n@font-face {\n  font-family: \"Roboto\";\n  src: local(\"Roboto\"), url(" + escape(__webpack_require__(/*! ./fonts/Roboto/Roboto-Thin.ttf */ "./resources/js/App/fonts/Roboto/Roboto-Thin.ttf")) + ") format(\"truetype\");\n}\nbody {\n  font-family: \"Roboto\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif !important;\n}", ""]);
+exports.push([module.i, "@font-face {\n  font-family: \"Audrey\";\n  src: local(\"Audrey\"), url(" + escape(__webpack_require__(/*! ./fonts/Audrey/Audrey-normal.otf */ "./resources/js/App/fonts/Audrey/Audrey-normal.otf")) + ") format(\"truetype\");\n}\n@font-face {\n  font-family: \"Roboto\";\n  src: local(\"Roboto\"), url(" + escape(__webpack_require__(/*! ./fonts/Roboto/Roboto-Thin.ttf */ "./resources/js/App/fonts/Roboto/Roboto-Thin.ttf")) + ") format(\"truetype\");\n}\n@font-face {\n  font-family: \"RobotoBlack\";\n  src: local(\"Roboto\"), url(" + escape(__webpack_require__(/*! ./fonts/Roboto/Roboto-Black.ttf */ "./resources/js/App/fonts/Roboto/Roboto-Black.ttf")) + ") format(\"truetype\");\n}\nbody {\n  font-family: \"Roboto\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif !important;\n}\n\n#root {\n  display: flex;\n  flex-flow: column nowrap;\n  min-height: 100vh;\n}\n\n#root main {\n  flex: 1;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/App/components/Footer/Footer.scss":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./resources/js/App/components/Footer/Footer.scss ***!
+  \*******************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".footer {\n  height: 84px;\n  background: whitesmoke;\n  position: relative;\n  width: 100vw;\n}\n\n.footer-content {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px 12px 0;\n  font-family: \"audrey\";\n  font-size: 16px;\n}\n\n.footer-content .link {\n  padding: 0 16px;\n  text-decoration: none;\n  color: black;\n}\n\n.footer h5 {\n  position: absolute;\n  right: 4px;\n  bottom: 0;\n  font-size: 10px;\n  margin-top: 24px;\n}\n\n.footer-contact {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}", ""]);
 
 // exports
 
@@ -2035,7 +2054,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".header {\n  width: 100vw;\n  height: 64px;\n}\n\n.logo {\n  color: black;\n  font-family: \"Audrey\";\n  font-size: 1.5rem;\n}\n\n.header-content {\n  padding: 0 16px;\n  display: flex;\n  flex-flow: row nowrap;\n  align-items: center;\n  justify-content: space-between;\n  height: 100%;\n}\n\n.hamburger {\n  width: 40px;\n  height: 30px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n\n.hamb1, .hamb2, .hamb3 {\n  height: 3px;\n  background-color: #E6A779;\n  flex-direction: row-reverse;\n  margin: 2px;\n  align-self: flex-end;\n}\n\n.hamb1 {\n  width: 100%;\n}\n\n.hamb2 {\n  width: 70%;\n}\n\n.hamb3 {\n  width: 40%;\n}", ""]);
+exports.push([module.i, ".header {\n  width: 100vw;\n  height: 64px;\n  z-index: 10;\n}\n\n.logo {\n  color: black;\n  font-family: \"Audrey\";\n  font-size: 1.5rem;\n}\n\n.header-content {\n  padding: 0 16px;\n  display: flex;\n  flex-flow: row nowrap;\n  align-items: center;\n  justify-content: space-between;\n  height: 100%;\n}\n\n.hamburger {\n  width: 40px;\n  height: 30px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n\n.hamb1, .hamb2, .hamb3 {\n  height: 3px;\n  background-color: #E6A779;\n  flex-direction: row-reverse;\n  margin: 2px;\n  align-self: flex-end;\n}\n\n.hamb1 {\n  width: 100%;\n}\n\n.hamb2 {\n  width: 70%;\n}\n\n.hamb3 {\n  width: 40%;\n}\n\n.sidebar {\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  z-index: 100;\n  pointer-events: none;\n}\n\n.sidebar.active {\n  pointer-events: all;\n}\n\n.sidebar-overlay {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 1;\n  transition: background-color 240ms linear;\n  will-change: background-color;\n}\n\n.sidebar.active .sidebar-overlay {\n  background-color: rgba(0, 0, 0, 0.69);\n}\n\n.sidebar-content {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  width: 256px;\n  background-color: white;\n  opacity: 85%;\n  overflow-y: auto;\n  overflow-x: hidden;\n  transform: translateX(256px);\n  transition: transform 0.2s linear;\n  will-change: transform;\n  z-index: 2;\n  text-align: center;\n  font-size: 22px;\n}\n\n.sidebar.active .sidebar-content {\n  transform: translateX(0px);\n}\n\n.sidebar-content-flex {\n  display: flex;\n  flex-direction: column;\n  padding: 15px 5px;\n}\n\n.sidebar-content-flex a {\n  padding: 15px 5px;\n  border-bottom: 3px solid whitesmoke;\n  font-family: \"audrey\";\n}", ""]);
 
 // exports
 
@@ -2054,17 +2073,17 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".book-appointment-title {\n  font-family: \"Audrey\";\n  font-size: 32px;\n  font-weight: bold;\n  padding: 0 16px;\n  color: #E6A779;\n}\n\n.buttons-container {\n  display: flex;\n  flex-flow: row nowrap;\n  align-items: center;\n  margin: 8px;\n}\n\n.prev-button,\n.next-button {\n  flex: 1;\n  border: 2px solid #E6A779;\n  padding: 4px 8px;\n  margin: 8px;\n  text-transform: uppercase;\n  font-weight: bold;\n  font-size: 16px;\n}\n\n.prev-button {\n  background-color: white;\n  color: #E6A779;\n}\n\n.next-button {\n  background-color: #E6A779;\n  color: white;\n}\n\n.bottom-container {\n  display: flex;\n  flex-direction: column;\n  text-align: center;\n}\n\n.bottom-container h3 {\n  font-size: 16px;\n  font-family: \"roboto\";\n  margin-bottom: -8px;\n}", ""]);
+exports.push([module.i, ".book-appointment-title {\n  font-family: \"Audrey\";\n  font-size: 32px;\n  font-weight: bold;\n  padding: 0 16px;\n  color: #E6A779;\n}\n\n.button {\n  flex: 1;\n  border: 1.5px solid #E6A779;\n  padding: 4px 8px;\n  margin: 8px;\n  text-transform: uppercase;\n  font-weight: bold;\n  font-size: 16px;\n  font-family: \"RobotoBlack\";\n}\n\n.button.button-primary {\n  background-color: #E6A779;\n  color: white;\n}\n\n.button.button-secondary {\n  background-color: white;\n  color: #E6A779;\n}\n\n.button:disabled {\n  opacity: 0.5;\n}\n\n.buttons-container {\n  display: flex;\n  flex-flow: row nowrap;\n  align-items: center;\n  margin: 8px;\n}\n\n.bottom-container {\n  display: flex;\n  flex-direction: column;\n  text-align: center;\n}\n\n.bottom-container h3 {\n  font-size: 16px;\n  font-family: \"roboto\";\n  margin-bottom: -8px;\n}", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/App/pages/BookAppointment/ChooseService/ChooseService.scss":
-/*!********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./resources/js/App/pages/BookAppointment/ChooseService/ChooseService.scss ***!
-  \********************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/App/pages/BookAppointment/Calendar/Calendar.scss":
+/*!**********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./resources/js/App/pages/BookAppointment/Calendar/Calendar.scss ***!
+  \**********************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2073,16 +2092,54 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".choose-service-container {\n  display: flex;\n  flex-flow: row wrap;\n  height: 100%;\n  transition: background-color 0.1s linear;\n  justify-content: center;\n}", ""]);
+exports.push([module.i, ".calendar {\n  height: 100%;\n  margin: 0 16px;\n}\n\n.calendar-title {\n  font-size: 24px;\n  font-weight: bold;\n  font-family: \"Audrey\";\n}\n\n.calendar-datepicker,\n.calendar-timepicker {\n  width: 100%;\n  margin-bottom: 16px;\n  box-shadow: 0px 0px 4px 1px #E6A779;\n}\n\n.calendar-datepicker th,\n.calendar-timepicker th,\n.calendar-datepicker td,\n.calendar-timepicker td {\n  text-align: center;\n}\n\n.calendar-datepicker tbody span,\n.calendar-timepicker tbody span,\n.calendar-datepicker th,\n.calendar-timepicker th {\n  padding: 4px;\n}\n\n.calendar-datepicker thead th {\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #E6A779;\n}\n\n.calendar-datepicker tbody span.active,\n.calendar-timepicker tbody span.active {\n  background-color: #E6A779;\n  color: white;\n}\n\n.calendar-datepicker tbody span.active {\n  border-radius: 50%;\n}\n\n.calendar-timepicker tbody tr td,\n.calendar-datepicker tbody tr td {\n  padding-top: 8px;\n}\n\n.calendar-timepicker span.available {\n  color: black;\n}\n\n.calendar-timepicker span.unavailable {\n  color: rgba(0, 0, 0, 0.3);\n}", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/App/pages/BookAppointment/ChooseService/ServiceItem.scss":
+/***/ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/App/pages/BookAppointment/ChooseTreatment/ChooseTreatment.scss":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./resources/js/App/pages/BookAppointment/ChooseTreatment/ChooseTreatment.scss ***!
+  \************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".choose-treatment-container {\n  height: 100%;\n  margin: 0 16px;\n}\n\n.choose-treatment-title {\n  font-size: 24px;\n  font-weight: bold;\n  margin-bottom: 16px;\n  font-family: \"Audrey\";\n}\n\n.treatments {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/App/pages/BookAppointment/ChooseTreatment/TreatmentItem.scss":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./resources/js/App/pages/BookAppointment/ChooseTreatment/TreatmentItem.scss ***!
+  \**********************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".treatment-item {\n  border: 1px solid #E6A779;\n  height: 160px;\n  transition: background-color 0.1s linear;\n  margin: 4px;\n  font-family: \"audrey\";\n  font-weight: lighter;\n  flex-basis: calc(50% - 8px);\n  display: flex;\n  flex-flow: column nowrap;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n}\n\n.treatment-item:hover,\n.treatment-item.active {\n  background-color: #E6A779;\n  color: white;\n}\n\n.empty-treatment-item {\n  height: 160px;\n  margin: 4px;\n  flex-basis: calc(50% - 8px);\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/App/pages/BookAppointment/CustomerInfo/CustomerInfo.scss":
 /*!******************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./resources/js/App/pages/BookAppointment/ChooseService/ServiceItem.scss ***!
+  !*** ./node_modules/css-loader!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./resources/js/App/pages/BookAppointment/CustomerInfo/CustomerInfo.scss ***!
   \******************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -2092,7 +2149,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".service-item {\n  border: 1px solid #E6A779;\n  display: flex;\n  flex-flow: column wrap;\n  width: 100%;\n  height: 160px;\n  transition: background-color 0.1s linear;\n  margin: 12px 20px;\n  font-family: \"audrey\";\n  font-weight: lighter;\n}\n\n.service-item:hover,\n.service-item.active {\n  background-color: #E6A779;\n  color: white;\n}", ""]);
+exports.push([module.i, ".customer-info-container {\n  display: flex;\n  flex-flow: column nowrap;\n  align-items: center;\n  padding: 16px 0;\n}\n\n.customer-info-title {\n  font-size: 24px;\n  font-weight: bold;\n  font-family: \"Audrey\";\n  padding-left: 16px;\n}\n\n.customer-info {\n  font-size: 16px;\n  font-family: \"audrey\";\n}\n\n.customer-info-container input {\n  width: 70vw;\n  padding: 8px 16px;\n  font-size: 14px;\n  text-align: center;\n  margin-bottom: 16px;\n  border: none;\n  outline: none;\n}", ""]);
 
 // exports
 
@@ -2150,7 +2207,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "@font-face {\n  font-family: \"Audrey\";\n  src: local(\"Audrey\"), url(" + escape(__webpack_require__(/*! ../../fonts/Audrey/Audrey-Medium.otf */ "./resources/js/App/fonts/Audrey/Audrey-Medium.otf")) + ") format(\"truetype\");\n}\n@font-face {\n  font-family: \"Roboto\";\n  src: local(\"Roboto\"), url(" + escape(__webpack_require__(/*! ../../fonts/Roboto/Roboto-Thin.ttf */ "./resources/js/App/fonts/Roboto/Roboto-Thin.ttf")) + ") format(\"truetype\");\n}\n.mainPage {\n  background-image: url(" + escape(__webpack_require__(/*! ../../images/backgroundPhoto1.jpg */ "./resources/js/App/images/backgroundPhoto1.jpg")) + ");\n  margin-top: -64px;\n  height: 85.56vh;\n  width: 100vw;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: 60% 50%;\n  box-sizing: border-box;\n  padding: 1rem;\n}\n.mainPage__header {\n  display: flex;\n  justify-content: space-between;\n  color: white;\n}\n.mainPage__box {\n  display: flex;\n  flex-direction: column;\n}\n\n.mainTitle1, .mainTitle2 {\n  font-family: \"Audrey\";\n  font-size: 79px;\n  color: white;\n}\n\n.mainTitle1 {\n  margin-bottom: -1.5rem;\n  margin-top: 12rem;\n}\n\n.mainSubtitle {\n  font-family: \"Roboto\";\n  font-size: 2em;\n  color: white;\n}\n\n.buttonBook1, .buttonAbout {\n  width: 240px;\n  height: 50px;\n  font-size: 24px;\n  font-family: \"Audrey\";\n  color: white;\n  text-align: center;\n  padding-top: 7px;\n}\n\n.buttonBook1 {\n  background-color: #E6A779;\n  opacity: 85%;\n}\n\n.buttonAbout {\n  border: 2px solid #E6A779;\n  margin-top: 0.7rem;\n}\n\n.aboutSection {\n  font-family: \"Audrey\";\n  position: relative;\n  top: 20vh;\n  margin-top: 28px;\n  text-align: center;\n}\n\n.aboutSection h1 {\n  border-bottom: 1px solid #E6A779;\n}\n\n.buttonBook2 {\n  background-color: #E6A779;\n  font-family: \"Audrey\";\n  padding-top: 7px;\n  font-size: 24px;\n  width: 80vw;\n  height: 6vh;\n  color: white;\n  margin: 20px;\n}", ""]);
+exports.push([module.i, "@font-face {\n  font-family: \"Audrey\";\n  src: local(\"Audrey\"), url(" + escape(__webpack_require__(/*! ../../fonts/Audrey/Audrey-Medium.otf */ "./resources/js/App/fonts/Audrey/Audrey-Medium.otf")) + ") format(\"truetype\");\n}\n@font-face {\n  font-family: \"Roboto\";\n  src: local(\"Roboto\"), url(" + escape(__webpack_require__(/*! ../../fonts/Roboto/Roboto-Thin.ttf */ "./resources/js/App/fonts/Roboto/Roboto-Thin.ttf")) + ") format(\"truetype\");\n}\n.mainPage {\n  background-image: url(" + escape(__webpack_require__(/*! ../../images/backgroundPhoto1.jpg */ "./resources/js/App/images/backgroundPhoto1.jpg")) + ");\n  margin-top: -64px;\n  height: 85.56vh;\n  width: 100vw;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: 60% 50%;\n  box-sizing: border-box;\n  padding: 1rem;\n}\n.mainPage__header {\n  display: flex;\n  justify-content: space-between;\n  color: white;\n}\n.mainPage__box {\n  display: flex;\n  flex-direction: column;\n}\n\n.mainTitle1, .mainTitle2 {\n  font-family: \"Audrey\";\n  font-size: 79px;\n  color: white;\n}\n\n.mainTitle1 {\n  margin-bottom: -1.5rem;\n  margin-top: 12rem;\n}\n\n.mainSubtitle {\n  font-family: \"Roboto\";\n  font-size: 2em;\n  color: white;\n}\n\n.buttonBook1, .buttonAbout {\n  width: 240px;\n  font-size: 24px;\n  font-family: \"Audrey\";\n  color: white;\n  text-align: center;\n  padding: 8px 16px;\n}\n\n.buttonBook1 {\n  background-color: #E6A779;\n  opacity: 85%;\n  margin-bottom: 8px;\n}\n\n.buttonAbout {\n  border: 2px solid #E6A779;\n}\n\n.mainActions {\n  display: flex;\n  flex-flow: column nowrap;\n  align-items: flex-start;\n}\n\n.aboutSection {\n  font-family: \"Audrey\";\n  position: relative;\n  margin: 24px 0;\n  text-align: center;\n}\n\n.aboutSection h1 {\n  border-bottom: 1px solid #E6A779;\n}\n\n.aboutSection h4 {\n  padding-bottom: 20px;\n}\n\n.buttonBook2 {\n  background-color: #E6A779;\n  font-family: \"Audrey\";\n  font-size: 24px;\n  color: white;\n  padding: 16px 32px 12px;\n  margin: 40px 0px;\n}", ""]);
 
 // exports
 
@@ -53847,8 +53904,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Home */ "./resources/js/App/pages/Home/index.jsx");
 /* harmony import */ var _pages_BookAppointment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/BookAppointment */ "./resources/js/App/pages/BookAppointment/index.jsx");
 /* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Header */ "./resources/js/App/components/Header/index.jsx");
-/* harmony import */ var _App_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./App.scss */ "./resources/js/App/App.scss");
-/* harmony import */ var _App_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_App_scss__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Footer */ "./resources/js/App/components/Footer/index.jsx");
+/* harmony import */ var _App_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./App.scss */ "./resources/js/App/App.scss");
+/* harmony import */ var _App_scss__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_App_scss__WEBPACK_IMPORTED_MODULE_6__);
 function _typeof(obj) {
   "@babel/helpers - typeof";
 
@@ -53971,6 +54029,7 @@ function _setPrototypeOf(o, p) {
 
 
 
+
 var App = /*#__PURE__*/function (_React$Component) {
   _inherits(App, _React$Component);
 
@@ -53985,15 +54044,17 @@ var App = /*#__PURE__*/function (_React$Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         component: _components_Header__WEBPACK_IMPORTED_MODULE_4__["default"]
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/react/home",
         component: _pages_Home__WEBPACK_IMPORTED_MODULE_2__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/react/book-appointment",
         component: _pages_BookAppointment__WEBPACK_IMPORTED_MODULE_3__["default"]
-      }))));
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+        component: _components_Footer__WEBPACK_IMPORTED_MODULE_5__["default"]
+      }));
     }
   }]);
 
@@ -54031,6 +54092,210 @@ var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addS
 if(content.locals) module.exports = content.locals;
 
 if(false) {}
+
+/***/ }),
+
+/***/ "./resources/js/App/components/Footer/Footer.scss":
+/*!********************************************************!*\
+  !*** ./resources/js/App/components/Footer/Footer.scss ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/postcss-loader/src??ref--8-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!./Footer.scss */ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/App/components/Footer/Footer.scss");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./resources/js/App/components/Footer/index.jsx":
+/*!******************************************************!*\
+  !*** ./resources/js/App/components/Footer/index.jsx ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _Footer_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Footer.scss */ "./resources/js/App/components/Footer/Footer.scss");
+/* harmony import */ var _Footer_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Footer_scss__WEBPACK_IMPORTED_MODULE_2__);
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _createSuper(Derived) {
+  return function () {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (_isNativeReflectConstruct()) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
+  };
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized(self);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+
+
+
+
+var Footer = /*#__PURE__*/function (_React$Component) {
+  _inherits(Footer, _React$Component);
+
+  var _super = _createSuper(Footer);
+
+  function Footer() {
+    _classCallCheck(this, Footer);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(Footer, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
+        className: "footer"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "footer-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "link",
+        to: "/react/menu"
+      }, "Menu"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "link",
+        to: "/react/stylists"
+      }, "Stylists"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "link",
+        to: "/react/gallery"
+      }, "Gallery"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "link",
+        to: "/react/contactLocation"
+      }, "Contact")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "\xA9 2020"));
+    }
+  }]);
+
+  return Footer;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Footer);
 
 /***/ }),
 
@@ -54193,6 +54458,21 @@ function _setPrototypeOf(o, p) {
   return _setPrototypeOf(o, p);
 }
 
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
 
 
 
@@ -54203,15 +54483,41 @@ var Header = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(Header);
 
   function Header() {
+    var _this;
+
     _classCallCheck(this, Header);
 
-    return _super.apply(this, arguments);
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      visible: false
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "toggleHamburger", function () {
+      return _this.setState({
+        visible: !_this.state.visible
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "redirectTo", function (url) {
+      var history = _this.props.history;
+      history.push(url);
+
+      _this.toggleHamburger();
+    });
+
+    return _this;
   }
 
   _createClass(Header, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      var visible = this.state.visible;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
         className: "header"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "header-content"
@@ -54220,6 +54526,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "logo"
       }, "Logo")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onClick: this.toggleHamburger,
         className: "hamburger"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "hamb1"
@@ -54227,7 +54534,28 @@ var Header = /*#__PURE__*/function (_React$Component) {
         className: "hamb2"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "hamb3"
-      }))));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sidebar ".concat(visible ? 'active' : '')
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onClick: visible ? this.toggleHamburger : undefined,
+        className: "sidebar-overlay"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sidebar-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sidebar-content-flex"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        onClick: this.redirectTo.bind(this, '/react/home')
+      }, "Home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        onClick: this.redirectTo.bind(this, '/react/menu')
+      }, "Menu"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        onClick: this.redirectTo.bind(this, '/react/stylists')
+      }, "Stylists"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        onClick: this.redirectTo.bind(this, '/react/gallery')
+      }, "Gallery"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        onClick: this.redirectTo.bind(this, '/react/contact-location')
+      }, "Contact and Location"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        onClick: this.redirectTo.bind(this, '/react/book-appointment')
+      }, "BOOK NOW"))))));
     }
   }]);
 
@@ -54257,6 +54585,17 @@ module.exports = "/fonts/Audrey-Medium.otf?ba10e9e7dc0f842a07e633b3f21f1e50";
 /***/ (function(module, exports) {
 
 module.exports = "/fonts/Audrey-normal.otf?c18fb9cb8efeb49b314b664e57bc67ff";
+
+/***/ }),
+
+/***/ "./resources/js/App/fonts/Roboto/Roboto-Black.ttf":
+/*!********************************************************!*\
+  !*** ./resources/js/App/fonts/Roboto/Roboto-Black.ttf ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/fonts/Roboto-Black.ttf?5ebb24ee1112dd9562629375c387879a";
 
 /***/ }),
 
@@ -54312,6 +54651,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./resources/js/App/pages/BookAppointment/Calendar/Calendar.scss":
+/*!***********************************************************************!*\
+  !*** ./resources/js/App/pages/BookAppointment/Calendar/Calendar.scss ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader!../../../../../../node_modules/postcss-loader/src??ref--8-2!../../../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!./Calendar.scss */ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/App/pages/BookAppointment/Calendar/Calendar.scss");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./resources/js/App/pages/BookAppointment/Calendar/index.jsx":
 /*!*******************************************************************!*\
   !*** ./resources/js/App/pages/BookAppointment/Calendar/index.jsx ***!
@@ -54328,6 +54697,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Calendar_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Calendar.scss */ "./resources/js/App/pages/BookAppointment/Calendar/Calendar.scss");
+/* harmony import */ var _Calendar_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_Calendar_scss__WEBPACK_IMPORTED_MODULE_4__);
 
 
 function _typeof(obj) {
@@ -54498,6 +54871,27 @@ function _defineProperty(obj, key, value) {
 
 
 
+
+
+var DEFAULT_TIMESLOT = {
+  // original timeslots
+  '09:00:00': 0,
+  '09:30:00': 0,
+  '10:00:00': 0,
+  '10:30:00': 0,
+  '11:00:00': 0,
+  '11:30:00': 0,
+  '12:00:00': 0,
+  '12:30:00': 0,
+  '13:00:00': 0,
+  '13:30:00': 0,
+  '14:00:00': 0,
+  '14:30:00': 0,
+  '15:00:00': 0,
+  '15:30:00': 0,
+  '16:00:00': 0,
+  '16:30:00': 0
+};
 
 var Calendar = /*#__PURE__*/function (_React$Component) {
   _inherits(Calendar, _React$Component);
@@ -54517,30 +54911,21 @@ var Calendar = /*#__PURE__*/function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       dateRange: [],
-      availableTimeSlots: []
+      timeslotAvailability: {}
     });
 
     _defineProperty(_assertThisInitialized(_this), "setDate", /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(date) {
-        var setDate, response, availableTimeSlots;
+        var setFormField, startAt;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                setDate = _this.props.setDate;
-                setDate(date);
-                _context.next = 4;
-                return axios.get("/api/booking?stylist_id=".concat(_this.props.stylist_id, "&start_at=").concat(date));
+                setFormField = _this.props.setFormField;
+                startAt = moment__WEBPACK_IMPORTED_MODULE_2___default()(date).toDate();
+                setFormField('startAt', startAt);
 
-              case 4:
-                response = _context.sent;
-                availableTimeSlots = response.data;
-
-                _this.setState({
-                  availableTimeSlots: availableTimeSlots
-                });
-
-              case 7:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -54553,61 +54938,206 @@ var Calendar = /*#__PURE__*/function (_React$Component) {
       };
     }());
 
+    _defineProperty(_assertThisInitialized(_this), "setTimeslot", function (time) {
+      var _this$props = _this.props,
+          setFormField = _this$props.setFormField,
+          startAt = _this$props.startAt;
+      var date = moment__WEBPACK_IMPORTED_MODULE_2___default()(startAt).format('DD-MM-YYYY');
+      var newStartAt = moment__WEBPACK_IMPORTED_MODULE_2___default()("".concat(date, " ").concat(time), 'DD-MM-YYYY HH:mm').toDate();
+      setFormField('startAt', newStartAt);
+    });
+
     return _this;
   }
 
   _createClass(Calendar, [{
     key: "componentDidMount",
-    value: function componentDidMount() {
-      var dateRange = [moment__WEBPACK_IMPORTED_MODULE_2___default()()];
+    value: function () {
+      var _componentDidMount = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var response, timeslotAvailability, dateRange, index;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/booking?stylist_id=".concat(this.props.stylist.id));
 
-      for (var index = 1; index <= 14; index++) {
-        dateRange.push(moment__WEBPACK_IMPORTED_MODULE_2___default()().add(index, 'days'));
+              case 2:
+                response = _context2.sent;
+                timeslotAvailability = response.data;
+                dateRange = [moment__WEBPACK_IMPORTED_MODULE_2___default()()];
+
+                for (index = 1; index <= 14; index++) {
+                  dateRange.push(moment__WEBPACK_IMPORTED_MODULE_2___default()().add(index, 'days'));
+                }
+
+                this.setState({
+                  dateRange: dateRange,
+                  timeslotAvailability: timeslotAvailability
+                });
+
+              case 7:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function componentDidMount() {
+        return _componentDidMount.apply(this, arguments);
       }
 
-      this.setState({
-        dateRange: dateRange
-      });
-    }
+      return componentDidMount;
+    }()
   }, {
     key: "render",
     value: function render() {
-      var dateRange = this.state.dateRange;
-      var setDate = this.props.setDate; //
+      var _this$state = this.state,
+          dateRange = _this$state.dateRange,
+          timeslotAvailability = _this$state.timeslotAvailability;
+      var _this$props2 = this.props,
+          startAt = _this$props2.startAt,
+          treatment = _this$props2.treatment;
 
       if (!dateRange.length) {
         return null;
       }
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("th", null, dateRange[0].format('dd')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("th", null, dateRange[1].format('dd')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("th", null, dateRange[2].format('dd')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("th", null, dateRange[3].format('dd')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("th", null, dateRange[4].format('dd')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("th", null, dateRange[5].format('dd')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("th", null, dateRange[6].format('dd')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
-        onClick: setDate.bind(this, dateRange[0].toDate())
-      }, dateRange[0].format('DD')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
-        onClick: setDate.bind(this, dateRange[1].toDate())
-      }, dateRange[1].format('DD')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
-        onClick: setDate.bind(this, dateRange[2].toDate())
-      }, dateRange[2].format('DD')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
-        onClick: setDate.bind(this, dateRange[3].toDate())
-      }, dateRange[3].format('DD')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
-        onClick: setDate.bind(this, dateRange[4].toDate())
-      }, dateRange[4].format('DD')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
-        onClick: setDate.bind(this, dateRange[5].toDate())
-      }, dateRange[5].format('DD')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
-        onClick: setDate.bind(this, dateRange[6].toDate())
-      }, dateRange[6].format('DD'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
-        onClick: setDate.bind(this, dateRange[7].toDate())
-      }, dateRange[7].format('DD')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
-        onClick: setDate.bind(this, dateRange[8].toDate())
-      }, dateRange[8].format('DD')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
-        onClick: setDate.bind(this, dateRange[9].toDate())
-      }, dateRange[9].format('DD')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
-        onClick: setDate.bind(this, dateRange[10].toDate())
-      }, dateRange[10].format('DD')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
-        onClick: setDate.bind(this, dateRange[11].toDate())
-      }, dateRange[11].format('DD')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
-        onClick: setDate.bind(this, dateRange[12].toDate())
-      }, dateRange[12].format('DD')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
-        onClick: setDate.bind(this, dateRange[13].toDate())
-      }, dateRange[13].format('DD'))))));
+      var selectedDate = moment__WEBPACK_IMPORTED_MODULE_2___default()(startAt).format('DD');
+      var selectedTimeslot = moment__WEBPACK_IMPORTED_MODULE_2___default()(startAt).format('H:mm');
+      var timeslot = timeslotAvailability[moment__WEBPACK_IMPORTED_MODULE_2___default()(startAt).format('YYYY-MM-DD')] || DEFAULT_TIMESLOT;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "calendar"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "calendar-title"
+      }, "Select your date"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("table", {
+        className: "calendar-datepicker"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("th", null, dateRange[0].format('dd')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("th", null, dateRange[1].format('dd')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("th", null, dateRange[2].format('dd')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("th", null, dateRange[3].format('dd')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("th", null, dateRange[4].format('dd')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("th", null, dateRange[5].format('dd')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("th", null, dateRange[6].format('dd')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: this.setDate.bind(this, dateRange[0].toDate())
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: selectedDate === dateRange[0].format('DD') ? 'active' : ''
+      }, dateRange[0].format('DD'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: this.setDate.bind(this, dateRange[1].toDate())
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: selectedDate === dateRange[1].format('DD') ? 'active' : ''
+      }, dateRange[1].format('DD'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: this.setDate.bind(this, dateRange[2].toDate())
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: selectedDate === dateRange[2].format('DD') ? 'active' : ''
+      }, dateRange[2].format('DD'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: this.setDate.bind(this, dateRange[3].toDate())
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: selectedDate === dateRange[3].format('DD') ? 'active' : ''
+      }, dateRange[3].format('DD'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: this.setDate.bind(this, dateRange[4].toDate())
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: selectedDate === dateRange[4].format('DD') ? 'active' : ''
+      }, dateRange[4].format('DD'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: this.setDate.bind(this, dateRange[5].toDate())
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: selectedDate === dateRange[5].format('DD') ? 'active' : ''
+      }, dateRange[5].format('DD'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: this.setDate.bind(this, dateRange[6].toDate())
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: selectedDate === dateRange[6].format('DD') ? 'active' : ''
+      }, dateRange[6].format('DD')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: this.setDate.bind(this, dateRange[7].toDate())
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: selectedDate === dateRange[7].format('DD') ? 'active' : ''
+      }, dateRange[7].format('DD'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: this.setDate.bind(this, dateRange[8].toDate())
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: selectedDate === dateRange[8].format('DD') ? 'active' : ''
+      }, dateRange[8].format('DD'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: this.setDate.bind(this, dateRange[9].toDate())
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: selectedDate === dateRange[9].format('DD') ? 'active' : ''
+      }, dateRange[9].format('DD'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: this.setDate.bind(this, dateRange[10].toDate())
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: selectedDate === dateRange[10].format('DD') ? 'active' : ''
+      }, dateRange[10].format('DD'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: this.setDate.bind(this, dateRange[11].toDate())
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: selectedDate === dateRange[11].format('DD') ? 'active' : ''
+      }, dateRange[11].format('DD'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: this.setDate.bind(this, dateRange[12].toDate())
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: selectedDate === dateRange[12].format('DD') ? 'active' : ''
+      }, dateRange[12].format('DD'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: this.setDate.bind(this, dateRange[13].toDate())
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: selectedDate === dateRange[13].format('DD') ? 'active' : ''
+      }, dateRange[13].format('DD')))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "calendar-title"
+      }, "Select your timeslot"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("table", {
+        className: "calendar-timepicker"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: timeslot['9:00:00'] === null ? this.setTimeslot.bind(this, '9:00') : undefined
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: "".concat(selectedTimeslot === '9:00' ? 'active' : '', " ").concat(timeslot['9:00:00'] === null ? 'available' : 'unavailable')
+      }, "9:00")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: timeslot['11:00:00'] === null ? this.setTimeslot.bind(this, '11:00') : undefined
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: "".concat(selectedTimeslot === '11:00' ? 'active' : '', " ").concat(timeslot['11:00:00'] === null ? 'available' : 'unavailable')
+      }, "11:00")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: timeslot['13:00:00'] === null ? this.setTimeslot.bind(this, '13:00') : undefined
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: "".concat(selectedTimeslot === '13:00' ? 'active' : '', " ").concat(timeslot['13:00:00'] === null ? 'available' : 'unavailable')
+      }, "13:00")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: timeslot['15:00:00'] === null ? this.setTimeslot.bind(this, '15:00') : undefined
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: "".concat(selectedTimeslot === '15:00' ? 'active' : '', " ").concat(timeslot['15:00:00'] === null ? 'available' : 'unavailable')
+      }, "15:00"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: timeslot['9:30:00'] === null ? this.setTimeslot.bind(this, '9:30') : undefined
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: "".concat(selectedTimeslot === '9:30' ? 'active' : '', " ").concat(timeslot['9:30:00'] === null ? 'available' : 'unavailable')
+      }, "9:30")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: timeslot['11:30:00'] === null ? this.setTimeslot.bind(this, '11:30') : undefined
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: "".concat(selectedTimeslot === '11:30' ? 'active' : '', " ").concat(timeslot['11:30:00'] === null ? 'available' : 'unavailable')
+      }, "11:30")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: timeslot['13:30:00'] === null ? this.setTimeslot.bind(this, '13:30') : undefined
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: "".concat(selectedTimeslot === '13:30' ? 'active' : '', " ").concat(timeslot['13:30:00'] === null ? 'available' : 'unavailable')
+      }, "13:30")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: timeslot['15:30:00'] === null ? this.setTimeslot.bind(this, '15:30') : undefined
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: "".concat(selectedTimeslot === '15:30' ? 'active' : '', " ").concat(timeslot['15:30:00'] === null ? 'available' : 'unavailable')
+      }, "15:30"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: timeslot['10:00:00'] === null ? this.setTimeslot.bind(this, '10:00') : undefined
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: "".concat(selectedTimeslot === '10:00' ? 'active' : '', " ").concat(timeslot['10:00:00'] === null ? 'available' : 'unavailable')
+      }, "10:00")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: timeslot['12:00:00'] === null ? this.setTimeslot.bind(this, '12:00') : undefined
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: "".concat(selectedTimeslot === '12:00' ? 'active' : '', " ").concat(timeslot['12:00:00'] === null ? 'available' : 'unavailable')
+      }, "12:00")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: timeslot['14:00:00'] === null ? this.setTimeslot.bind(this, '14:00') : undefined
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: "".concat(selectedTimeslot === '14:00' ? 'active' : '', " ").concat(timeslot['14:00:00'] === null ? 'available' : 'unavailable')
+      }, "14:00")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: timeslot['16:00:00'] === null ? this.setTimeslot.bind(this, '16:00') : undefined
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: "".concat(selectedTimeslot === '16:00' ? 'active' : '', " ").concat(timeslot['16:00:00'] === null ? 'available' : 'unavailable')
+      }, "16:00"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: timeslot['10:30:00'] === null ? this.setTimeslot.bind(this, '10:30') : undefined
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: "".concat(selectedTimeslot === '10:30' ? 'active' : '', " ").concat(timeslot['10:30:00'] === null ? 'available' : 'unavailable')
+      }, "10:30")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: timeslot['12:30:00'] === null ? this.setTimeslot.bind(this, '12:30') : undefined
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: "".concat(selectedTimeslot === '12:30' ? 'active' : '', " ").concat(timeslot['12:30:00'] === null ? 'available' : 'unavailable')
+      }, "12:30")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: timeslot['14:30:00'] === null ? this.setTimeslot.bind(this, '14:30') : undefined
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: "".concat(selectedTimeslot === '14:30' ? 'active' : '', " ").concat(timeslot['14:30:00'] === null ? 'available' : 'unavailable')
+      }, "14:30")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", {
+        onClick: timeslot['16:30:00'] === null ? this.setTimeslot.bind(this, '16:30') : undefined
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: "".concat(selectedTimeslot === '16:30' ? 'active' : '', " ").concat(timeslot['16:30:00'] === null ? 'available' : 'unavailable')
+      }, "16:30"))))));
     }
   }]);
 
@@ -54618,15 +55148,15 @@ var Calendar = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
-/***/ "./resources/js/App/pages/BookAppointment/ChooseService/ChooseService.scss":
-/*!*********************************************************************************!*\
-  !*** ./resources/js/App/pages/BookAppointment/ChooseService/ChooseService.scss ***!
-  \*********************************************************************************/
+/***/ "./resources/js/App/pages/BookAppointment/ChooseTreatment/ChooseTreatment.scss":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/App/pages/BookAppointment/ChooseTreatment/ChooseTreatment.scss ***!
+  \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader!../../../../../../node_modules/postcss-loader/src??ref--8-2!../../../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!./ChooseService.scss */ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/App/pages/BookAppointment/ChooseService/ChooseService.scss");
+var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader!../../../../../../node_modules/postcss-loader/src??ref--8-2!../../../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!./ChooseTreatment.scss */ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/App/pages/BookAppointment/ChooseTreatment/ChooseTreatment.scss");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -54648,10 +55178,10 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./resources/js/App/pages/BookAppointment/ChooseService/ServiceItem.jsx":
-/*!******************************************************************************!*\
-  !*** ./resources/js/App/pages/BookAppointment/ChooseService/ServiceItem.jsx ***!
-  \******************************************************************************/
+/***/ "./resources/js/App/pages/BookAppointment/ChooseTreatment/TreatmentItem.jsx":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/App/pages/BookAppointment/ChooseTreatment/TreatmentItem.jsx ***!
+  \**********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -54661,8 +55191,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ServiceItem_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ServiceItem.scss */ "./resources/js/App/pages/BookAppointment/ChooseService/ServiceItem.scss");
-/* harmony import */ var _ServiceItem_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_ServiceItem_scss__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _TreatmentItem_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TreatmentItem.scss */ "./resources/js/App/pages/BookAppointment/ChooseTreatment/TreatmentItem.scss");
+/* harmony import */ var _TreatmentItem_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_TreatmentItem_scss__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(obj) {
   "@babel/helpers - typeof";
 
@@ -54797,15 +55327,15 @@ function _defineProperty(obj, key, value) {
 
 
 
-var ServiceItem = /*#__PURE__*/function (_React$Component) {
-  _inherits(ServiceItem, _React$Component);
+var TreatmentItem = /*#__PURE__*/function (_React$Component) {
+  _inherits(TreatmentItem, _React$Component);
 
-  var _super = _createSuper(ServiceItem);
+  var _super = _createSuper(TreatmentItem);
 
-  function ServiceItem() {
+  function TreatmentItem() {
     var _this;
 
-    _classCallCheck(this, ServiceItem);
+    _classCallCheck(this, TreatmentItem);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
@@ -54813,50 +55343,64 @@ var ServiceItem = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call.apply(_super, [this].concat(args));
 
-    _defineProperty(_assertThisInitialized(_this), "setService", function () {
-      var id = _this.props.id;
+    _defineProperty(_assertThisInitialized(_this), "setTreatment", function () {
+      var _this$props = _this.props,
+          id = _this$props.id,
+          duration = _this$props.duration,
+          name = _this$props.name,
+          price = _this$props.price,
+          setFormField = _this$props.setFormField;
 
-      _this.props.setService(id);
+      _this.props.setFormField('treatment', {
+        id: id,
+        duration: duration,
+        name: name,
+        price: price
+      });
     });
 
     return _this;
   }
 
-  _createClass(ServiceItem, [{
+  _createClass(TreatmentItem, [{
     key: "render",
     value: function render() {
-      var _this$props = this.props,
-          id = _this$props.id,
-          stylist_id = _this$props.stylist_id,
-          name = _this$props.name,
-          price = _this$props.price,
-          duration = _this$props.duration,
-          isActive = _this$props.isActive;
+      var _this$props2 = this.props,
+          id = _this$props2.id,
+          stylist_id = _this$props2.stylist_id,
+          name = _this$props2.name,
+          price = _this$props2.price,
+          duration = _this$props2.duration,
+          isActive = _this$props2.isActive;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "service-item ".concat(isActive ? 'active' : ''),
-        onClick: this.setService
+        className: "treatment-item ".concat(isActive ? 'active' : ''),
+        onClick: this.setTreatment
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "service-data"
-      }, name, " ", price, " ", moment__WEBPACK_IMPORTED_MODULE_1___default()(duration, 'HH:mm:ss').format('H [hrs]')));
+        className: "treatment-name"
+      }, name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "treatment-price"
+      }, price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "treatment-duration"
+      }, moment__WEBPACK_IMPORTED_MODULE_1___default()(duration, 'HH:mm:ss').format('H [hrs] m [min]')));
     }
   }]);
 
-  return ServiceItem;
+  return TreatmentItem;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (ServiceItem);
+/* harmony default export */ __webpack_exports__["default"] = (TreatmentItem);
 
 /***/ }),
 
-/***/ "./resources/js/App/pages/BookAppointment/ChooseService/ServiceItem.scss":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/App/pages/BookAppointment/ChooseService/ServiceItem.scss ***!
-  \*******************************************************************************/
+/***/ "./resources/js/App/pages/BookAppointment/ChooseTreatment/TreatmentItem.scss":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/App/pages/BookAppointment/ChooseTreatment/TreatmentItem.scss ***!
+  \***********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader!../../../../../../node_modules/postcss-loader/src??ref--8-2!../../../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!./ServiceItem.scss */ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/App/pages/BookAppointment/ChooseService/ServiceItem.scss");
+var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader!../../../../../../node_modules/postcss-loader/src??ref--8-2!../../../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!./TreatmentItem.scss */ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/App/pages/BookAppointment/ChooseTreatment/TreatmentItem.scss");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -54878,10 +55422,10 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./resources/js/App/pages/BookAppointment/ChooseService/index.jsx":
-/*!************************************************************************!*\
-  !*** ./resources/js/App/pages/BookAppointment/ChooseService/index.jsx ***!
-  \************************************************************************/
+/***/ "./resources/js/App/pages/BookAppointment/ChooseTreatment/index.jsx":
+/*!**************************************************************************!*\
+  !*** ./resources/js/App/pages/BookAppointment/ChooseTreatment/index.jsx ***!
+  \**************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -54893,9 +55437,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _ServiceItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ServiceItem */ "./resources/js/App/pages/BookAppointment/ChooseService/ServiceItem.jsx");
-/* harmony import */ var _ChooseService_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ChooseService.scss */ "./resources/js/App/pages/BookAppointment/ChooseService/ChooseService.scss");
-/* harmony import */ var _ChooseService_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_ChooseService_scss__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _TreatmentItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TreatmentItem */ "./resources/js/App/pages/BookAppointment/ChooseTreatment/TreatmentItem.jsx");
+/* harmony import */ var _ChooseTreatment_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ChooseTreatment.scss */ "./resources/js/App/pages/BookAppointment/ChooseTreatment/ChooseTreatment.scss");
+/* harmony import */ var _ChooseTreatment_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_ChooseTreatment_scss__WEBPACK_IMPORTED_MODULE_4__);
 
 
 function _typeof(obj) {
@@ -55054,40 +55598,40 @@ function _setPrototypeOf(o, p) {
 
 
 
-var ChooseService = /*#__PURE__*/function (_React$Component) {
-  _inherits(ChooseService, _React$Component);
+var ChooseTreatment = /*#__PURE__*/function (_React$Component) {
+  _inherits(ChooseTreatment, _React$Component);
 
-  var _super = _createSuper(ChooseService);
+  var _super = _createSuper(ChooseTreatment);
 
-  function ChooseService(props) {
+  function ChooseTreatment(props) {
     var _this;
 
-    _classCallCheck(this, ChooseService);
+    _classCallCheck(this, ChooseTreatment);
 
     _this = _super.call(this, props);
     _this.state = {
-      listOfServices: []
+      listOfTreatments: []
     };
     return _this;
   }
 
-  _createClass(ChooseService, [{
+  _createClass(ChooseTreatment, [{
     key: "componentDidMount",
     value: function () {
       var _componentDidMount = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var response, listOfServices;
+        var response, listOfTreatments;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/treatment?stylist_id=".concat(this.props.stylist_id));
+                return axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/treatment?stylist_id=".concat(this.props.stylist.id));
 
               case 2:
                 response = _context.sent;
-                listOfServices = response.data;
+                listOfTreatments = response.data;
                 this.setState({
-                  listOfServices: listOfServices
+                  listOfTreatments: listOfTreatments
                 });
 
               case 5:
@@ -55107,31 +55651,294 @@ var ChooseService = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // console.log(this.state.listOfServices)
       var _this$props = this.props,
-          setService = _this$props.setService,
-          service_id = _this$props.service_id;
+          setFormField = _this$props.setFormField,
+          treatment = _this$props.treatment;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "choose-service-container"
-      }, this.state.listOfServices.map(function (service) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ServiceItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          key: service.id,
-          id: service.id,
-          stylist_id: service.stylist_id,
-          name: service.name,
-          price: service.price,
-          duration: service.duration,
-          setService: setService,
-          isActive: service.id === service_id
+        className: "choose-treatment-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "choose-treatment-title"
+      }, "Choose treatment"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "treatments"
+      }, this.state.listOfTreatments.map(function (_treatment) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_TreatmentItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          key: _treatment.id,
+          id: _treatment.id,
+          stylist_id: _treatment.stylist_id,
+          name: _treatment.name,
+          price: _treatment.price,
+          duration: _treatment.duration,
+          setFormField: setFormField,
+          isActive: _treatment.id === (treatment && treatment.id)
         });
-      }));
+      }), this.state.listOfTreatments.length % 2 !== 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "empty-treatment-item"
+      })));
     }
   }]);
 
-  return ChooseService;
+  return ChooseTreatment;
 }(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (ChooseService);
+/* harmony default export */ __webpack_exports__["default"] = (ChooseTreatment);
+
+/***/ }),
+
+/***/ "./resources/js/App/pages/BookAppointment/CustomerInfo/CustomerInfo.scss":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/App/pages/BookAppointment/CustomerInfo/CustomerInfo.scss ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader!../../../../../../node_modules/postcss-loader/src??ref--8-2!../../../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!./CustomerInfo.scss */ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/App/pages/BookAppointment/CustomerInfo/CustomerInfo.scss");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./resources/js/App/pages/BookAppointment/CustomerInfo/index.jsx":
+/*!***********************************************************************!*\
+  !*** ./resources/js/App/pages/BookAppointment/CustomerInfo/index.jsx ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _CustomerInfo_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CustomerInfo.scss */ "./resources/js/App/pages/BookAppointment/CustomerInfo/CustomerInfo.scss");
+/* harmony import */ var _CustomerInfo_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_CustomerInfo_scss__WEBPACK_IMPORTED_MODULE_2__);
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _createSuper(Derived) {
+  return function () {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (_isNativeReflectConstruct()) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
+  };
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized(self);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+
+
+
+
+var CustomerInfo = /*#__PURE__*/function (_React$Component) {
+  _inherits(CustomerInfo, _React$Component);
+
+  var _super = _createSuper(CustomerInfo);
+
+  function CustomerInfo() {
+    var _this;
+
+    _classCallCheck(this, CustomerInfo);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "setFirstName", function (event) {
+      return _this.props.setFormField('firstName', event.target.value);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "setLastName", function (event) {
+      return _this.props.setFormField('lastName', event.target.value);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "setPhoneNumber", function (event) {
+      return _this.props.setFormField('phoneNumber', event.target.value);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "setEmail", function (event) {
+      return _this.props.setFormField('email', event.target.value);
+    });
+
+    return _this;
+  }
+
+  _createClass(CustomerInfo, [{
+    key: "render",
+    value: function render() {
+      var setFormField = this.props.setFormField;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "customer-info-title"
+      }, "One last step..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "customer-info-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "customer-info"
+      }, "Your First Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        onChange: this.setFirstName,
+        required: true
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "customer-info"
+      }, "Your Last Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        onChange: this.setLastName,
+        required: true
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "customer-info"
+      }, "Your Phone Number"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        onChange: this.setPhoneNumber,
+        required: true
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "customer-info"
+      }, "Your Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "email",
+        pattern: "*@*",
+        onChange: this.setEmail,
+        required: true
+      })));
+    }
+  }]);
+
+  return CustomerInfo;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (CustomerInfo);
 
 /***/ }),
 
@@ -55278,7 +56085,22 @@ var Finish = /*#__PURE__*/function (_React$Component) {
   _createClass(Finish, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "FINISH");
+      var _this$props = this.props,
+          form = _this$props.form,
+          makeAppointment = _this$props.makeAppointment;
+      var customerName = form.name,
+          email = form.email,
+          phoneNumber = form.phoneNumber,
+          user = form.stylist.user,
+          _form$treatment = form.treatment,
+          name = _form$treatment.name,
+          duration = _form$treatment.duration,
+          price = _form$treatment.price;
+      var stylistName = "".concat(user.firstName, " ").concat(user.lastName);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, customerName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, phoneNumber), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, email), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, stylistName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, name, ", ", duration, ", ", price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "button button-primary",
+        onClick: makeAppointment
+      }, "Make Appointment"));
     }
   }]);
 
@@ -55482,9 +56304,15 @@ var StylistItem = /*#__PURE__*/function (_React$Component) {
     _this = _super.call.apply(_super, [this].concat(args));
 
     _defineProperty(_assertThisInitialized(_this), "setStylist", function () {
-      var id = _this.props.id;
+      var _this$props = _this.props,
+          id = _this$props.id,
+          user = _this$props.user,
+          setFormField = _this$props.setFormField;
 
-      _this.props.setStylist(id);
+      _this.props.setFormField('stylist', {
+        id: id,
+        user: user
+      });
     });
 
     return _this;
@@ -55493,21 +56321,21 @@ var StylistItem = /*#__PURE__*/function (_React$Component) {
   _createClass(StylistItem, [{
     key: "render",
     value: function render() {
-      var _this$props = this.props,
-          id = _this$props.id,
-          user_id = _this$props.user_id,
-          profile_photo_url = _this$props.profile_photo_url,
-          job_title = _this$props.job_title,
-          introduction = _this$props.introduction,
-          service = _this$props.service,
-          user = _this$props.user,
-          isActive = _this$props.isActive;
+      var _this$props2 = this.props,
+          id = _this$props2.id,
+          user_id = _this$props2.user_id,
+          profile_photo_url = _this$props2.profile_photo_url,
+          job_title = _this$props2.job_title,
+          introduction = _this$props2.introduction,
+          service = _this$props2.service,
+          user = _this$props2.user,
+          isActive = _this$props2.isActive;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "stylist-item ".concat(isActive ? 'active' : ''),
         onClick: this.setStylist
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "stylist-icon",
-        src: '../../'
+        src: "../images/".concat(profile_photo_url)
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "stylist-name"
       }, user.first_name, " ", user.last_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -55783,24 +56611,24 @@ var SelectStylist = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var _this$props = this.props,
-          setStylist = _this$props.setStylist,
-          stylist_id = _this$props.stylist_id;
+          setFormField = _this$props.setFormField,
+          stylist = _this$props.stylist;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "select-stylist-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "select-stylist-title"
-      }, "Select your hairstylist"), this.state.listOfStylists.map(function (stylist) {
+      }, "Select your hairstylist"), this.state.listOfStylists.map(function (_stylist) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_StylistItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          key: stylist.id,
-          id: stylist.id,
-          user_id: stylist.user_id,
-          profile_photo_url: stylist.profile_photo_url,
-          job_title: stylist.job_title,
-          introduction: stylist.introduction,
-          service: stylist.service,
-          user: stylist.user,
-          setStylist: setStylist,
-          isActive: stylist.id === stylist_id
+          key: _stylist.id,
+          id: _stylist.id,
+          user_id: _stylist.user_id,
+          profile_photo_url: _stylist.profile_photo_url,
+          job_title: _stylist.job_title,
+          introduction: _stylist.introduction,
+          service: _stylist.service,
+          user: _stylist.user,
+          setFormField: setFormField,
+          isActive: _stylist.id === (stylist && stylist.id)
         });
       }));
     }
@@ -55822,14 +56650,21 @@ var SelectStylist = /*#__PURE__*/function (_React$Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Calendar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Calendar */ "./resources/js/App/pages/BookAppointment/Calendar/index.jsx");
-/* harmony import */ var _ChooseService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChooseService */ "./resources/js/App/pages/BookAppointment/ChooseService/index.jsx");
-/* harmony import */ var _Finish__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Finish */ "./resources/js/App/pages/BookAppointment/Finish/index.jsx");
-/* harmony import */ var _SelectStylist__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SelectStylist */ "./resources/js/App/pages/BookAppointment/SelectStylist/index.jsx");
-/* harmony import */ var _BookAppointment_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./BookAppointment.scss */ "./resources/js/App/pages/BookAppointment/BookAppointment.scss");
-/* harmony import */ var _BookAppointment_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_BookAppointment_scss__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Calendar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Calendar */ "./resources/js/App/pages/BookAppointment/Calendar/index.jsx");
+/* harmony import */ var _ChooseTreatment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ChooseTreatment */ "./resources/js/App/pages/BookAppointment/ChooseTreatment/index.jsx");
+/* harmony import */ var _Finish__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Finish */ "./resources/js/App/pages/BookAppointment/Finish/index.jsx");
+/* harmony import */ var _SelectStylist__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./SelectStylist */ "./resources/js/App/pages/BookAppointment/SelectStylist/index.jsx");
+/* harmony import */ var _CustomerInfo__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./CustomerInfo */ "./resources/js/App/pages/BookAppointment/CustomerInfo/index.jsx");
+/* harmony import */ var _BookAppointment_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./BookAppointment.scss */ "./resources/js/App/pages/BookAppointment/BookAppointment.scss");
+/* harmony import */ var _BookAppointment_scss__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_BookAppointment_scss__WEBPACK_IMPORTED_MODULE_8__);
+
+
 function _typeof(obj) {
   "@babel/helpers - typeof";
 
@@ -55878,6 +56713,42 @@ function _objectSpread(target) {
   }
 
   return target;
+}
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
 }
 
 function _classCallCheck(instance, Constructor) {
@@ -56001,6 +56872,8 @@ function _defineProperty(obj, key, value) {
 
 
 
+
+
 var BookAppointment = /*#__PURE__*/function (_React$Component) {
   _inherits(BookAppointment, _React$Component);
 
@@ -56014,56 +56887,84 @@ var BookAppointment = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
 
     _defineProperty(_assertThisInitialized(_this), "renderStep", function () {
+      var _this$state = _this.state,
+          form = _this$state.form,
+          _this$state$form = _this$state.form,
+          treatment = _this$state$form.treatment,
+          stylist = _this$state$form.stylist,
+          startAt = _this$state$form.startAt;
+
       switch (_this.state.currentStep) {
         case 0:
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SelectStylist__WEBPACK_IMPORTED_MODULE_4__["default"], {
-            stylist_id: _this.state.form.stylist_id,
-            setStylist: _this.setStylist
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_SelectStylist__WEBPACK_IMPORTED_MODULE_6__["default"], {
+            stylist: stylist,
+            setFormField: _this.setFormField
           });
 
         case 1:
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChooseService__WEBPACK_IMPORTED_MODULE_2__["default"], {
-            stylist_id: _this.state.form.stylist_id,
-            setService: _this.setService
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ChooseTreatment__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            treatment: treatment,
+            stylist: stylist,
+            setFormField: _this.setFormField
           });
 
         case 2:
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Calendar__WEBPACK_IMPORTED_MODULE_1__["default"], {
-            setDate: _this.setDate
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Calendar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            stylist: stylist,
+            treatment: treatment,
+            startAt: startAt,
+            setFormField: _this.setFormField
           });
 
         case 3:
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Finish__WEBPACK_IMPORTED_MODULE_3__["default"], null);
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_CustomerInfo__WEBPACK_IMPORTED_MODULE_7__["default"], {
+            setFormField: _this.setFormField
+          });
+
+        case 4:
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Finish__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            form: form,
+            makeAppointment: _this.makeAppointment
+          });
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "setStylist", function (stylist_id) {
+    _defineProperty(_assertThisInitialized(_this), "makeAppointment", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var history, _this$state$form2, stylist_id, treatment_id, start_at, email, phone_number, first_name, last_name;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              history = _this.props.history;
+              _this$state$form2 = _this.state.form, stylist_id = _this$state$form2.stylist.id, treatment_id = _this$state$form2.treatment.id, start_at = _this$state$form2.startAt, email = _this$state$form2.email, phone_number = _this$state$form2.phoneNumber, first_name = _this$state$form2.firstName, last_name = _this$state$form2.lastName;
+              _context.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/api/booking', {
+                stylist_id: stylist_id,
+                treatment_id: treatment_id,
+                start_at: start_at,
+                email: email,
+                phone_number: phone_number,
+                first_name: first_name,
+                last_name: last_name
+              });
+
+            case 4:
+              history.push('/react/home');
+
+            case 5:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    })));
+
+    _defineProperty(_assertThisInitialized(_this), "setFormField", function (key, value) {
       var form = _this.state.form;
 
       _this.setState({
-        form: _objectSpread({}, form, {
-          stylist_id: stylist_id
-        })
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "setService", function (treatment_id) {
-      var form = _this.state.form;
-
-      _this.setState({
-        form: _objectSpread({}, form, {
-          treatment_id: treatment_id
-        })
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "setDate", function (start_at) {
-      var form = _this.state.form;
-
-      _this.setState({
-        form: _objectSpread({}, form, {
-          start_at: start_at
-        })
+        form: _objectSpread({}, form, _defineProperty({}, key, value))
       });
     });
 
@@ -56082,11 +56983,10 @@ var BookAppointment = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       currentStep: 0,
       form: {
-        stylist_id: null,
-        customer_id: null,
-        treatment_id: null,
-        start_at: null,
-        availability: null,
+        stylist: null,
+        customer: null,
+        treatment: null,
+        startAt: null,
         email: null,
         phoneNumber: null,
         firstName: null,
@@ -56099,24 +56999,36 @@ var BookAppointment = /*#__PURE__*/function (_React$Component) {
   _createClass(BookAppointment, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      var _this$state2 = this.state,
+          _this$state2$form = _this$state2.form,
+          stylist = _this$state2$form.stylist,
+          treatment = _this$state2$form.treatment,
+          email = _this$state2$form.email,
+          phoneNumber = _this$state2$form.phoneNumber,
+          firstName = _this$state2$form.firstName,
+          lastName = _this$state2$form.lastName,
+          startAt = _this$state2$form.startAt,
+          currentStep = _this$state2.currentStep;
+      var isNextButtonDisabled = currentStep === 0 && !stylist || currentStep === 1 && !treatment || currentStep === 2 && !startAt || currentStep === 3 && (!email || !phoneNumber || !firstName || !lastName);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "book-appointment-title"
-      }, "Book Appointments"), this.renderStep(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Book Appointments"), this.renderStep(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "bottom-container"
-      }, this.state.currentStep === 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " 1 of 4 "), this.state.currentStep === 1 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " 2 of 4 "), this.state.currentStep === 2 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " 3 of 4 "), this.state.currentStep === 3 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " 4 of 4 "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.state.currentStep === 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", null, " 1 of 4 "), this.state.currentStep === 1 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", null, " 2 of 4 "), this.state.currentStep === 2 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", null, " 3 of 4 "), this.state.currentStep === 3 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", null, " 4 of 4 "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "buttons-container"
-      }, this.state.currentStep !== 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "prev-button",
+      }, this.state.currentStep !== 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        className: "button button-secondary",
         onClick: this.previousStep
-      }, "Previous"), this.state.currentStep !== 3 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "next-button",
+      }, "Previous"), this.state.currentStep !== 4 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        disabled: isNextButtonDisabled,
+        className: "button button-primary",
         onClick: this.nextStep
       }, "Next"))));
     }
   }]);
 
   return BookAppointment;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+}(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (BookAppointment);
 
@@ -56282,6 +57194,21 @@ function _setPrototypeOf(o, p) {
   return _setPrototypeOf(o, p);
 }
 
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
 
 
 
@@ -56292,9 +57219,25 @@ var Home = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(Home);
 
   function Home() {
+    var _this;
+
     _classCallCheck(this, Home);
 
-    return _super.apply(this, arguments);
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "aboutSectionRef", react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef());
+
+    _defineProperty(_assertThisInitialized(_this), "scrollToAboutSection", function () {
+      _this.aboutSectionRef.current.scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+
+    return _this;
   }
 
   _createClass(Home, [{
@@ -56310,19 +57253,21 @@ var Home = /*#__PURE__*/function (_React$Component) {
         className: "mainTitle2"
       }, "Lucie"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "mainSubtitle"
-      }, "Best Hair Style in Ostrava"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, "Best Hair Style in Ostrava"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "mainActions"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "buttonBook1",
         to: "/react/book-appointment"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "buttonBook1"
-      }, "BOOK NOW")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "BOOK NOW"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onClick: this.scrollToAboutSection,
         className: "buttonAbout"
-      }, "ABOUT US")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "aboutSection"
+      }, "ABOUT US")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "aboutSection",
+        ref: this.aboutSectionRef
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "About us"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Sal\xF3n Lucie has been in the center of Ostrava since 2003. Our top hair stylists create the latest lines of cuts and color fashion trends for you. We use the latest technologies and products of GOLDWELL. Lucie salon will fulfill all your dreams of beautiful hair and new image. We cordially invite you!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "buttonBook2",
         to: "/react/book-appointment"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "buttonBook2"
-      }, "BOOK NOW")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Sal\xF3n Lucie has been in the center of Ostrava since 2003. Our top hair stylists create the latest lines of cuts and color fashion trends for you. We use the latest technologies and products of GOLDWELL. Lucie salon will fulfill all your dreams of beautiful hair and new image. We cordially invite you!"))));
+      }, "BOOK NOW")));
     }
   }]);
 
@@ -56386,7 +57331,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\web\Own_projects\salonlucieostrava\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\bruno\Desktop\Web\FinalProject\salonlucieostrava\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })
