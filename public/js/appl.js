@@ -86,8 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
   !*** ./node_modules/axios/index.js ***!
@@ -37047,66 +37045,11 @@ module.exports = function(module) {
 
 /***/ }),
 
->>>>>>> kamil
 /***/ "./resources/js/appl.js":
 /*!******************************!*\
   !*** ./resources/js/appl.js ***!
   \******************************/
 /*! no static exports found */
-<<<<<<< HEAD
-/***/ (function(module, exports) {
-
-// // Original setting
-// /**
-//  * First we will load all of this project's JavaScript dependencies which
-//  * includes Vue and other libraries. It is a great starting point when
-//  * building robust, powerful web applications using Vue and Laravel.
-//  */
-// require('./bootstrap');
-// window.Vue = require('vue');
-// /**
-//  * The following block of code may be used to automatically register your
-//  * Vue components. It will recursively scan this directory for the Vue
-//  * components and automatically register them with their "basename".
-//  *
-//  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
-//  */
-// // const files = require.context('./', true, /\.vue$/i)
-// // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-// // Vue.component('example-component', require('./App/components/ExampleComponent.vue').default);
-// /**
-//  * Next, we will create a fresh Vue application instance and attach it to
-//  * the page. Then, you may begin adding components to this application
-//  * or customize the JavaScript scaffolding to fit your unique needs.
-//  */
-// const app = new Vue({
-//     el: '#app',
-// });
-// document.addEventListener('DOMContentLoaded', ()=>{
-//     if ( document.querySelector('#iname')!== null){
-//     const iname = document.querySelector('#iname');
-//     const iprice = document.querySelector('#iprice');
-//     const iduration = document.querySelector('#iduration');
-//     const hname = document.querySelector('#hname');
-//     const hprice = document.querySelector('#hprice');
-//     const hduration = document.querySelector('#hduration');
-//     iname.addEventListener('input',()=>{
-//       hname.value = iname.value;
-//       hprice.value = iprice.value;
-//       hduration.value = iduration.value;
-//     });
-//     iprice.addEventListener('input',()=>{
-//       hname.value = iname.value;
-//       hprice.value = iprice.value;
-//       hduration.value = iduration.value;
-//       });
-//     iduration.addEventListener('input',()=>{
-//       hname.value = iname.value;
-//       hprice.value = iprice.value;
-//       hduration.value = iduration.value;
-//     });
-//   }
-=======
 /***/ (function(module, exports, __webpack_require__) {
 
 // Original setting
@@ -37208,7 +37151,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     key: process.env.MIX_PUSHER_APP_KEY,
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
->>>>>>> kamil
 // });
 
 /***/ }),
@@ -37231,13 +37173,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-__webpack_require__(/*! C:\Users\bruno\Desktop\Web\FinalProject\salonlucieostrava\resources\js\appl.js */"./resources/js/appl.js");
-module.exports = __webpack_require__(/*! C:\Users\bruno\Desktop\Web\FinalProject\salonlucieostrava\resources\sass\app.scss */"./resources/sass/app.scss");
-=======
-__webpack_require__(/*! /Users/ayumi/web/bootcamp/final_project/resources/js/appl.js */"./resources/js/appl.js");
-module.exports = __webpack_require__(/*! /Users/ayumi/web/bootcamp/final_project/resources/sass/app.scss */"./resources/sass/app.scss");
->>>>>>> 8a7de32d6a9f8b743f9bfbe1ca5ae89b0cc85a10
+__webpack_require__(/*! D:\web\Own_projects\salonlucieostrava\resources\js\appl.js */"./resources/js/appl.js");
+module.exports = __webpack_require__(/*! D:\web\Own_projects\salonlucieostrava\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
