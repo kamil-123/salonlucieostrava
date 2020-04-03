@@ -165,13 +165,8 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\bruno\Desktop\Web\FinalProject\salonlucieostrava\resources\js\appl.js */"./resources/js/appl.js");
 module.exports = __webpack_require__(/*! C:\Users\bruno\Desktop\Web\FinalProject\salonlucieostrava\resources\sass\app.scss */"./resources/sass/app.scss");
-=======
-__webpack_require__(/*! /Users/ayumi/web/bootcamp/final_project/resources/js/appl.js */"./resources/js/appl.js");
-module.exports = __webpack_require__(/*! /Users/ayumi/web/bootcamp/final_project/resources/sass/app.scss */"./resources/sass/app.scss");
->>>>>>> 8a7de32d6a9f8b743f9bfbe1ca5ae89b0cc85a10
 
 
 /***/ })
