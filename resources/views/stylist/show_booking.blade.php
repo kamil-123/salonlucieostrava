@@ -43,7 +43,7 @@
                       <div class='row my-2 justify-content-between'>
                         <a class='btn btn-secondary my-3 mx-auto col-2'
                           name='go_to_edit'
-                          href={{ action('BookingViewController@edit', [ 'id' => $booking->id]) }}
+                          href={{ action('BookingViewController@edit', ['id' => $id, 'time' => $time]) }}
                         >
                           Edit
                         </a>

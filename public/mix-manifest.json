@@ -1,8 +1,14 @@
 {
+
     "/js/app.js": "/js/app.js?id=84fcf3bf5739cf6bf15b",
     "/js/app.js.map": "/js/app.js.map?id=e973c7f4256063e34021",
     "/js/appl.js": "/js/appl.js?id=3af8388abbfcddfddf6f",
     "/css/app.css": "/css/app.css?id=c31b598ca3eb3969b3cf",
     "/js/appl.js.map": "/js/appl.js.map?id=25c9181545ed61b9970f",
-    "/css/app.css.map": "/css/app.css.map?id=3dbdbfae8e14d2962c1b"
+    "/css/app.css.map": "/css/app.css.map?id=3dbdbfae8e14d2962c1b",
+
+    "/js/app.js": "/js/app.js?id=52039d8a30ff0103911a",
+    "/js/appl.js": "/js/appl.js?id=f84219736488a2fda2b5",
+    "/css/app.css": "/css/app.css?id=1d8dab97c1dd3bbf8c9a"
+
 }
