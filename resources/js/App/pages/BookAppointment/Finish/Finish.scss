@@ -3,9 +3,15 @@
   font-family: 'roboto';
 }
 
+.details-container {
+  text-align: left;
+  margin-left: 16px;
+}
+
 .finish1 {
   font-weight: bold;
   margin: 24px 0px 16px;
+  font-family: 'audrey';
 }
 
 .button-appointment {
@@ -22,10 +28,16 @@
   width: 343px;
 }
 
-.details, .details-at{
-  font-weight: bold;
+.greeting {
+  font-family: 'audrey';
+  font-size: 16px;
+  margin-top: 8px;
 }
 
-.details-at {
-  margin-top: 16px;
+.details {
+  font-family: 'AudreyMedium';
+}
+
+.details1 {
+  font-family: 'roboto';
 }

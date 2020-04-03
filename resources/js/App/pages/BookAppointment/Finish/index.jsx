@@ -20,11 +20,11 @@ export default class Finish extends React.Component {
             <div className='finish-container'>
                 <div className='finish1'>Dear {firstName}, here are your booking details: </div>
                 <div className='details-container'>
-                    <div><span className="details">Treatment:</span> {name}</div>
-                    <div><span className="details">Stylist:</span> {stylistName}</div>
-                    <div><span className="details">Your email:</span> {email}</div>
-                    <div><span className="details">Your phone number:</span> {phoneNumber}</div>
-                    <div className="details-at"><span className="details">At</span> {moment(startAt).format('dddd DD-MM HH:mm')}</div>
+                    <div className='details1'>Treatment: <span className="details">{name}</span></div>
+                    <div className='details1'>Stylist: <span className="details">{stylistName}</span></div>
+                    <div className='details1'>Your email: <span className="details">{email}</span></div>
+                    <div className='details1'>Your phone number: <span className="details">{phoneNumber}</span></div>
+                    <div className="greeting">See you on {moment(startAt).format('dddd DD-MM')} at {moment(startAt).format('HH:mm')}</div>
                 </div>
                 <button className="button-appointment" onClick={makeAppointment}>Make Appointment</button>
             </div>
