@@ -93,9 +93,8 @@
               <div class='card'>
                 <div class='card-header'>Edit Booking</div>
                 <div class='card-body justify-content-left'>
-                  <form action={{ action('BookingViewController@update', [ 'id' => $id ]) }} method='POST'>
+                  <form action={{ action('BookingViewController@postEdit', [ 'id' => $id ]) }} method='POST'>
                     @csrf
-                    @method('PUT')
 
                     @if (\Session::has('success'))
                       <div class="alert alert-success">
@@ -104,7 +103,7 @@
                     @endif
 
                     {{-- Hidden --}}
-                    <input type='hidden'  name='customer_id' value= {{ $booking->customer_id }}>
+                    <input type='hidden'  name='customer_id' value= {{ $editing_booking->customer_id }}>
 
                     {{-- Dates --}}
                     <div class="row">
@@ -114,20 +113,8 @@
                           type="text" 
                           id="datepicker" 
                           name="date"
-                          value={{$date}}
+                          value={{$f_date}}
                         >
-                      </div>
-                    </div>
-
-                    {{-- Time  --}}
-                    <div class="row">
-                      <div class="form-group col-md-4">
-                        <label for="time">Starting Time</label>
-                        <select class="form-control" id="time" name='time'>
-                          @foreach ($free_slots as $free_slot)
-                            <option value={{ $free_slot }}>{{ $free_slot }}</option>
-                          @endforeach
-                        </select>
                       </div>
                     </div>
 
@@ -137,7 +124,7 @@
                         <label for="treatment">Treatment</label>
                         <select class="form-control" id="treatment" name='treatment'>
                           @foreach ($treatments as $treatment)
-                            @if ($treatment->id === $booking->treatment_id)
+                            @if ($treatment->id === $editing_booking->treatment_id)
                               <option value={{ $treatment->id}} selected>{{ $treatment->name }}</option>
                             @else
                               <option value={{ $treatment->id}}>{{ $treatment->name }}</option>
@@ -147,36 +134,7 @@
                         </select>
                       </div>
                     </div>
-
-                    {{-- Names --}}
-                    <div class="row mb-4">
-                      <div class="col">
-                        <label for="first_name">First Name</label>
-                        <input id='first_name' type="text" class="form-control" value={{ $booking->customer->first_name }}>
-                      </div>
-                      <div class="col">
-                        <label for="last_name">Last Name</label>
-                        <input id='last_name' type="text" class="form-control" value={{ $booking->customer->last_name }}>
-                      </div>
-                    </div>
-
-                    {{-- Phone --}}
-                    <div class="row">
-                      <div class="form-group col-md-8">
-                        <label for="phone_number">Phone</label>
-                        <input id='phone_number' type="tel" class="form-control" value={{ $booking->customer->phone }}>
-                      </div>
-                    </div>
-
-                    {{-- Email --}}
-                    <div class="row">
-                      <div class="form-group col-md-8">
-                        <label for="email_address">Email</label>
-                        <input id='email_address' type="email" class="form-control" value={{ $booking->customer->email }}>
-                      </div>
-                    </div>
                     
-
                     {{-- Submit --}}
                     <div class="row">
                       <div class="col-md-4 d-flex"></div>
@@ -185,7 +143,7 @@
                           type="submit"
                           class="btn btn-success mx-auto"
                           action=action()
-                          value="Submit the Change"
+                          value="Next"
                         >
                       </div>
                     </div>

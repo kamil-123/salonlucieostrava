@@ -37,8 +37,6 @@
             </div>
           </div>
 
-
-
           <form action={{ action('BookingViewController@postCreateBooking') }} method='POST'>
             @csrf
 

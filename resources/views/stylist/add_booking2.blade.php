@@ -32,7 +32,7 @@
               <div class="row mb-4">
                 <div class="col">
                   <label for="first_name">First Name</label>
-                  <input id='first_name' name ='first_name' type="text" class="form-control" placeholder='First name'>
+                  <input id='first_name' name='first_name' type="text" class="form-control" placeholder='First name'>
                 </div>
                 <div class="col">
                   <label for="last_name">Last Name</label>

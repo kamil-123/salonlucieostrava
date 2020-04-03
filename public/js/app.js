@@ -57331,7 +57331,11 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! D:\web\Own_projects\salonlucieostrava\resources\js\app.js */"./resources/js/app.js");
+=======
+module.exports = __webpack_require__(/*! /Users/ayumi/web/bootcamp/final_project/resources/js/app.js */"./resources/js/app.js");
+>>>>>>> d343573b559de589d4804c7fd3b8e171890a859d
 
 
 /***/ })

@@ -86,6 +86,7 @@
 /************************************************************************/
 /******/ ({
 
+<<<<<<< HEAD
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
   !*** ./node_modules/axios/index.js ***!
@@ -37045,11 +37046,14 @@ module.exports = function(module) {
 
 /***/ }),
 
+=======
+>>>>>>> d343573b559de589d4804c7fd3b8e171890a859d
 /***/ "./resources/js/appl.js":
 /*!******************************!*\
   !*** ./resources/js/appl.js ***!
   \******************************/
 /*! no static exports found */
+<<<<<<< HEAD
 /***/ (function(module, exports, __webpack_require__) {
 
 // Original setting
@@ -37152,6 +37156,11 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+=======
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/ayumi/web/bootcamp/final_project/resources/js/appl.js: Unexpected token (10:1)\n\n\u001b[0m \u001b[90m  8 | \u001b[39mrequire(\u001b[32m'./bootstrap'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  9 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 11 | \u001b[39mwindow\u001b[33m.\u001b[39m\u001b[33mVue\u001b[39m \u001b[33m=\u001b[39m require(\u001b[32m'vue'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 12 | \u001b[39m\u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 13 | \u001b[39m\u001b[90m//window.Vue = require('vue');\u001b[39m\u001b[0m\n    at Object._raise (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:742:17)\n    at Object.raiseWithData (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:735:17)\n    at Object.raise (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:729:17)\n    at Object.unexpected (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:8752:16)\n    at Object.jsxParseIdentifier (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:4388:12)\n    at Object.jsxParseNamespacedName (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:4398:23)\n    at Object.jsxParseElementName (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:4409:21)\n    at Object.jsxParseOpeningElementAt (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:4495:22)\n    at Object.jsxParseElementAt (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:4528:33)\n    at Object.jsxParseElement (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:4602:17)\n    at Object.parseExprAtom (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:4609:19)\n    at Object.parseExprSubscripts (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:9597:23)\n    at Object.parseMaybeUnary (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:9577:21)\n    at Object.parseExprOps (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:9447:23)\n    at Object.parseMaybeConditional (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:9420:23)\n    at Object.parseMaybeAssign (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:9375:21)\n    at Object.parseExpression (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:9327:23)\n    at Object.parseStatementContent (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:11205:23)\n    at Object.parseStatement (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:11076:17)\n    at Object.parseBlockOrModuleBlockBody (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:11650:25)\n    at Object.parseBlockBody (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:11637:10)\n    at Object.parseTopLevel (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:11007:10)\n    at Object.parse (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:12623:10)\n    at parse (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/parser/lib/index.js:12674:38)\n    at parser (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/core/lib/parser/index.js:54:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/core/lib/transformation/normalize-file.js:93:38)\n    at normalizeFile.next (<anonymous>)\n    at run (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/core/lib/transformation/index.js:31:50)\n    at run.next (<anonymous>)\n    at Function.transform (/Users/ayumi/web/bootcamp/final_project/node_modules/@babel/core/lib/transform.js:27:41)\n    at transform.next (<anonymous>)\n    at step (/Users/ayumi/web/bootcamp/final_project/node_modules/gensync/index.js:254:32)\n    at /Users/ayumi/web/bootcamp/final_project/node_modules/gensync/index.js:266:13\n    at async.call.result.err.err (/Users/ayumi/web/bootcamp/final_project/node_modules/gensync/index.js:216:11)");
+>>>>>>> d343573b559de589d4804c7fd3b8e171890a859d
 
 /***/ }),
 
@@ -37173,8 +37182,13 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! D:\web\Own_projects\salonlucieostrava\resources\js\appl.js */"./resources/js/appl.js");
 module.exports = __webpack_require__(/*! D:\web\Own_projects\salonlucieostrava\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! /Users/ayumi/web/bootcamp/final_project/resources/js/appl.js */"./resources/js/appl.js");
+module.exports = __webpack_require__(/*! /Users/ayumi/web/bootcamp/final_project/resources/sass/app.scss */"./resources/sass/app.scss");
+>>>>>>> d343573b559de589d4804c7fd3b8e171890a859d
 
 
 /***/ })
