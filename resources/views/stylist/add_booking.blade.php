@@ -137,6 +137,9 @@
                       </div>
                     </div>
 
+                    {{-- Hidden --}}
+                    <input type="hidden" name="timeslot" value={{$timeslot}} />
+                    
                     {{-- Submit --}}
                     <div class="row">
                       <div class="col-md-4 d-flex"></div>

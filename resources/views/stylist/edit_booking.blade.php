@@ -93,7 +93,7 @@
               <div class='card'>
                 <div class='card-header'>Edit Booking</div>
                 <div class='card-body justify-content-left'>
-                  <form action={{ action('BookingViewController@postEdit', [ 'id' => $id ]) }} method='POST'>
+                  <form action={{ action('BookingViewController@postEdit') }} method='POST'>
                     @csrf
 
                     @if (\Session::has('success'))
@@ -102,16 +102,13 @@
                       </div><br />
                     @endif
 
-                    {{-- Hidden --}}
-                    <input type='hidden'  name='customer_id' value= {{ $editing_booking->customer_id }}>
-
                     {{-- Dates --}}
                     <div class="row">
                       <div class="form-group col-md-4">
                         <label for="datepicker">Date</label>
                         <input class="date form-control"  
                           type="text" 
-                          id="datepicker" 
+                          id="datepicker"
                           name="date"
                           value={{$f_date}}
                         >
@@ -134,7 +131,11 @@
                         </select>
                       </div>
                     </div>
-                    
+                    {{-- Hidden --}}
+                    <input type="hidden" name="id" value={{$id}} />
+                    <input type="hidden" name="timeslot" value={{$time}} />
+
+                        
                     {{-- Submit --}}
                     <div class="row">
                       <div class="col-md-4 d-flex"></div>
@@ -142,7 +143,6 @@
                         <input 
                           type="submit"
                           class="btn btn-success mx-auto"
-                          action=action()
                           value="Next"
                         >
                       </div>

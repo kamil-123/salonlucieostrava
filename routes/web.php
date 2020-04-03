@@ -41,7 +41,7 @@ Route::post('/home/timeslot/confirm', 'BookingViewController@postCreateBooking')
 
 
 Route::get('/home/timeslot/edit-date/{id}', 'BookingViewController@edit');
-Route::post('/home/timeslot/edit-date/{id}', 'BookingViewController@postEdit');
+Route::post('/home/timeslot/edit-date', 'BookingViewController@postEdit');
 Route::get('/home/timeslot/edit-time', 'BookingViewController@editTime');
 Route::post('/home/timeslot/edit-time', 'BookingViewController@postEditTime');
 Route::get('/home/timeslot/edit-confirm', 'BookingViewController@editBooking');

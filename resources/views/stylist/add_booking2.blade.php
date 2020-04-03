@@ -22,7 +22,11 @@
                   <label for="time">Starting Time</label>
                   <select class="form-control" id="time" name='time'>
                     @foreach ($free_slots[$date] as $slot => $info)
+                      @if ($slot === $timeslot)
+                        <option selected value={{ $slot }}>{{ $slot }}</option>
+                      @else 
                         <option value={{ $slot }}>{{ $slot }}</option>
+                      @endif
                     @endforeach
                   </select> 
                 </div>

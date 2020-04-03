@@ -55,10 +55,10 @@ class BookingViewController extends Controller
                         ->findOrFail($user_id);
         $stylist_id = $user->stylist->id;
 
-        // get the list of treatments
+        // list of treatments
         $treatments = $user->stylist->treatments;
 
-        // get the current date for the date picker
+        // current date for the date picker
         $date = date('m/d/Y', mktime(0,0,0, date('m'), date('d'), date('Y')));
 
         // session to pass variables across pages
@@ -86,31 +86,24 @@ class BookingViewController extends Controller
         $stylist_id = $user->stylist->id;
 
         // store the inputs to the session
-        if(empty($request->session()->get('inputs'))) {
-            $booking = new Booking;
-            $booking->stylist_id = $stylist_id;
-            $booking->availability = 1;
-            $treatment = Treatment::findOrFail($validated['treatment']);
-            $booking->treatment_id = $treatment->id;
-            $inputs = [ 'booking' => $booking, 
-                        'treatment' => $treatment,
-                        'date' => $validated['date'],
-                        ];
-            $request->session()->put('inputs', $inputs);
+        $inputs = $request->session()->get('inputs');
+        if( isset($inputs['booking']) ) {
+            $booking = $inputs['booking'];
+            
         } else {
-            $inputs = $request->session()->get('inputs');
-            $booking = isset($inputs['booking']) ? $inputs['booking'] : new Booking;
-            $booking->stylist_id = $stylist_id;
-            $booking->availability = 1;
-            $treatment = Treatment::findOrFail($validated['treatment']);
-            $booking->treatment_id = $treatment->id;
-            $inputs = [ 'booking' => $booking,
-                        'treatment' => $treatment,
-                        'date' => $validated['date'],
-                        'stylist_id' => $stylist_id,
-                        ];
-            $request->session()->put('inputs', $inputs);
+            $booking = new Booking;
         }
+        $booking->stylist_id = $stylist_id;
+        $booking->availability = 1;
+        $treatment = Treatment::findOrFail($validated['treatment']);
+        $booking->treatment_id = $treatment->id;
+        $inputs = [ 'booking' => $booking, 
+                    'treatment' => $treatment,
+                    'date' => $validated['date'],
+                    'stylist_id' => $stylist_id,
+                    'timeslot' => $request->input('timeslot'),
+                    ];
+        $request->session()->put('inputs', $inputs);
         
         return redirect()->action('BookingViewController@createTime');
     }
@@ -231,8 +224,9 @@ class BookingViewController extends Controller
                 $consective_slots = [];
             }
         }
+        $timeslot = $inputs['timeslot'];
         $request->session()->put('inputs', $inputs);
-        return view('stylist.add_booking2', compact('date', 'free_slots'));
+        return view('stylist.add_booking2', compact('date', 'free_slots', 'timeslot'));
     }
     
 
@@ -287,9 +281,17 @@ class BookingViewController extends Controller
         $inputs['booking']->save();
         $inputs['customer']->bookings()->save($inputs['booking']);
         $inputs['treatment']->bookings()->save($inputs['booking']);
-        $booking_id = $inputs['booking']->id;
+        $id = $inputs['booking']->id;
+        [,$timeslot] = explode(' ', $inputs['booking']->start_at);
+        // return ('timeslot: ' . $timeslot);
+        // return view('stylist.show_booking')->with(['id'=> $id, 'booking' => $booking, 'time' => $time, 'date' => $date]);
+        // return redirect()->route('booking.details')->with(['id' => $id, 'timeslot' => $timeslot]);
 
-        return redirect()->route('booking.details', ['id' => $booking_id]);
+        // clear the contents in the session
+        $request->session()->forget('inputs');
+        
+        return redirect()->route('booking.details', ['id' => $id]);
+
     }
 
 
@@ -396,15 +398,11 @@ class BookingViewController extends Controller
 
         // store variables;
         $inputs = $request->session()->get('inputs');
-        // $inputs['booking'] = $editing_booking;
-        // $inputs['dateTime']['date'] = $date;
-        // $inputs['dateTime']['time'] = $time;
-        // $request->session()->put($inputs);
-        return view('stylist.edit_booking', compact('treatments', 'editing_booking', 'f_date', 'inputs', 'id'));
+        return view('stylist.edit_booking', compact('treatments', 'editing_booking', 'f_date', 'inputs', 'id', 'time'));
     }
 
 
-    public function postEdit(Request $request, $id) 
+    public function postEdit(Request $request) 
     {
         $validated = $request->validate([
             'date' => 'required',
@@ -412,7 +410,7 @@ class BookingViewController extends Controller
         ]);
 
         if(empty($request->session()->get('inputs'))) {
-            $booking = Booking::findOrFail($id);
+            $booking = Booking::findOrFail($request->input('id'));
         } else {
             $inputs = $request->session()->get('inputs');
             $booking = $inputs['booking'];
@@ -420,9 +418,14 @@ class BookingViewController extends Controller
         $booking->treatment_id = $validated['treatment']; 
         $inputs['booking'] = $booking;
         [$month, $day, $year] = explode('/', $validated['date']);
-        $inputs['date']['month'] = $month;
-        $inputs['date']['day'] = $day;
-        $inputs['date']['year'] = $year;
+        if ( !isset($inputs['date']) ) {
+            $inputs['date'] = [];
+        }
+        $inputs['date'] = array(    'month' => $month,
+                                    'day' => $day,
+                                    'year' => $year,
+                                    'time' => $request->input('time'),
+                                );
         $request->session()->put('inputs', $inputs);
         return redirect()->action('BookingViewController@editTime');
     }
@@ -431,7 +434,6 @@ class BookingViewController extends Controller
     public function editTime(Request $request) 
     {
         $inputs = $request->session()->get('inputs');
-        // dd($inputs);
 
         // get stylist_id
         $user_id  = auth()->id();
@@ -596,7 +598,7 @@ class BookingViewController extends Controller
         $inputs['customer'] = $customer;
         $request->session()->put('inputs', $inputs);
         // dd($inputs);
-    //    return redirect('home/timeslot/editconfirm');
+    
         return redirect()->action('BookingViewController@editBooking');
     }
 
@@ -617,6 +619,9 @@ class BookingViewController extends Controller
         $inputs['customer']->bookings()->save($inputs['booking']);
         $inputs['treatment']->bookings()->save($inputs['booking']);
         $booking_id = $inputs['booking']->id;
+
+        // clear the contents in the session
+        $request->session()->forget('inputs');
 
         return redirect()->route('booking.details', ['id' => $booking_id]);
     }

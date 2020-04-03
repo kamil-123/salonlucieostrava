@@ -124,7 +124,7 @@
                                         <td>
                                             @if ( isset($info['availability']) )
                                                 @if ($info['availability'] === 1) 
-                                                    <a href={{ route('booking.details', ['id' => $info['booking_id']]) }}>Details</a></td>
+                                                    <a href={{ route('booking.details', ['id' => $info['booking_id'], 'timeslot' => $timeslot]) }}>Details</a></td>
                                                 @endif
                                             @endif
                                         <td>
