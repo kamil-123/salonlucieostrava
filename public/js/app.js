@@ -2016,7 +2016,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "@font-face {\n  font-family: \"Audrey\";\n  src: local(\"Audrey\"), url(" + escape(__webpack_require__(/*! ./fonts/Audrey/Audrey-normal.otf */ "./resources/js/App/fonts/Audrey/Audrey-normal.otf")) + ") format(\"truetype\");\n}\n@font-face {\n  font-family: \"Roboto\";\n  src: local(\"Roboto\"), url(" + escape(__webpack_require__(/*! ./fonts/Roboto/Roboto-Thin.ttf */ "./resources/js/App/fonts/Roboto/Roboto-Thin.ttf")) + ") format(\"truetype\");\n}\n@font-face {\n  font-family: \"RobotoBlack\";\n  src: local(\"Roboto\"), url(" + escape(__webpack_require__(/*! ./fonts/Roboto/Roboto-Black.ttf */ "./resources/js/App/fonts/Roboto/Roboto-Black.ttf")) + ") format(\"truetype\");\n}\nbody {\n  font-family: \"Roboto\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif !important;\n}\n\n#root {\n  display: flex;\n  flex-flow: column nowrap;\n  min-height: 100vh;\n}\n\n#root main {\n  flex: 1;\n}", ""]);
+exports.push([module.i, "@font-face {\n  font-family: \"Audrey\";\n  src: local(\"Audrey\"), url(" + escape(__webpack_require__(/*! ./fonts/Audrey/Audrey-normal.otf */ "./resources/js/App/fonts/Audrey/Audrey-normal.otf")) + ") format(\"truetype\");\n}\n@font-face {\n  font-family: \"AudreyMedium\";\n  src: local(\"Audrey\"), url(" + escape(__webpack_require__(/*! ./fonts/Audrey/Audrey-medium.otf */ "./resources/js/App/fonts/Audrey/Audrey-medium.otf")) + ") format(\"truetype\");\n}\n@font-face {\n  font-family: \"Roboto\";\n  src: local(\"Roboto\"), url(" + escape(__webpack_require__(/*! ./fonts/Roboto/Roboto-Thin.ttf */ "./resources/js/App/fonts/Roboto/Roboto-Thin.ttf")) + ") format(\"truetype\");\n}\n@font-face {\n  font-family: \"RobotoBlack\";\n  src: local(\"Roboto\"), url(" + escape(__webpack_require__(/*! ./fonts/Roboto/Roboto-Black.ttf */ "./resources/js/App/fonts/Roboto/Roboto-Black.ttf")) + ") format(\"truetype\");\n}\nbody {\n  font-family: \"Roboto\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif !important;\n}\n\n#root {\n  display: flex;\n  flex-flow: column nowrap;\n  min-height: 100vh;\n}\n\n#root main {\n  flex: 1;\n}", ""]);
 
 // exports
 
@@ -2168,7 +2168,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".finish-container {\n  text-align: center;\n  font-family: \"roboto\";\n}\n\n.finish1 {\n  font-weight: bold;\n  margin: 24px 0px 16px;\n}\n\n.button-appointment {\n  background-color: #E6A779;\n  color: white;\n  flex: 1;\n  border: 1.5px solid #E6A779;\n  padding: 4px 8px;\n  margin: 32px 8px 2px;\n  text-transform: uppercase;\n  font-weight: bold;\n  font-size: 16px;\n  font-family: \"RobotoBlack\";\n  width: 343px;\n}\n\n.details, .details-at {\n  font-weight: bold;\n}\n\n.details-at {\n  margin-top: 16px;\n}", ""]);
+exports.push([module.i, ".finish-container {\n  text-align: center;\n  font-family: \"roboto\";\n}\n\n.details-container {\n  text-align: left;\n  margin-left: 16px;\n}\n\n.finish1 {\n  font-weight: bold;\n  margin: 24px 0px 16px;\n  font-family: \"audrey\";\n}\n\n.button-appointment {\n  background-color: #E6A779;\n  color: white;\n  flex: 1;\n  border: 1.5px solid #E6A779;\n  padding: 4px 8px;\n  margin: 32px 8px 2px;\n  text-transform: uppercase;\n  font-weight: bold;\n  font-size: 16px;\n  font-family: \"RobotoBlack\";\n  width: 343px;\n}\n\n.greeting {\n  font-family: \"audrey\";\n  font-size: 16px;\n  margin-top: 8px;\n}\n\n.details {\n  font-family: \"AudreyMedium\";\n}\n\n.details1 {\n  font-family: \"roboto\";\n}", ""]);
 
 // exports
 
@@ -54596,6 +54596,17 @@ module.exports = "/fonts/Audrey-Medium.otf?ba10e9e7dc0f842a07e633b3f21f1e50";
 
 /***/ }),
 
+/***/ "./resources/js/App/fonts/Audrey/Audrey-medium.otf":
+/*!*********************************************************!*\
+  !*** ./resources/js/App/fonts/Audrey/Audrey-medium.otf ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/fonts/Audrey-medium.otf?ba10e9e7dc0f842a07e633b3f21f1e50";
+
+/***/ }),
+
 /***/ "./resources/js/App/fonts/Audrey/Audrey-normal.otf":
 /*!*********************************************************!*\
   !*** ./resources/js/App/fonts/Audrey/Audrey-normal.otf ***!
@@ -56156,19 +56167,25 @@ var Finish = /*#__PURE__*/function (_React$Component) {
         className: "finish1"
       }, "Dear ", firstName, ", here are your booking details: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "details-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "details1"
+      }, "Treatment: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "details"
-      }, "Treatment:"), " ", name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "details1"
+      }, "Stylist: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "details"
-      }, "Stylist:"), " ", stylistName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, stylistName)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "details1"
+      }, "Your email: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "details"
-      }, "Your email:"), " ", email), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, email)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "details1"
+      }, "Your phone number: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "details"
-      }, "Your phone number:"), " ", phoneNumber), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "details-at"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "details"
-      }, "At"), " ", moment__WEBPACK_IMPORTED_MODULE_1___default()(startAt).format('dddd DD-MM HH:mm'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, phoneNumber)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "greeting"
+      }, "See you on ", moment__WEBPACK_IMPORTED_MODULE_1___default()(startAt).format('dddd DD-MM'), " at ", moment__WEBPACK_IMPORTED_MODULE_1___default()(startAt).format('HH:mm'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "button-appointment",
         onClick: makeAppointment
       }, "Make Appointment"));

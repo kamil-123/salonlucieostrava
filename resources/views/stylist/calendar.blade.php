@@ -26,21 +26,25 @@
   .calendar {
     margin: 2rem;
   }
+  .date_number {
+    text-decoration: none;
+    color:rgb(50, 50, 50);
+  }
+  .date_number--no-current-month {
+    color: rgb(200, 200, 200);
+  }
   [data-toggle="calendar"] > .row > .calendar-day {
-						font-family: 'Roboto', sans-serif;
-						width: 14.28571428571429%;
-						border: 1px solid rgb(235, 235, 235);
-						border-right-width: 0px;
-						border-bottom-width: 0px;
-						min-height: 120px;
+    font-family: 'Roboto', sans-serif;
+    width: 14.28571428571429%;
+    border: 1px solid rgb(235, 235, 235);
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    min-height: 120px;
 	}
   [data-toggle="calendar"] > .row > .calendar-week {
     font-family: 'Roboto', sans-serif;
     line-height: 3rem;
     text-align: center;
-  }
-  [data-toggle="calendar"] > .row > .calendar-day.calendar-no-current-month {
-    color: rgb(200, 200, 200);
   }
   [data-toggle="calendar"] > .row > .calendar-day:last-child {
     border-right-width: 1px;
@@ -55,11 +59,12 @@
     overflow: hidden;
   }
   .events > .event > a {
-  font-size: 12px;
-  font-weight: 700;
-  white-space: nowrap;
-  margin-bottom: 3px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    margin-bottom: 3px;
   }
+
 </style>
 @endsection
 
@@ -114,12 +119,23 @@
                           @if( $day['weekday'] === '1' ) {{-- Monday --}}
                             <div class="row">
                           @endif
+                            <div class='col calendar-day'>
+
                             @if( $day['month'] !== date('m') )
-                              <div class='col calendar-day calendar-no-current-month'>
+                                <a class='date_number--no-current-month' href={{ action('BookingViewController@index', [
+                                  'day' => $day['day'],
+                                  'month' => $day['month'],
+                                  'year' => $day['year'],
+                                  ])}} >
                             @else
-                              <div class='col calendar-day'>
+                                <a class='date_number' href={{ action('BookingViewController@index', [
+                                  'day' => $day['day'],
+                                  'month' => $day['month'],
+                                  'year' => $day['year'],
+                                  ])}} >
                             @endif
                                 <time datetime="{{ $day['full'] }}">{{ $day['day'] }}</time>
+                              </a>
                                   {{-- add bookings if they exist --}}
                                   @foreach( $bookings as $booking )
                                     @if ( $booking['date'] === $day['formatted'] && $booking['availability']=== 1) 
@@ -130,7 +146,9 @@
                                       </div>
                                     @endif
                                   @endforeach
-                              </div>
+                            </div>
+                            
+
                           {{-- Close the week(row) if Sunday --}}
                           @if( $day['weekday'] === '0' )
                             </div>
