@@ -179,16 +179,16 @@ class BookingController extends Controller
         $customer = Customer::create([
             'first_name' => $request->input('first_name'),
             'last_name' => $request->input('last_name'),
-            'phone_number' => $request->input('phone'),
+            'phone' => $request->input('phone_number'),
             'email' => $request->input('email'),
         ]);       
         
         //transform start_at
         $start_at = $request->input('start_at');
-        $date = substr($start_at,0,9);
-        $time = substr($start_at,11,7);
+        $date = substr($start_at,0,10);
+        $time = substr($start_at,11,8);
         $start_at_transformed = $date . ' ' . $time;
-        dd($start_at);
+        
         //store booking information from request
         $booking = Booking::create([
             'customer_id' => $customer->id,

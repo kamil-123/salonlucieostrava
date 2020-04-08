@@ -21,7 +21,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/',function(){
-    return redirect('/react');
+    return redirect('/react/home');
 });
 
 // Routes Calendar 

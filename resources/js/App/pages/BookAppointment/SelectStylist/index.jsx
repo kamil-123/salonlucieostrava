@@ -26,7 +26,7 @@ class SelectStylist extends React.Component {
 		
 		return (
 			<div className="select-stylist-container">
-				<div className="select-stylist-title">Select your hairstylist</div>
+				<div className="select-stylist-title">Select your stylist</div>
 				{this.state.listOfStylists.map(_stylist => (
 					<StylistItem
 						key={_stylist.id}
