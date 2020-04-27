@@ -28,18 +28,107 @@ class BookingViewController extends Controller
         '15:30:00' => null,
         '16:00:00' => null,
         '16:30:00' => null,
-      ];
+    ];
 
-    /**
+    private function getLoggedinStylistId()
+    {
+        $user_id  = auth()->id();
+        $stylist = User::with('stylist')
+                        ->findOrFail($user_id);
+        $stylist_id = $stylist->stylist->id;
+
+        return $stylist_id;
+    }
+    
+      /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
-    
-    public function index()
+     */  
+    public function index($year = 0, $month = 0, $day = 0)
     {
-        // for debugging
-        return view('stylist.test');
+        // get stylist_id
+        $stylist_id = $this->getLoggedinStylistId();
+
+        // get schedule of the currently logged-in stylist
+        $today = date('Y-m-d H-i-s', mktime(0,0,0, $month, $day, $year));
+        $tomorrow = date('Y-m-d H-i-s', mktime(0,0,0, $month, $day + 1, $year));
+        $bookings = Booking::where('stylist_id', $stylist_id)
+                            ->where('start_at' , '>', $today)
+                            ->where('start_at' , '<', $tomorrow)
+                            ->orderBy('start_at' , 'asc')
+                            ->with('treatment')
+                            ->get();
+        // formatting the fetched data
+        $formatted_all_schedule = [];
+        $message = '';
+        $dates = [];
+
+        if ( isset($bookings[0]) ) { // if at least one booking exists on the day
+            $schedule = [];
+            $test = [];
+            foreach($bookings as $booking) {
+                $stylist_id = $booking->stylist_id;
+                $booking_id = $booking->id;
+                [$date, $time] = explode(" ", $booking['start_at']);
+                $contents = ['booking_id' => $booking_id, 
+                            'availability' => $booking->availability,
+                            'duration' => isset($booking->treatment) ? $booking->treatment->duration : null,
+                            ];
+                
+                if (array_key_exists($stylist_id, $schedule)) { // if a stylist has any bookings:
+                    if (array_key_exists($date, $schedule[$stylist_id])) { // if the stylist has a certain day in his/her bookings:
+                        $schedule[$stylist_id][$date][$time] = $contents;
+                    } else { 
+                        $schedule[$stylist_id][$date] = [$time => $contents]; 
+                    }
+                } else {
+                    $schedule[$stylist_id] = [$date => [$time => $contents] ];
+                }
+            }
+            
+            // combine fetched data and the template
+            foreach ($schedule as $stylist => $dates) {
+                foreach ($dates as $date => $timeSlots) {
+                    $full_day_schedule = array_merge($this->timeSlotTemplate, $timeSlots);
+                    $formatted_all_schedule[$stylist][$date] = $full_day_schedule;
+                }; 
+            };
+
+            // Reflecting treatment duration 
+            $isContinuing = false;
+            $prevBooking = [];
+            $full_schedule[$stylist][$date] = [];
+            foreach ( $formatted_all_schedule[$stylist][$date] as $timeslot => $info ) {
+
+                if ( isset($info) ) {
+                    if ( $info['availability'] === 1 ) { // the timeslot is booked
+                        //  calculate the number of timeslots one booking takes
+                        [$hour, $minute, $s] = explode(":", $info['duration']);
+                        $slot = $minute === '30' ? 1 : 0; // if $minute='30', +1 slot. else 0 slot.
+                        $slot += (int)$hour * 2; // if $hour='1', +2 slots 
+                        $isContinuing = $slot > 1;
+                        $prevBooking = $info;
+                    } 
+                } else { // the timeslot is free
+                    if( $isContinuing ) { // the timeslot should be booked as continuation of the previous booking 
+                        $info = $prevBooking; // copy previous booking details
+                        $slot -= 1; // one slot (30 min) consumed
+                        $isContinuing = $slot > 1; // check whether the slot should still be continuing
+                    }
+                }
+                $full_schedule[$stylist][$date][$timeslot] = $info;
+            }
+            // just sending the schedule for the currently logged-in stylist
+            $full_schedule = $full_schedule[$stylist_id];
+            $date = array_keys($full_schedule)[0];
+        } else {
+            $date = date('Y-m-d', mktime(0,0,0, $month, $day, $year));
+            $full_schedule[$date] = $this->timeSlotTemplate;
+            $message = 'There is no booking';
+        };
+        // return $full_schedule;
+        return view('stylist.show_daily', compact('full_schedule', 'date', 'message','day','month', 'year'));
     }
 
     /**
@@ -50,13 +139,12 @@ class BookingViewController extends Controller
     public function create(Request $request, $timeslot = '09:00:00')
     {   
         // get stylist_id
-        $user_id  = auth()->id();
-        $user = User::with('stylist.treatments')
-                        ->findOrFail($user_id);
-        $stylist_id = $user->stylist->id;
+        $stylist_id = $this->getLoggedinStylistId();
 
         // list of treatments
-        $treatments = $user->stylist->treatments;
+        $stylist = Stylist::with('treatments')
+                            ->findOrFail($stylist_id);
+        $treatments = $stylist->treatments;
 
         // current date for the date picker
         $date = date('m/d/Y', mktime(0,0,0, date('m'), date('d'), date('Y')));
@@ -80,10 +168,7 @@ class BookingViewController extends Controller
         ]);
 
         // get stylist_id
-        $user_id  = auth()->id();
-        $user = User::with('stylist.treatments')
-                        ->findOrFail($user_id);
-        $stylist_id = $user->stylist->id;
+        $stylist_id = $this->getLoggedinStylistId();
 
         // store the inputs to the session
         $inputs = $request->session()->get('inputs');
@@ -239,10 +324,8 @@ class BookingViewController extends Controller
             'phone' => 'required|max:255',
             'email' => 'email|required',
         ]);
-        
         $inputs = $request->session()->get('inputs');
 
-        // dd($inputs);
         // formatting the dateTime data
         [$month, $day, $year] = explode('/', $inputs['date']);
         [$hour, $minute, $second] = explode(':', $validated['time']);
@@ -283,9 +366,6 @@ class BookingViewController extends Controller
         $inputs['treatment']->bookings()->save($inputs['booking']);
         $id = $inputs['booking']->id;
         [,$timeslot] = explode(' ', $inputs['booking']->start_at);
-        // return ('timeslot: ' . $timeslot);
-        // return view('stylist.show_booking')->with(['id'=> $id, 'booking' => $booking, 'time' => $time, 'date' => $date]);
-        // return redirect()->route('booking.details')->with(['id' => $id, 'timeslot' => $timeslot]);
 
         // clear the contents in the session
         $request->session()->forget('inputs');
@@ -293,7 +373,6 @@ class BookingViewController extends Controller
         return redirect()->route('booking.details', ['id' => $id]);
 
     }
-
 
 
     /**
@@ -304,12 +383,8 @@ class BookingViewController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request;
         // get stylist_id
-        $user_id  = auth()->id();
-        $stylist = User::with('stylist')
-                        ->findOrFail($user_id);
-        $stylist_id = $stylist->stylist->id;
+        $stylist_id = $this->getLoggedinStylistId();
 
         // create a new row in bookings table 
         $booking = new Booking;
@@ -343,6 +418,7 @@ class BookingViewController extends Controller
         return redirect()->action('BookingViewController@show', ['id'=> $booking->id]);
     }
 
+
     /**
      * Display the specified resource.
      *
@@ -352,10 +428,7 @@ class BookingViewController extends Controller
     public function show($id)
     {
         // get stylist_id
-        $user_id  = auth()->id();
-        $stylist = User::with('stylist')
-                        ->findOrFail($user_id);
-        $stylist_id = $stylist->stylist->id;
+        $stylist_id = $this->getLoggedinStylistId();
         
         // get a certain booking 
         $booking = Booking::with('customer')
@@ -366,6 +439,7 @@ class BookingViewController extends Controller
         return view('stylist.show_booking')->with(['id'=> $id, 'booking' => $booking, 'time' => $time, 'date' => $date]);
     }
 
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -375,10 +449,7 @@ class BookingViewController extends Controller
     public function edit(Request $request, $id)
     {
         // get stylist_id
-        $user_id  = auth()->id();
-        $user = User::with('stylist.treatments')
-                        ->findOrFail($user_id);
-        $stylist_id = $user->stylist->id;
+        $stylist_id = $this->getLoggedinStylistId();
 
         // get the list of treatments
         $treatments = [];
@@ -436,10 +507,7 @@ class BookingViewController extends Controller
         $inputs = $request->session()->get('inputs');
 
         // get stylist_id
-        $user_id  = auth()->id();
-        $user = User::with('stylist.treatments')
-                        ->findOrFail($user_id);
-        $stylist_id = $user->stylist->id;
+        $stylist_id = $this->getLoggedinStylistId();
 
         // get only the free timeslots
         $start_of_the_day = date('Y-m-d H:i:s', mktime(0,0,0, $inputs['date']['month'], $inputs['date']['day'], $inputs['date']['year']));
@@ -678,10 +746,7 @@ class BookingViewController extends Controller
 
     public function block(Request $request) {
         // get stylist_id
-        $user_id  = auth()->id();
-        $user = User::with('stylist')
-                        ->findOrFail($user_id);
-        $stylist_id = $user->stylist->id;
+        $stylist_id = $this->getLoggedinStylistId();
 
         // create a new booking with availability 0 
         $booking = new Booking;

@@ -48,16 +48,11 @@ class HomeController extends Controller
         
         // get user id of the current logged-in user
         $user_id  = auth()->id();
-
-        // get stylist information 
-        // $user = User::with('stylist.bookings')
-        //                 ->findOrFail($user_id);
         $user = User::findOrFail($user_id);
-        // var_dump($user);
         if($user->stylist != null ) {
             $stylist_id = Stylist::where('user_id',$user_id)->first()->id;
 
-            // // get schedule of the currently logged-in stylist
+            // get schedule of the currently logged-in stylist
             $today = date('Y-m-d').' 00:00:00';
             $tomorrow = date('Y-m-d H-i-s', mktime(0,0,0, date('m'), date('d') + 1, date('Y')));
 

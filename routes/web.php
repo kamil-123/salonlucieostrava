@@ -25,10 +25,11 @@ Route::get('/',function(){
 });
 
 // Routes Calendar 
-Route::get('/home/test', 'BookingViewController@index');
 Route::get('/home/calendar/{month?}', 'CalendarViewController@show')->name('calendar');
 
 // Routes Booking
+Route::get('/home/timeslot/show/{year}/{month}/{day}', 'BookingViewController@index');
+
 Route::post('/home/timeslot/block', 'BookingViewController@block');
 Route::post('/home/timeslot/create', 'BookingViewController@store');
 
