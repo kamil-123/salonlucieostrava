@@ -38,7 +38,9 @@ export default class Calendar extends React.Component {
         for (let index = 1; index <= 14; index++) {
             dateRange.push(moment().add(index, 'days'))
         }
-        this.setState({ dateRange, timeslotAvailability })
+        this.setState({ dateRange, timeslotAvailability });
+        console.log(dateRange, timeslotAvailability);
+        console.log(this.props.treatment);
     }
 
     setDate = async (date) => {
@@ -52,12 +54,13 @@ export default class Calendar extends React.Component {
         const date = moment(startAt).format('DD-MM-YYYY');
         const newStartAt = moment(`${date} ${time}`, 'DD-MM-YYYY HH:mm').toDate();
         setFormField('startAt', newStartAt);
+        
     }
 
     render() {
         const { dateRange, timeslotAvailability } = this.state;
         const { startAt, treatment } = this.props
-
+        
         if (!dateRange.length) {
             return null;
         }
@@ -107,13 +110,13 @@ export default class Calendar extends React.Component {
                 <table className="calendar-timepicker">
                     <tbody>
                         <tr>
-                            <td onClick={timeslot['9:00:00'] === null ? this.setTimeslot.bind(this, '9:00') : undefined}><span className={`${selectedTimeslot === '9:00' ? 'active' : ''} ${timeslot['9:00:00'] === null ? 'available' : 'unavailable'}`}>9:00</span></td>
+                            <td onClick={timeslot['09:00:00'] === null ? this.setTimeslot.bind(this, '09:00') : undefined}><span className={`${selectedTimeslot === '09:00' ? 'active' : ''} ${timeslot['09:00:00'] === null ? 'available' : 'unavailable'}`}>9:00</span></td>
                             <td onClick={timeslot['11:00:00'] === null ? this.setTimeslot.bind(this, '11:00') : undefined}><span className={`${selectedTimeslot === '11:00' ? 'active' : ''} ${timeslot['11:00:00'] === null ? 'available' : 'unavailable'}`}>11:00</span></td>
                             <td onClick={timeslot['13:00:00'] === null ? this.setTimeslot.bind(this, '13:00') : undefined}><span className={`${selectedTimeslot === '13:00' ? 'active' : ''} ${timeslot['13:00:00'] === null ? 'available' : 'unavailable'}`}>13:00</span></td>
                             <td onClick={timeslot['15:00:00'] === null ? this.setTimeslot.bind(this, '15:00') : undefined}><span className={`${selectedTimeslot === '15:00' ? 'active' : ''} ${timeslot['15:00:00'] === null ? 'available' : 'unavailable'}`}>15:00</span></td>
                         </tr>
                         <tr>
-                            <td onClick={timeslot['9:30:00'] === null ? this.setTimeslot.bind(this, '9:30') : undefined}><span className={`${selectedTimeslot === '9:30' ? 'active' : ''} ${timeslot['9:30:00'] === null ? 'available' : 'unavailable'}`}>9:30</span></td>
+                            <td onClick={timeslot['09:30:00'] === null ? this.setTimeslot.bind(this, '09:30') : undefined}><span className={`${selectedTimeslot === '09:30' ? 'active' : ''} ${timeslot['09:30:00'] === null ? 'available' : 'unavailable'}`}>9:30</span></td>
                             <td onClick={timeslot['11:30:00'] === null ? this.setTimeslot.bind(this, '11:30') : undefined}><span className={`${selectedTimeslot === '11:30' ? 'active' : ''} ${timeslot['11:30:00'] === null ? 'available' : 'unavailable'}`}>11:30</span></td>
                             <td onClick={timeslot['13:30:00'] === null ? this.setTimeslot.bind(this, '13:30') : undefined}><span className={`${selectedTimeslot === '13:30' ? 'active' : ''} ${timeslot['13:30:00'] === null ? 'available' : 'unavailable'}`}>13:30</span></td>
                             <td onClick={timeslot['15:30:00'] === null ? this.setTimeslot.bind(this, '15:30') : undefined}><span className={`${selectedTimeslot === '15:30' ? 'active' : ''} ${timeslot['15:30:00'] === null ? 'available' : 'unavailable'}`}>15:30</span></td>
